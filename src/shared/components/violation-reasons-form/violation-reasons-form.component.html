@@ -1,0 +1,58 @@
+<div [formGroup]="form.form">
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="form-label">Data stwierdzenia naruszenia</p>
+            <p class="form-description">Wskaż kiedy ...</p>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <!-- <mat-label>Data stwierdzenia naruszenia </mat-label> -->
+                <input matInput formControlName="dateOfViolation" appTextOnly placeholder="Wprowadź datę" />
+
+                <!-- <mat-error
+          *ngIf="
+            form.dateOfViolation?.hasError('required') &&
+            (form.dateOfViolation?.dirty || form.dateOfViolation?.touched)
+          "
+        >
+          {{ getErrorMessage("required") }}
+        </mat-error> -->
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="form-label">Sposób stwierdzenia naruszenia</p>
+            <p class="form-description">Np. zgłoszenie</p>
+        </div>
+        <div class="col-sm-6">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <input matInput formControlName="wayOfNoticing" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="form-label">Data powiadomienia przez podmiot przetwarzający</p>
+            <p class="form-description">opcjonalnie</p>
+        </div>
+        <div class="col-sm-6">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <input matInput formControlName="noticeDate" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="form-label">Powody opóźnienia powiadomienia organu nadzorczego o naruszeniu</p>
+            <p class="form-description">pole obowiązkowe, jeśli czas ...</p>
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <input matInput formControlName="reasonOfDelay" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div>
+    </div>
+</div>

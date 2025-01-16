@@ -1,0 +1,71 @@
+<div [formGroup]="form.form">
+    <div class="row">
+        <div class="col-sm-2 form-label">
+            <div>
+                Ulica
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <mat-label>Ulica </mat-label>
+                <input formControlName="street" matInput placeholder="Kabek" />
+            </mat-form-field>
+        </div>
+        <div class="col-sm-2 form-label">
+            <div>
+                LABEL
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <mat-label>Label </mat-label>
+                <input formControlName="houseNr" matInput placeholder="Kabek" />
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- street: ['', [Validators.required, Validators.maxLength(30)]],
+        city: ['', [Validators.maxLength(50)]],
+        gmina: ['', [Validators.maxLength(50)]],
+        voivoidship: ['', [Validators.maxLength(50)]],
+        postalCode: ['', [Validators.maxLength(20)]],
+        houseNr: ['', []],
+        localNr: ['', []],
+        country: ['', []],
+        powiat: ['', []], -->
+        <div class="col-sm-2">Label</div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <mat-label>Ulica</mat-label>
+                <input matInput formControlName="street" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-2">Label</div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <mat-label>Miasto</mat-label>
+                <input matInput formControlName="city" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">Label</div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <mat-label>Gmina</mat-label>
+                <input matInput formControlName="gmina" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div>
+        <div class="col-sm-2">Label</div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <mat-label>Województwo</mat-label>
+                <input matInput formControlName="regon" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div>
+    </div>
+</div>
