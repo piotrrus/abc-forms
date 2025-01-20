@@ -1,0 +1,16 @@
+<div [formGroup]="form.form">
+    <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls(); let z = index">
+        <ng-container [formGroupName]="countries">
+            <div class="row">
+                <div class="col-md-3 col-sm-3">
+                    <mat-label>{{countries[z].name}}</mat-label>
+                </div>
+                <div class="col-md-9 col-sm-9">
+				    <mat-checkbox (change)="updateCountries($event.checked, i)">
+						{{countries[z].name}}
+					</mat-checkbox>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
