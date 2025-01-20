@@ -1,0 +1,47 @@
+<div [formGroup]="form.form">
+    <div class="row row-with-line">
+        <div class="col-sm-2">
+            <div>Ulica</div>
+        </div>
+        <div class="col-sm-4">
+            <input formControlName="street" matInput placeholder="Ulica" />
+        </div>
+        <div class="col-sm-2">
+            <div>Nr domu</div>
+        </div>
+        <div class="col-sm-4">
+            <input formControlName="houseNr" matInput placeholder="Nr domu" />
+        </div>
+    </div>
+
+    <div class="row row-with-line">
+        <div class="col-sm-2">Miasto</div>
+        <div class="col-sm-4">
+            <input matInput formControlName="city" appTextOnly placeholder="Wprowadź tekst" />
+        </div>
+        <div class="col-sm-2">Kod pocztowy</div>
+        <div class="col-sm-4">
+            <input matInput formControlName="postalCode" appTextOnly placeholder="Wprowadź tekst" />
+        </div>
+    </div>
+    <div class="row row-with-line">
+        <div class="col-sm-2">Gmina</div>
+        <div class="col-sm-4">
+            <input matInput formControlName="gmina" appTextOnly placeholder="Wprowadź tekst" />
+        </div>
+        <div class="col-sm-2">Powiat</div>
+        <div class="col-sm-4">
+            <input matInput formControlName="regon" appTextOnly placeholder="Wprowadź tekst" />
+        </div>
+    </div>
+    <div class="row row-with-line">
+        <div class="col-sm-2">Województwo</div>
+        <div class="col-sm-4">
+            <input matInput formControlName="voivodship" appTextOnly placeholder="Wprowadź tekst" />
+        </div>
+        <div class="col-sm-2">Państwo</div>
+        <div class="col-sm-4">
+            <input matInput formControlName="country" appTextOnly placeholder="Wprowadź tekst" />
+        </div>
+    </div>
+</div>

@@ -5,8 +5,7 @@
 	{ "id": "4", "name": "d) Nieuprawnione uzyskanie dostępu do informacji" },
 	{ "id": "5", "name": "e) Nieuprawnione uzyskanie dostępu do informacji poprzez złamanie zabezpieczeń" },
 	{ "id": "6", "name": "f) Złośliwe oprogramowanie ingerujące w poufność, integralność lub dostępność danych" },
-	{ "id": "7", "name": "g) Uzyskanie poufnych informacji przez pozornie zaufaną osobę w oficjalnej komunikacji elektronicznej, takiej jak e-mail czy komunikator internetowy (phishing)	☐ h) Nieprawidłowa anonimizacja danych osobowych w dokumencie
-" },
+	{ "id": "7", "name": "g) Uzyskanie poufnych informacji przez pozornie zaufaną osobę w oficjalnej komunikacji elektronicznej, takiej jak e-mail czy komunikator internetowy (phishing)"},
     { "id": "8", "name": "h) Nieprawidłowa anonimizacja danych osobowych w dokumencie" },
 	{ "id": "9", "name": "i) Nieprawidłowe usunięcie/zniszczenie danych osobowych z nośnika/urządzenia elektronicznego przed jego zbyciem przez administratora" },
 	{ "id": "10", "name": "j) Niezamierzona publikacja" },

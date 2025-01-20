@@ -1,0 +1,78 @@
+<div [formGroup]="form.form">
+    <div class="row row-with-line">
+        <div class="col-sm-3">
+            <div class="form-label">Pełna nazwa administratora</div>
+        </div>
+        <div class="col-sm-6">
+            <input matInput formControlName="admin" appTextOnly placeholder="Wprowadź datę" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1">
+            <div class="form-label">REGON</div>
+        </div>
+        <div class="col-sm-3">
+            <input matInput formControlName="regon" appTextOnly placeholder="Wprowadź tekst" />
+        </div>
+
+        <div class="col-sm-1">
+            <div class="form-label">NIP</div>
+        </div>
+        <div class="col-sm-3">
+            <input matInput formControlName="nip" appTextOnly placeholder="Wprowadź tekst" />
+        </div>
+
+        <div class="col-sm-1">
+            <div class="form-label">KRS</div>
+        </div>
+        <div class="col-sm-3">
+            <input matInput formControlName="krs" appTextOnly placeholder="Wprowadź tekst" />
+        </div>
+    </div>
+
+    <!-- <div class="col-sm-3">
+            <p class="form-label">Pełna nazwa administratora</p>
+        </div>
+        <div class="col-sm-9">
+ 
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <mat-label>REGON</mat-label>
+                <input matInput formControlName="regon" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+            <p class="form-label">NIP</p>
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <input matInput formControlName="nip" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+            <p class="form-label">KRS</p>
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <input matInput formControlName="krs" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div> -->
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        <p class="form-label">Sektor</p>
+    </div>
+    <!-- <div class="col-sm-3">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <input matInput formControlName="noticeDate" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div>
+        <div class="col-sm-3">
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <input matInput formControlName="noticeDate" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div> -->
+</div>
+<!-- 
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="form-label">Powody opóźnienia powiadomienia organu nadzorczego o naruszeniu</p>
+           
+            <mat-form-field appearance="outline" class="form-field-full-width">
+                <input matInput formControlName="reasonOfDelay" appTextOnly placeholder="Wprowadź tekst" />
+            </mat-form-field>
+        </div>
+    </div> -->

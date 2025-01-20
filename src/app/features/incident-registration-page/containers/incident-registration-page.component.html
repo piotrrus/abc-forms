@@ -18,7 +18,6 @@
     <mat-card-header> Wskaż czy zglaszasz naruszenie... </mat-card-header>
 </mat-card>
 <mat-card appearance="outlined">
-    <mat-card-header> </mat-card-header>
     <mat-card-content>
         <app-admin-data-form></app-admin-data-form>
     </mat-card-content>
@@ -26,16 +25,59 @@
 
 <div class="section section-subtitle">2B. Adres siedziby administratora danych</div>
 <mat-card appearance="outlined">
-    <mat-card-header> </mat-card-header>
     <mat-card-content>
-        <app-admin-address-form></app-admin-address-form>
+        <app-admin-address-form [countriesList]="countriesList$ | async"></app-admin-address-form>
     </mat-card-content>
 </mat-card>
 
 <div class="section section-subtitle">2C. Osoby uprawnione do reprezentowania administratora</div>
 <mat-card appearance="outlined">
-    <mat-card-header> </mat-card-header>
     <mat-card-content>
         <app-admin-representative-form></app-admin-representative-form>
     </mat-card-content>
 </mat-card>
+
+<div class="section section-subtitle">2D. Pełnomocnik</div>
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <app-admin-representative-form></app-admin-representative-form>
+    </mat-card-content>
+</mat-card>
+
+<div class="section section-subtitle">2E. Inspektor ochrony danych</div>
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <app-data-security-inspector-form></app-data-security-inspector-form>
+    </mat-card-content>
+</mat-card>
+
+<div class="section section-subtitle">2F. Inne podmioty</div>
+<mat-card appearance="outlined">
+    <mat-card-content> </mat-card-content>
+</mat-card>
+<!----------------------------->
+
+<div class="section section-title">3. Czas naruszenia</div>
+<div class="section section-subtitle">3A. Wykrycie</div>
+
+<!----------------------------->
+<div class="section section-title">4. Charakter naruszenia</div>
+<div class="section section-subtitle">4A. Opisz szczegółówo na czym..</div>
+
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <app-incident-impact-form></app-incident-impact-form>
+    </mat-card-content>
+</mat-card>
+
+<!-- <app-incident-reasons-form> -->
+
+<!----------------------------->
+<div class="section section-title">11. Pzretwarzanie transgraniczne</div>
+<app-transborder-form [countriesList]="countriesList$ | async"></app-transborder-form>
+
+<!-- <mat-card appearance="outlined">
+    <mat-card-content>
+       
+    </mat-card-content>
+</mat-card> -->

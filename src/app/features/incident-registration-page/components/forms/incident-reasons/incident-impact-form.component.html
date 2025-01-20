@@ -1,0 +1,10 @@
+<div [formGroup]="form.form">
+    <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls(); let z = index">
+        <ng-container [formGroupName]="z">
+            <div class="abc-form">
+                <span class="abc-form-label">incidentImpactLabel[z]</span>
+                <input matInput formControlName="name" class="abc-form-checkbox" />
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
