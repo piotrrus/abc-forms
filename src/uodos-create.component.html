@@ -1,0 +1,1554 @@
+<npc-page-layout
+
+  xmlns="http://www.w3.org/1999/html">
+  <h4 pageLayoutTitle>
+    {{ 'uodos.uodo' | translate }}
+  </h4>
+
+  <npc-control-list pageLayoutActions>
+    <li npcControlListItem>
+      <npc-button
+        *npcAuth="'VIOLATIONS_OF_PERSONAL_DATA_PROTECTION'; actions: [['CREATE']]"
+        role="action-secondary"
+        [disabled]="form.pristine || form.invalid || processing"
+        (click)="sendUodo(); processing = true"
+      >
+        {{ 'send' | translate }}
+      </npc-button>
+    </li>
+    <li npcControlListItem>
+      <npc-button
+        *npcAuth="'VIOLATIONS_OF_PERSONAL_DATA_PROTECTION'; actions: [['CREATE']]"
+        role="action-secondary"
+        (click)="saveUodo(); "
+      >
+        {{ 'save' | translate }}
+      </npc-button>
+    </li>
+    <li npcControlListItem>
+      <npc-icon-button
+        iconSize="large"
+        [title]="'cancel' | translate"
+        [icon]="iconCancel"
+        (click)="close()"
+      >
+      </npc-icon-button>
+    </li>
+  </npc-control-list>
+  <div pageLayoutMain>
+    <div class="body">
+
+      <npc-apla-container class="info-block" [enablePaddingAll]="true">
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section1' | translate }}
+          </h4>
+        </div>
+
+        <div class="inline-stretch-info">
+          <div class="form-group">
+            <label>{{ 'uodos.section1Desc' | translate }} </label>
+          </div>
+        </div>
+        <div class="inline-stretch-info">
+          <div class="form-group">
+            <npc-form-control-text [control]="form.c.descriptionDTO.c!.optionalSign"
+                                   [label]="'uodos.optionalSign' | translate"
+                                   [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+          </div>
+        </div>
+        <hr>
+
+        <div class="inline-stretch-info">
+
+
+          <npc-circle-radio
+            orientation="horizontal"
+            [control]="typeControl1"
+          >
+            <npc-circle-radio-option [label]="'uodos.registrationComplet' | translate"
+                                     [value]="REGISTRATION_COMPLET"></npc-circle-radio-option>
+            <npc-circle-radio-option [label]="'uodos.registrationBegin' | translate"
+                                     [value]="REGISTRATION_BEGIN"></npc-circle-radio-option>
+            <npc-circle-radio-option [label]="'uodos.uodos.registrationCompletModify' | translate"
+                                     [value]="REGISTRATION_COMPLET_MODIFY"></npc-circle-radio-option>
+          </npc-circle-radio>
+
+        </div>
+        <hr>
+
+        <div class="inline-stretch-second-col">
+          <div class="form-group">
+            <label>{{ 'uodos.addDatereopen' | translate }}</label>
+            <npc-date-time-picker
+              [control]="form.c.descriptionDTO.c!.addDatereopen">
+            </npc-date-time-picker>
+          </div>
+          <div class="form-group">
+            <label>{{ 'uodos.addDateold' | translate }}</label>
+            <npc-date-time-picker
+              [control]="form.c.descriptionDTO.c!.addDateold">
+            </npc-date-time-picker>
+          </div>
+        </div>
+
+
+        <div class="inline-stretch-info">
+          <div class="form-group">
+            <npc-form-control-text [control]="form.c.descriptionDTO.c!.addTaskSignUodo"
+                                   [label]="'uodos.addTaskSignUodo' | translate"
+                                   [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+          </div>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <div class="form-group">
+            <npc-checkbox
+              class="cross-border-checkbox"
+              [control]="form.c.descriptionDTO.c!.theViolationHasBeenReportedOtherCoutry"
+              [label]="'uodos.theViolationHasBeenReportedOtherCoutry' | translate">
+            </npc-checkbox>
+            <ng-container
+              *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.addTaskSignUodo',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.addTaskSignUodo,
+                        attachments: form.c.attachments}">
+            </ng-container>
+          </div>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <div class="form-group">
+            <npc-checkbox
+              class="cross-border-checkbox"
+              [control]="form.c.descriptionDTO.c!.theViolationHasBeenReported"
+              [label]="'uodos.theViolationHasBeenReported' | translate">
+            </npc-checkbox>
+
+
+            <npc-form-control-text [control]="form.c.descriptionDTO.c!.addNameDepart"
+                                   [label]="'uodos.addNameDepart'| translate"
+                                   [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+
+            <ng-container
+              *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.addSignatureRegistration',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.addSignatureRegistration,
+                        attachments: form.c.attachments}">
+            </ng-container>
+          </div>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section2' | translate }}
+          </h4>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section2a' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-second-col">
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.fullNameAdmin"
+                                 [label]="'uodos.fullNameAdmin'| translate"
+                                 [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.regon" [label]="'uodos.regon'| translate"
+                                 [placeholder]="'uodos.placeholderaddNumber' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.krs" [label]="'uodos.krs'| translate"
+                                 [placeholder]="'uodos.placeholderaddNumber' | translate"></npc-form-control-text>
+        </div>
+        <hr>
+        <div class="inline-stretch-second-col">
+          <h6 pageLayoutTitle>
+            {{ 'uodos.sector' | translate }}
+          </h6>
+          <div class="inline-stretch-second-col">
+
+            <!-- SectorPublic -->
+            <div class="form-group">
+              <label>{{ 'uodos.forSectorPublic' | translate }}</label>
+              <ng-select
+                [formControl]="form.c.descriptionDTO.c!.forSectorPublic"
+                [items]="publicSelectorValues"
+                [placeholder]="'uodos.placeholderChooseElement' | translate"
+                [clearAllText]="'uodos.clearAllText' | translate"
+                [class.ng-unsaved]="form.c.descriptionDTO.c!.forSectorPublic.dirty"
+                [searchFn]="searchPublicSector"
+              >
+                <ng-template ng-label-tmp let-item="item">
+                  <ng-container *ngIf="item"
+                  >
+                    {{ 'uodos.publicSectorSelect.' + item | translate }}
+                  </ng-container>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item">
+                  <ng-container *ngIf="item">
+                    {{ 'uodos.publicSectorSelect.' + item | translate }}
+                  </ng-container>
+                </ng-template>
+              </ng-select>
+              <ng-container
+                *ngTemplateOutlet="error;context: {control: form.c.descriptionDTO.c!.forSectorPublic}">
+              </ng-container>
+            </div>
+
+            <!-- SectorPrivate -->
+            <div class="form-group">
+              <label>{{ 'uodos.forSectorPrivate' | translate }}</label>
+              <ng-select
+                [formControl]="form.c.descriptionDTO.c!.forSectorPrivate"
+                [items]="privateSelectorValues"
+                [placeholder]="'uodos.placeholderChooseElement' | translate"
+                [clearAllText]="'uodos.clearAllText' | translate"
+                [class.ng-unsaved]="form.c.descriptionDTO.c!.forSectorPrivate.dirty"
+                [searchFn]="searchPublicSector"
+              >
+                <ng-template ng-label-tmp let-item="item">
+                  <ng-container *ngIf="item"
+                  >
+                    {{ 'uodos.privateSectorSelect.' + item | translate }}
+                  </ng-container>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item">
+                  <ng-container *ngIf="item">
+                    {{ 'uodos.privateSectorSelect.' + item | translate }}
+                  </ng-container>
+                </ng-template>
+              </ng-select>
+              <ng-container
+                *ngTemplateOutlet="error;context: {control: form.c.descriptionDTO.c!.forSectorPrivate}">
+              </ng-container>
+            </div>
+
+          </div>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section2b' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-second-col">
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.street" [label]="'uodos.street'| translate"
+                                 [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.city" [label]="'uodos.city'| translate"
+                                 [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.countyAdministrativeArea"
+                                 [label]="'uodos.countyAdministrativeArea'| translate"
+                                 [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.communeAdministrativeArea"
+                                 [label]="'uodos.communeAdministrativeArea'| translate"
+                                 [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.provinceAdministrativeArea"
+                                 [label]="'uodos.provinceAdministrativeArea'| translate"
+                                 [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.numberHouse"
+                                 [label]="'uodos.numberHouse'| translate"
+                                 [placeholder]="'uodos.placeholderaddNumber' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.numberflat" [label]="'uodos.numberflat'| translate"
+                                 [placeholder]="'uodos.placeholderaddNumber' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.postCode" [label]="'uodos.postCode'| translate"
+                                 [placeholder]="'uodos.placeholderaddNumber' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.country" [label]="'uodos.country'| translate"
+                                 [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section2c' | translate }}
+          </h4>
+        </div>
+        <!---------------------------------2c---------------->
+        <div class="inline-stretch-info">
+          <app-form-2c
+            [nrOfRows]="nrOfRows">
+          </app-form-2c>
+          <npc-icon-button
+            class="ml-auto"
+            (click)="addRealations()"
+            [icon]="iconClose"
+            iconSize="large"
+          >
+          </npc-icon-button>
+
+        </div>
+        <!----------------------------------2c----------------------------->
+
+        <div class="inline-stretch-info">
+          {{ 'uodos.addNextPerson'| translate }}
+        </div>
+
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section2d' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.applicationCompletedTheRepresentative"
+            [label]="'uodos.applicationCompletedTheRepresentative' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <label>{{ 'uodos.descriotionSection2d' | translate }}</label>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section2e' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-second-col">
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.nameDateContact"
+                                 [label]="'uodos.nameSourName'| translate"
+                                 [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.phoneNumber"
+                                 [label]="'uodos.phoneNumber'| translate"
+                                 [placeholder]="'uodos.placeholerNumberPhone' | translate"></npc-form-control-text>
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.mail" [label]="'uodos.mail'| translate"
+                                 [placeholder]="'uodos.placeholderMail' | translate"></npc-form-control-text>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.anInspectorHasNotBeenAppointed"
+            [label]="'uodos.anInspectorHasNotBeenAppointed' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+
+
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.descriotionSection2e',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.descriotionSection2e,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section2f' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <label>{{ 'uodos.descriptionSection2f' | translate }}</label>
+        </div>
+        <!-----2f----------------------------------------------------->
+        <div class="inline-stretch-info">
+
+          <app-form-2f
+            [nrOfRows2f]="nrOfRows2f">
+          </app-form-2f>
+          <npc-icon-button
+            class="ml-auto"
+            (click)="addRealations2f()"
+            [icon]="iconClose"
+            iconSize="large"
+          >
+          </npc-icon-button>
+        </div>
+
+        <!----------------------------------2f----------------------------->
+
+        <div class="inline-stretch-info">
+          {{ 'uodos.addNextSubject' | translate }}
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section3' | translate }}
+          </h4>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section3a' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-second-col">
+          <div class="form-group">
+            <label>{{ 'uodos.dateDiscoveryInfringement' | translate }}</label>
+            <npc-date-time-picker
+              [control]="form.c.descriptionDTO.c!.dateDiscoveryInfringement">
+            </npc-date-time-picker>
+          </div>
+        </div>
+
+        <div class="inline-stretch-info">
+          <label>{{ 'uodos.descriptionDateDiscoveryInfringement' | translate }}</label>
+        </div>
+        <div class="inline-stretch-info">
+
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.methodDeterminingViolation',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.methodDeterminingViolation,
+                        attachments: form.c.attachments}">
+          </ng-container>
+
+        </div>
+        <div class="inline-stretch-info">
+          <label>{{ 'uodos.descriptionMethodDeterminingViolation' | translate }}</label>
+        </div>
+
+        <div class="inline-stretch-second-col">
+          <div class="form-group">
+            <label>{{ 'uodos.dateInformationSubject' | translate }}</label>
+            <npc-date-time-picker
+              [control]="form.c.descriptionDTO.c!.dateInformationSubject">
+            </npc-date-time-picker>
+            <label>{{ 'uodos.descriptionDateInformationSubject' | translate }}</label>
+          </div>
+        </div>
+        <div class="inline-stretch-info">
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.reasonsForDelay',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.reasonsForDelay,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <label>{{ 'uodos.descriptionReasonsForDelay' | translate }}</label>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section3b' | translate }}
+          </h4>
+        </div>
+
+
+        <div class="inline-stretch-second-col">
+
+          <div class="form-group">
+            <label>{{ 'uodos.dateTime3b' | translate }}</label>
+            <npc-date-time-picker
+              [control]="form.c.descriptionDTO.c!.dateTime3b">
+            </npc-date-time-picker>
+            <label>{{ 'uodos.descriptionDateTime' | translate }}</label>
+          </div>
+          <div class="form-group">
+            <label>{{ 'uodos.dateTimeEnd3b' | translate }}</label>
+            <npc-date-time-picker
+              [control]="form.c.descriptionDTO.c!.dateTimeEnd3b">
+            </npc-date-time-picker>
+            <label>{{ 'uodos.descriptionDateTimeEnd' | translate }}</label>
+          </div>
+        </div>
+
+
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section4' | translate }}
+          </h4>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section4a' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.descSection4a',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.descSection4a,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <div class="inline-stretch-info">
+          <label>{{ 'uodos.descriptionDateTime' | translate }}</label>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section4b' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxA"
+            [label]="'uodos.section4bcheckboxA' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxB"
+            [label]="'uodos.section4bcheckboxB' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxC"
+            [label]="'uodos.section4bcheckboxC' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxD"
+            [label]="'uodos.section4bcheckboxD' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxE"
+            [label]="'uodos.section4bcheckboxE' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxF"
+            [label]="'uodos.section4bcheckboxF' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxG"
+            [label]="'uodos.section4bcheckboxG' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxH"
+            [label]="'uodos.section4bcheckboxH' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxI"
+            [label]="'uodos.section4bcheckboxI' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxJ"
+            [label]="'uodos.section4bcheckboxJ' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxK"
+            [label]="'uodos.section4bcheckboxK' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxL"
+            [label]="'uodos.section4bcheckboxL' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.section4bcheckboxM"
+            [label]="'uodos.section4bcheckboxM' | translate">
+          </npc-checkbox>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section4c' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.descriptionSection4Ca',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.descriptionSection4Ca,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <div class="inline-stretch-info">
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.descriptionSection4Cb',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.descriptionSection4Cb,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <div class="inline-stretch-info">
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.descriptionSection4Cc',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.descriptionSection4Cc,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <div class="inline-stretch-info">
+          <label>{{ 'uodos.descriptionSection4CAttencion' | translate }}</label>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section4d' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.internalActionUnintentional"
+            [label]="'uodos.internalActionUnintentional' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.internalActionIntentional"
+            [label]="'uodos.internalActionIntentional' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.externalActionUnintentional"
+            [label]="'uodos.externalActionUnintentional' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.externalActionIntentional"
+            [label]="'uodos.externalActionIntentional' | translate">
+          </npc-checkbox>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section4e' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.breachOfDataConfidentiality"
+            [label]="'uodos.breachOfDataConfidentiality' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <label> {{ 'uodos.descbreachOfDataConfidentiality' | translate }}</label>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.dataIntegrityBreach"
+            [label]="'uodos.dataIntegrityBreach' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <label>{{ 'uodos.descDataIntegrityBreach' | translate }}</label>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.dataAvailabilityViolation"
+            [label]="'uodos.dataAvailabilityViolation' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <label>{{ 'uodos.descDataAvailabilityViolation' | translate }}</label>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section4f' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.section4FKids"
+            [label]="'uodos.section4FKids' | translate">
+          </npc-checkbox>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section5' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.approximateNumberOfPeopleBreached',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.approximateNumberOfPeopleBreached,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <div class="inline-stretch-info">
+
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.approximateNumberOfPeopleBreachedEntry',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.approximateNumberOfPeopleBreachedEntry,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <div class="inline-stretch-info">
+          <label>{{ 'uodos.descapproximateNumberOfPeopleBreachedEntry' | translate }}</label>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section6' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <label> {{ 'uodos.section6Attention' | translate }}</label>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section6a' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.surnamesAndNames"
+            [label]="'uodos.surnamesAndNames' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.namesParents1"
+            [label]="'uodos.namesParents1' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.birthData"
+            [label]="'uodos.birthData' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.numberaAccountBank"
+            [label]="'uodos.numberaAccountBank' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.adressliving"
+            [label]="'uodos.adressliving' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.pesel"
+            [label]="'uodos.pesel' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.addressMail"
+            [label]="'uodos.addressMail' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.loginPassword"
+            [label]="'uodos.loginPassword' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.dataFromMoney"
+            [label]="'uodos.dataFromMoney' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.surnameMother"
+            [label]="'uodos.surnameMother' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.serialNumberPersonallDocument"
+            [label]="'uodos.serialNumberPersonallDocument' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.phoneNumer"
+            [label]="'uodos.phoneNumer' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.imagePerson"
+            [label]="'uodos.imagePerson' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.other"
+            [label]="'uodos.other' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.other" [label]="'uodos.other' | translate"
+                                 [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section6b' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.dataAboutRacialEthnicOrigin"
+            [label]="'uodos.dataAboutRacialEthnicOrigin' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.dataAboutPolitic"
+            [label]="'uodos.dataAboutPolitic' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.dataAboutReligion"
+            [label]="'uodos.dataAboutReligion' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.dataAboutSocjal"
+            [label]="'uodos.dataAboutSocjal' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.dataAboutSexual"
+            [label]="'uodos.dataAboutSexual' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.dataAboutHealth"
+            [label]="'uodos.dataAboutHealth' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.dataAboutGenetic"
+            [label]="'uodos.dataAboutGenetic' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.dataAboutBiometric"
+            [label]="'uodos.dataAboutBiometric' | translate">
+          </npc-checkbox>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section6c' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.dataAboutGuiltyverdicts"
+            [label]="'uodos.dataAboutGuiltyverdicts' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.dataAboutProhibitedActs"
+            [label]="'uodos.dataAboutProhibitedActs' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.dataAboutOther"
+            [label]="'uodos.dataAboutOther' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.dataAboutOther',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.dataAboutOther,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section7' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.employes"
+            [label]="'uodos.employes' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.users"
+            [label]="'uodos.users' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.studentsHightSchool"
+            [label]="'uodos.studentsHightSchool' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.students"
+            [label]="'uodos.students' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.uniformedServices"
+            [label]="'uodos.uniformedServices' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.customers"
+            [label]="'uodos.customers' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.customersPublic"
+            [label]="'uodos.customersPublic' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.patients"
+            [label]="'uodos.patients' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.kids"
+            [label]="'uodos.kids' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.peopleWithSpecialNeeds"
+            [label]="'uodos.peopleWithSpecialNeeds' | translate">
+          </npc-checkbox>
+        </div>
+        <br>
+
+        <div class="inline-stretch-info">
+          <label>{{ 'uodos.detailedDescriptionOfCategoriesPersonsAffectedThebreach'| translate }}</label>
+        </div>
+        <div class="inline-stretch-info">
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.descDetailedDescriptionOfCategoriesPersonsAffectedThebreach',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.descDetailedDescriptionOfCategoriesPersonsAffectedThebreach,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section8' | translate }}
+          </h4>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section8a' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.lossControlOverPersonalData"
+            [label]="'uodos.lossControlOverPersonalData' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.limitationAbilityToExerciseRightsRodo"
+            [label]="'uodos.limitationAbilityToExerciseRightsRodo' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.limitationAbilityToExerciseRights"
+            [label]="'uodos.limitationAbilityToExerciseRights' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.discrimination"
+            [label]="'uodos.discrimination' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.identityTheftFraud"
+            [label]="'uodos.identityTheftFraud' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.financialLoss"
+            [label]="'uodos.financialLoss' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.infringementGoodName"
+            [label]="'uodos.infringementGoodName' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.lossConfidentialityPersonalDataProtectedProfessionalSecrecy"
+            [label]="'uodos.lossConfidentialityPersonalDataProtectedProfessionalSecrecy' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.unauthorizedReversalPseudonymization"
+            [label]="'uodos.unauthorizedReversalPseudonymization' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.section8aOthers"
+            [label]="'uodos.section8aOthers' | translate">
+          </npc-checkbox>
+        </div>
+        <div class="inline-stretch-info">
+
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.descWritelaw',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.descWritelaw,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section8b' | translate }}
+          </h4>
+        </div>
+
+        <div class="inline-stretch-info">
+
+          <npc-circle-radio
+            orientation="horizontal"
+            [control]="typeControl2"
+          >
+            <npc-circle-radio-option [label]="'uodos.section8Btrue' | translate"
+                                     [value]="SECTION8B_TRUE"></npc-circle-radio-option>
+            <npc-circle-radio-option [label]="'uodos.section8Bfalse' | translate"
+                                     [value]="SECTION8B_FALSE"></npc-circle-radio-option>
+          </npc-circle-radio>
+        </div>
+        <div class="inline-stretch-info">
+
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.justification',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.justification,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section9' | translate }}
+          </h4>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section9a' | translate }}
+
+            <ng-container
+              *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: false,
+
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.section9a,
+                        attachments: form.c.attachments}">
+            </ng-container>
+          </h4>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section9b' | translate }}
+
+            <ng-container
+              *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: false,
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.section9b,
+                        attachments: form.c.attachments}">
+            </ng-container>
+          </h4>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section9c' | translate }}
+            <ng-container
+              *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: false,
+
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.section9c,
+                        attachments: form.c.attachments}">
+            </ng-container>
+          </h4>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section10' | translate }}
+          </h4>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-circle-radio
+            orientation="vertical"
+            [control]="typeControl3"
+          >
+            <npc-circle-radio-option [label]="'uodos.section10true' | translate"
+                                     [value]="SECTION_10TREUE"></npc-circle-radio-option>
+            <npc-circle-radio-option [label]="'uodos.section10Notice' | translate"
+                                     [value]="SECTION_10NOTICE"></npc-circle-radio-option>
+            <npc-circle-radio-option [label]="'uodos.theyWillNotBeNotifiedBecause' | translate"
+                                     [value]="THEY_WILL_NOT_BE_NOTIFIED"></npc-circle-radio-option>
+            <npc-circle-radio-option [label]="'uodos.ihaventRatedItYet' | translate"
+                                     [value]="I_HAVENT_RATED_YET"></npc-circle-radio-option>
+            {{ 'uodos.descIhaventRatedItYet' | translate }}
+          </npc-circle-radio>
+        </div>
+
+
+        <div class="inline-stretch-info">
+          <npc-circle-radio
+            [label]="'uodos.indvidual' | translate"
+            orientation="vertical"
+            [control]="typeControl4"
+          >
+            <npc-circle-radio-option [label]="'uodos.section10true' | translate"
+                                     [value]="INDVIDUAL"></npc-circle-radio-option>
+            <npc-circle-radio-option [label]="'uodos.section10IndwidualFalse' | translate"
+                                     [value]="SECTION10_INDWIDUAL_FALSE"></npc-circle-radio-option>
+          </npc-circle-radio>
+        </div>
+        <br>
+
+
+        <div class="inline-stretch-info">
+
+          <npc-circle-radio
+            orientation="vertical"
+            [control]="typeControl5"
+          >
+            <npc-circle-radio-option
+              [label]="'uodos.appropriateTechnicalMeasuresHaveBeenImplementedBeforeTheViolation' | translate"
+              [value]="APPROPRITE_TECHNICAL"></npc-circle-radio-option>
+            <npc-circle-radio-option [label]="'uodos.measuresWereTakenFollowingTheBreach' | translate"
+                                     [value]="MEASURE_WERE_TAKEN"></npc-circle-radio-option>
+            <npc-circle-radio-option [label]="'uodos.noHighRiskWasFound' | translate"
+                                     [value]="NO_HIGH_RISK_WAS_FOUND"></npc-circle-radio-option>
+          </npc-circle-radio>
+        </div>
+
+        <br>
+
+
+        <div class="inline-stretch-info">
+          <npc-form-control-text
+            [control]="form.c.descriptionDTO.c!.section10IndwidualFalse"
+            [label]="'uodos.section10IndwidualFalse' | translate"
+            [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+        </div>
+
+
+        <br>
+
+        <div class="inline-stretch-second-col">
+
+
+          <div class="form-group">
+            <label>{{ 'uodos.indicateTheDateNotification' | translate }}</label>
+            <npc-date-time-picker
+              [control]="form.c.descriptionDTO.c!.indicateTheDateNotification">
+            </npc-date-time-picker>
+          </div>
+          <div class="form-group">
+            <label>{{ 'uodos.indicateTheDateOfThePlannedNotification' | translate }}</label>
+            <npc-date-time-picker
+              [control]="form.c.descriptionDTO.c!.indicateTheDateOfThePlannedNotification">
+            </npc-date-time-picker>
+          </div>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-form-control-text [control]="form.c.descriptionDTO.c!.numberOfPeopleNotified"
+                                 [label]="'uodos.numberOfPeopleNotified' | translate"
+                                 [placeholder]="'uodos.placeholderClickAddText' | translate"></npc-form-control-text>
+        </div>
+        <div class="inline-stretch-info">
+
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: true,
+                        label: 'uodos.meansOfCommunicationUsedToNotifyDataSubject',
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.meansOfCommunicationUsedToNotifyDataSubject,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.iDoNotYetKnowDateWhenIntendToNotifyDataSubjects"
+            [label]="'uodos.iDoNotYetKnowDateWhenIntendToNotifyDataSubjects' | translate">
+          </npc-checkbox>
+        </div>
+        <br>
+
+        <div class="inline-stretch-info">
+          <h6 pageLayoutTitle>
+            {{ 'uodos.includeDheAnonymized' | translate }}<br>
+            {{ 'uodos.desIncludeDheAnonymized0' | translate }}<br>
+            {{ 'uodos.desIncludeDheAnonymized1' | translate }}<br>
+            {{ 'uodos.desIncludeDheAnonymized2' | translate }}<br>
+            {{ 'uodos.desIncludeDheAnonymized3' | translate }}<br>
+            {{ 'uodos.desIncludeDheAnonymized4' | translate }}
+          </h6>
+        </div>
+        <div class="inline-stretch-info">
+          <ng-container
+            *ngTemplateOutlet="
+                      mdEdit;
+                      context: {
+                        required: false,
+                        placeholder: 'uodos.placeholderClickAddText',
+                        control: form.c.descriptionDTO.c!.includeDheAnonymized,
+                        attachments: form.c.attachments}">
+          </ng-container>
+        </div>
+
+        <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            {{ 'uodos.section11' | translate }}
+          </h4>
+        </div>
+
+
+        <div class="inline-stretch-info">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.theBreachIsCrossBorderInNature"
+            [label]="'uodos.theBreachIsCrossBorderInNature' | translate">
+          </npc-checkbox>
+        </div>
+
+        <br>
+        <div class="inline-stretch-info">
+          {{ 'uodos.countryEu' | translate }}<br>
+        </div>
+        <br>
+        <div class="inline-stretch-second-col">
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.austria"
+            [label]="'uodos.austria' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.cyprus"
+            [label]="'uodos.cyprus' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.finland"
+            [label]="'uodos.finland' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.netherlands"
+            [label]="'uodos.netherlands' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.lithuania"
+            [label]="'uodos.lithuania' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.germany"
+            [label]="'uodos.germany' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.slovakia"
+            [label]="'uodos.slovakia' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.greatBritain"
+            [label]="'uodos.greatBritain' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.belgium"
+            [label]="'uodos.belgium' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.czechRepublic"
+            [label]="'uodos.czechRepublic' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.france"
+            [label]="'uodos.france' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.ireland"
+            [label]="'uodos.ireland' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.luxembourg"
+            [label]="'uodos.luxembourg' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.norway"
+            [label]="'uodos.norway' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.slovenia"
+            [label]="'uodos.slovenia' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.italy"
+            [label]="'uodos.italy' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.bulgaria"
+            [label]="'uodos.bulgaria' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.denmark"
+            [label]="'uodos.denmark' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.greece"
+            [label]="'uodos.greece' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.iceland"
+            [label]="'uodos.iceland' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.latvia"
+            [label]="'uodos.Latvia' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.portugal"
+            [label]="'uodos.portugal' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.sweden"
+            [label]="'uodos.sweden' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.croatia"
+            [label]="'uodos.croatia' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.estonia"
+            [label]="'uodos.estonia' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox"
+            [control]="form.c.descriptionDTO.c!.spain"
+            [label]="'uodos.spain' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.liechtenstein"
+            [label]="'uodos.liechtenstein' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.romania"
+            [label]="'uodos.romania' | translate">
+          </npc-checkbox>
+          <npc-checkbox
+            class="cross-border-checkbox" [control]="form.c.descriptionDTO.c!.hungary"
+            [label]="'uodos.hungary' | translate">
+          </npc-checkbox>
+        </div>
+        <hr>
+        <div class="inline-stretch-info">
+          <span>
+            {{ 'uodos.sectionInformation' | translate }}<br>
+          </span>
+        </div>
+        <div class="inline-stretch-info">
+          <span>
+            <p><strong>Administrator danych osobowych. </strong></p>
+<p>Administratorem Państwa danych osobowych będzie Prezes Urzędu Ochrony Danych Osobowych (Prezes UODO) z siedzibą w Warszawie, przy ul. Stawki 2.</p>
+<p>Można się z nami kontaktować w następujący spos&oacute;b:</p>
+<ol>
+<li>a) listownie: ul. Stawki 2, 00-193 Warszawa</li>
+<li>b) przez elektroniczną skrzynkę podawczą dostępną na stronie https://www.uodos.gov.pl/pl/p/kontakt</li>
+<li>c) telefonicznie: (22) 531 03 00</li>
+</ol>
+<p><strong>Inspektor ochrony danych.</strong></p>
+<p>Możecie się Państwo kontaktować r&oacute;wnież z wyznaczonym przez Prezesa UODO inspektorem ochrony danych pod adresem email IOD@uodos.gov.pl</p>
+<p><strong>Cele i podstawy przetwarzania.</strong></p>
+<p>Będziemy przetwarzać Państwa dane osobowe zawarte w formularzu w celu przyjmowania zgłoszeń o naruszeniu ochrony danych osobowych zgodnie z art. 33 ust 1 , 3 i 4 RODO<sup>1</sup> bądź art. 44 ust. 1 &ndash; 5 DODO<sup>2</sup>, podejmowania działań określonych w art. 34 ust. 4 oraz art. 58 ust. 2 RODO bądź art. 45 ust. 5 DODO, a także prowadzenia przez organ wewnętrznego rejestru naruszeń na podstawie art. 57 ust. 1 lit. u RODO. Następnie Państwa dane będziemy przetwarzać w celu wypełnienia obowiązku archiwizacji dokument&oacute;w wynikającego z ustawy z dnia 14 lipca 1983 r. o narodowym zasobie archiwalnym i archiwach.</p>
+<p>&nbsp;</p>
+<p><strong>Odbiorcy danych osobowych.</strong></p>
+<p>Odbiorcami Państwa danych osobowych będą Minister Cyfryzacji w związku z zamieszczeniem formularza na platformie E-PUAP bądź Minister Przedsiębiorczości i Technologii w związku z zamieszczeniem formularza na platformie biznes.gov.pl</p>
+<p><strong>Okres przechowywania danych.<br/> </strong>Będziemy przechowywać Państwa dane przez czas realizacji uprawnień Prezesa UODO wskazanych w art. 34 ust. 4 RODO i art. 58 ust. 2 RODO bądź art. 45 ust. 5 DODO, a następnie - zgodnie z obowiązującą w Urzędzie Prezesa UODO Instrukcją kancelaryjną oraz przepisami o archiwizacji dokument&oacute;w - przez okres 10 lat od końca roku, w kt&oacute;rym zgłoszono naruszenie ochrony danych, lub - w przypadku skierowania wystąpienia lub wydania decyzji administracyjnej &ndash; wieczyście.</p>
+<p><strong>Prawa os&oacute;b, kt&oacute;rych dane dotyczą.</strong></p>
+<p>Zgodnie z RODO przysługuje Państwu:</p>
+<ol>
+<li>prawo dostępu do swoich danych oraz otrzymania ich kopii;</li>
+<li>prawo do sprostowania (poprawiania) swoich danych;</li>
+<li>prawo do usunięcia danych osobowych, w sytuacji, gdy przetwarzanie danych nie następuje w celu wywiązania się z obowiązku wynikającego z przepisu prawa lub w ramach sprawowania władzy publicznej;</li>
+<li>prawo do ograniczenia przetwarzania danych;</li>
+<li>prawo do wniesienia skargi do Prezesa UODO (na adres Prezesa Urzędu Ochrony Danych Osobowych, ul. Stawki 2, 00 - 193 Warszawa)</li>
+</ol>
+<p><strong>Informacja o wymogu podania danych. </strong></p>
+<p>Podanie przez Państwa danych osobowych w niniejszym formularzu jest obowiązkiem wynikającym z art. 33 ust. 3 RODO oraz z art. 63 &sect; 2-3a ustawy z dnia 14 czerwca 1960 r. Kodeks postępowania administracyjnego.</p>
+<p><sup>&nbsp;</sup></p>
+<p><sup>1 </sup>Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony os&oacute;b fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO) oraz podjętych działań.</p>
+<p><sup>2 </sup>Ustawa z dnia 14 grudnia 2018 r. o ochronie danych osobowych przetwarzanych w związku z zapobieganiem i zwalczaniem przestępczości</p>
+
+          </span>
+        </div>
+      </npc-apla-container>
+    </div>
+  </div>
+</npc-page-layout>
+<ng-template #error
+             let-control="control">
+  <ng-container
+    *ngIf="control && control.invalid && control.touched">
+    <small
+      *ngFor="let error of control.errors | keyvalue"
+      class="form-text text-small text-danger">
+      {{ 'errors.' + error.key   | translate }}
+    </small>
+  </ng-container>
+</ng-template>
+
+<ng-template #mdEdit
+             let-label="label"
+             let-required="required"
+             let-placeholder="placeholder"
+             let-tooltip="tooltip"
+             let-control="control"
+             let-attachments="attachments">
+  <div class="form-group">
+    <label [class.required]="required">{{ label | translate }}</label>
+    <npc-info-popover
+      *ngIf="tooltip"
+      [placement]="'right'"
+      [info]="tooltip | translate">
+    </npc-info-popover>
+    <npc-md-editor [control]="control"
+                   [placeholder]="placeholder | translate"
+                   [attachments]="attachments">
+    </npc-md-editor>
+  </div>
+</ng-template>
+
+
