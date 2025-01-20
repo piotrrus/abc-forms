@@ -6,14 +6,14 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import(
-        '@features/incident-registration-page/xincident-registration-page.module'
+        '@features/incident-registration-page/incident-registration-page.module'
       ).then((m) => m.IncidentRegistrationPageModule),
   },
   {
     path: 'home',
     loadChildren: () =>
       import(
-        '@features/incident-registration-page/xincident-registration-page.module'
+        '@features/incident-registration-page/incident-registration-page.module'
       ).then((m) => m.IncidentRegistrationPageModule),
   },
 ];
