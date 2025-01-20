@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IncidentRegistrationPageComponent } from './incident-registration-page.component';
+import { IncidentRegistrationPageComponent } from './containers/incident-registration-page.component';
 
 const routes: Routes = [
   { path: '', component: IncidentRegistrationPageComponent },
