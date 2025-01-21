@@ -6,16 +6,17 @@ export class AdminDataForm extends BaseForm {
 
      protected createForm(): FormGroup {
           return this.fb.group({
-               admin: ['', [Validators.required]],
+               fullNameAdmin: ['', [Validators.required]],
                regon: ['', [Validators.required]],
                nip: ['', [Validators.maxLength(20)]],
                krs: ['', [Validators.maxLength(50)]],
-               sector: ['', []],
+               forSectorPublic: ['', []],
+               forSectorPrivate: ['', []],
           });
      }
 
-     public get admin(): AbstractControl | null {
-          return this.frm.get('admin');
+     public get fullNameAdmin(): AbstractControl | null {
+          return this.frm.get('fullNameAdmin');
      }
      public get regon(): AbstractControl | null {
           return this.frm.get('regon');
@@ -26,7 +27,10 @@ export class AdminDataForm extends BaseForm {
      public get krs(): AbstractControl | null {
           return this.frm.get('krs');
      }
-     public get sector(): AbstractControl | null {
-          return this.frm.get('sector');
+     public get forSectorPublic(): AbstractControl | null {
+          return this.frm.get('forSectorPublic');
+     }
+     public get forSectorPrivate(): AbstractControl | null {
+          return this.frm.get('forSectorPrivate');
      }
 }
