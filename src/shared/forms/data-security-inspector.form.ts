@@ -6,18 +6,18 @@ export class DataSecurityInspectorForm extends BaseForm {
 
      protected createForm(): FormGroup {
           return this.fb.group({
-               name: ['', [Validators.required]],
-               phone: ['', [Validators.required]],
+               fullname: ['', [Validators.required]],
+               phoneNumber: ['', [Validators.required]],
                email: ['', [Validators.required, Validators.email]],
                notAssigned: [''],
           });
      }
 
-     public get name(): AbstractControl | null {
-          return this.frm.get('name');
+     public get fullname(): AbstractControl | null {
+          return this.frm.get('fullname');
      }
-     public get phone(): AbstractControl | null {
-          return this.frm.get('phone');
+     public get phoneNumber(): AbstractControl | null {
+          return this.frm.get('phoneNumber');
           name;
      }
      public get email(): AbstractControl | null {
