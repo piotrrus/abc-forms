@@ -3,18 +3,17 @@ import { BaseForm } from './base.form';
 
 export class AdminAddressForm extends BaseForm {
      protected frm: FormGroup = this.createForm();
-
      protected createForm(): FormGroup {
           return this.fb.group({
                street: ['', [Validators.required, Validators.maxLength(30)]],
                city: ['', [Validators.maxLength(50)]],
-               gmina: ['', [Validators.maxLength(50)]],
-               voivoidship: ['', [Validators.maxLength(50)]],
-               postalCode: ['', [Validators.maxLength(20)]],
-               houseNr: ['', []],
-               localNr: ['', []],
+               countyAdministrativeArea: ['', [Validators.maxLength(50)]],
+               provinceAdministrativeArea: ['', [Validators.maxLength(50)]],
+               postCode: ['', [Validators.maxLength(20)]],
+               numberHouse: ['', []],
+               numberflat: ['', []],
                country: ['', []],
-               powiat: ['', []],
+               communeAdministrativeArea: ['', []],
           });
      }
 
@@ -24,25 +23,25 @@ export class AdminAddressForm extends BaseForm {
      public get city(): AbstractControl | null {
           return this.frm.get('city');
      }
-     public get gmina(): AbstractControl | null {
-          return this.frm.get('gmina');
+     public get countyAdministrativeArea(): AbstractControl | null {
+          return this.frm.get('countyAdministrativeArea');
      }
-     public get voivoidship(): AbstractControl | null {
-          return this.frm.get('voivoidship');
+     public get provinceAdministrativeArea(): AbstractControl | null {
+          return this.frm.get('provinceAdministrativeArea');
      }
-     public get postalCode(): AbstractControl | null {
-          return this.frm.get('postalCode');
+     public get postCode(): AbstractControl | null {
+          return this.frm.get('postCode');
      }
-     public get houseNr(): AbstractControl | null {
-          return this.frm.get('houseNr');
+     public get numberHouse(): AbstractControl | null {
+          return this.frm.get('numberHouse');
      }
-     public get localNr(): AbstractControl | null {
-          return this.frm.get('localNr');
+     public get numberflat(): AbstractControl | null {
+          return this.frm.get('numberflat');
      }
      public get country(): AbstractControl | null {
           return this.frm.get('country');
      }
-     public get powiat(): AbstractControl | null {
-          return this.frm.get('powiat');
+     public get communeAdministrativeArea(): AbstractControl | null {
+          return this.frm.get('communeAdministrativeArea');
      }
 }
