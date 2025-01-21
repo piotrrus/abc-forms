@@ -1,14 +1,11 @@
-// import { Content } from 'pdfmake/interfaces';
-// import { ProductionDescriptionModel } from '../../models/production-description.model';
-// import { DESCRIPTIONS } from '../../enums/descriptions.enum';
+import { Content } from 'pdfmake/interfaces';
+import { INCIDENT_TITLES } from '../../enums/incident-titles.enum';
 
-// export function createHeaderSection(data: ProductionDescriptionModel): Content {
-//      const client = data.client_nr ? `kl. ${data.client_nr}` : '';
-//      const prodOrder = data.prod_order ? data.prod_order : '';
-//      return [
-//           {
-//                text: `${DESCRIPTIONS.TITLE} ${client} ${DESCRIPTIONS.ORDER} ${prodOrder}`,
-//                style: 'header',
-//           },
-//      ];
-// }
+export function createHeaderSection(): Content {
+     return [
+          {
+               text: INCIDENT_TITLES.MAIN_TITLE,
+               style: 'header',
+          },
+     ];
+}
