@@ -44,6 +44,13 @@ export class IncidentRegistrationPageComponent {
                ...this.adminData,
                ...this.adminAddress,
                ...this.adminRepresentative,
+
+               ...this.incidentKinds,
+               ...this.violationReasons,
+               ...this.transborderCountries,
+               ...this.incidentResults,
+               ...this.incidentImpact,
+               ...this.incidentReasons,
           };
      }
 }
