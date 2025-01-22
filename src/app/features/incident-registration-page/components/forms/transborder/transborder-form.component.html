@@ -1,17 +1,41 @@
 <div [formGroup]="form.form">
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
+    <div class="row description">
+        <div class="col-md-2 col-sm-2">
             <mat-label>description</mat-label>
         </div>
-        <div class="col-md-6 col-sm-6">
+        <div class="col-md-6 col-sm-10">
             <mat-checkbox formControlName="description" (change)="hasImpact($event.checked)"> </mat-checkbox>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-4 col-sm-4">
+        <!-- <div class="col-md-4 col-sm-4">
             <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls(); let z = index">
-                <!-- <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls() | slice:0:10; let z = index"> -->
+                <ng-container [formGroupName]="z">
+                    <div class="row">
+                        <ng-container *ngIf="z % 2 === 0">
+                            <div class="col-md-6 col-sm-6">
+                                <mat-label>{{countriesFormData![z].name}}</mat-label>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <mat-checkbox (change)="assignCountry($event.checked, z)"> </mat-checkbox>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="z % 2 !== 0">
+                            <div class="col-md-6 col-sm-6">
+                                <mat-label>{{countriesFormData![z].name}}</mat-label>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <mat-checkbox (change)="assignCountry($event.checked, z)"> </mat-checkbox>
+                            </div>
+                        </ng-container>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div> -->
+
+        <div class="col-md-4 col-sm-4">
+            <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls() | slice:startFirst:endFirst; let z = index">
                 <ng-container [formGroupName]="z">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
@@ -25,34 +49,20 @@
             </ng-container>
         </div>
 
-        <!-- <div class="col-md-4 col-sm-4">
-            <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls() | slice:10:20; let z = index">
+        <div class="col-md-4 col-sm-4">
+            <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls() | slice: startSec:endSec; let z = index">
                 <ng-container [formGroupName]="z">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <mat-label>{{countriesFormData![z+10].name}}</mat-label>
+                            <mat-label>{{countriesFormData![z+startSec].name}}</mat-label>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <mat-checkbox (change)="assignCountry($event.checked, z+10)"> </mat-checkbox>
+                            <mat-checkbox (change)="assignCountry($event.checked, z+startSec)"> </mat-checkbox>
                         </div>
                     </div>
                 </ng-container>
             </ng-container>
-        </div> -->
-
-        <!-- <div class="col-md-4 col-sm-4">
-            <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls() | slice:20:30; let z = index">
-                <ng-container [formGroupName]="z">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <mat-label>{{countriesFormData![z+20].name}}</mat-label>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <mat-checkbox (change)="assignCountry($event.checked, z+20)"> </mat-checkbox>
-                        </div>
-                    </div>
-                </ng-container>
-            </ng-container>
-        </div> -->
+        </div>
     </div>
 </div>
+<!-- </div> -->
