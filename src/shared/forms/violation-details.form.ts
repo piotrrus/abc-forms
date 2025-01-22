@@ -6,7 +6,7 @@ export class ViolationDetailsForm extends BaseForm {
 
      protected createForm(): FormGroup {
           return this.fb.group({
-               details: : ['', []],
+               details: ['', []],
                violationResult: new FormArray([]),
                securityReason: ['', []],
                malwareRequirements: ['', []],
@@ -22,7 +22,6 @@ export class ViolationDetailsForm extends BaseForm {
      }
      public get malwareRequirements(): AbstractControl | null {
           return this.frm.get('malwareRequirements');
-          name;
      }
      public get restoredBackup(): AbstractControl | null {
           return this.frm.get('restoredBackup');

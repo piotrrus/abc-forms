@@ -1,7 +1,7 @@
 import { AbstractControl, FormArray, FormGroup } from '@angular/forms';
-import { BaseForm } from './base.form';
+import { BaseArrayForm } from './base-array.form';
 //section11
-export class TransborderForm extends BaseForm {
+export class TransborderForm extends BaseArrayForm {
      protected frm: FormGroup = this.createForm();
 
      protected createForm(): FormGroup {
@@ -13,20 +13,5 @@ export class TransborderForm extends BaseForm {
 
      public get description(): AbstractControl | null {
           return this.frm.get('description');
-     }
-
-     public get itemsArray(): FormArray {
-          return this.form.get('items') as FormArray;
-     }
-
-     public createFormArray(): FormGroup {
-          return this.fb.group({
-               id: [''],
-               name: [''],
-          });
-     }
-
-     public getItemsControls(): AbstractControl[] {
-          return (this.form.get('items') as FormArray).controls;
      }
 }
