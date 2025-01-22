@@ -3,6 +3,7 @@ import { AbstractControl, FormArray, FormBuilder } from '@angular/forms';
 import { List } from '@features/incident-registration-page/models/list.interface';
 import { BaseFormComponent } from 'src/shared/components/base-form.component';
 import { ListForm } from 'src/shared/forms/list-form';
+import { TransborderForm } from 'src/shared/forms/transborder.form';
 
 @Component({
      selector: 'app-transborder-form',
@@ -17,7 +18,7 @@ export class TransBorderFormComponent extends BaseFormComponent {
      @Output() public formChange = new EventEmitter<List[]>();
      @Output() public isFormValid = new EventEmitter<boolean>();
 
-     public form: ListForm = new ListForm(this.fb);
+     public form: TransborderForm = new TransborderForm(this.fb);
      public items: FormArray = this.form.itemsArray;
      public countriesFormData: List[] = [];
 
@@ -25,27 +26,23 @@ export class TransBorderFormComponent extends BaseFormComponent {
           super();
      }
 
-     // private initCountries(incidentReasonList: List[]): void {
-     //      for (let incident of incidentReasonList) {
-     //           this.countriesFormData.push(incident);
-     //      }
-     //      // console.log()
-     //      // this.form.
-     // }
-
-     public getItemsControls(): AbstractControl[] {
-          return this.form.getItemsControls();
+     private addFormItems(dataArr: List[]): void {
+          for (let item of dataArr) {
+               this.countriesFormData.push(item);
+               this.items.push(this.form.createFormArray());
+          }
+          console.log(dataArr);
      }
 
-     public addFormItems(dataArr: List[]): void {
-          for (let i = 0; i < dataArr.length; i++) {
-               this.countriesFormData.push(dataArr[i]);
-               this.items.push(this.form.createForm());
-          }
-          console.log(this.countriesFormData);
+     public hasImpact(value: boolean): void {
+          console.log(value);
      }
 
      public assignCountry(value: boolean, id: number): void {
           value ? (this.countriesFormData[id].value = value) : null;
+     }
+
+     public getItemsControls(): AbstractControl[] {
+          return this.form.getItemsControls();
      }
 }

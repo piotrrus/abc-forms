@@ -11,7 +11,7 @@ import { ListForm } from 'src/shared/forms/list-form';
 })
 export class PersonalDataCategoriesFormComponent extends BaseFormComponent implements OnInit {
      @Input() set personCategoriesList(personCategoriesList: List[] | null) {
-          personCategoriesList ? this.initPersonCategories(personCategoriesList) : null;
+          personCategoriesList ? this.addFormItems(personCategoriesList) : null;
      }
 
      @Output() public formChange = new EventEmitter<List[]>();
@@ -29,7 +29,7 @@ export class PersonalDataCategoriesFormComponent extends BaseFormComponent imple
           this.checkFormAndEmit();
      }
 
-     private initPersonCategories(personCategories: List[]): void {
+     private addFormItems(personCategories: List[]): void {
           for (let category of personCategories) {
                this.personCategories.push(category);
           }
