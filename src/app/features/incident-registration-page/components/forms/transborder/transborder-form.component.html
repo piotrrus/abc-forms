@@ -1,12 +1,19 @@
 <div [formGroup]="form.form">
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
-            <mat-label>description</mat-label>
+<div class="inline-stretch-info">
+        <div class="row">
+        <div class="col-md-4 col-sm-6">
+<!--             <mat-label>Naruszenie ma charakter transgraniczny</mat-label> -->
+          <!--  {{'uodos.theBreachIsCrossBorderInNature' | translate"}}--->
         </div>
         <div class="col-md-6 col-sm-6">
             <mat-checkbox formControlName="description" (change)="hasImpact($event.checked)"> </mat-checkbox>
         </div>
     </div>
+
+        <br>
+        <div class="inline-stretch-info">
+          {{ 'uodos.countryEu' | translate }}<br>
+        </div>
 
     <div class="row">
         <div class="col-md-4 col-sm-4">
