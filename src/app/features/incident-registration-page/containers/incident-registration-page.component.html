@@ -74,11 +74,15 @@
 
 <!-- section 7 -->
 <app-person-categories-form></app-person-categories-form>
-<!----------------------------->
-<div class="section section-title">11. Pzretwarzanie transgraniczne</div>
 
-<mat-card appearance="outlined">
-    <mat-card-content>
+<!---11. Przetwarzanie transgraniczne-------------------------->
+   <hr>
+        <div class="inline-stretch-info">
+          <h4 pageLayoutTitle>
+            <!---{{ 'uodos.section11' | translate }}---->
+              Zaznacz kraje Europejskiego Obszaru Gospodarczego, których dotyczy naruszenie
+          </h4>
+        </div>
+ <div class="inline-stretch-info">
         <app-transborder-form [countriesList]="countriesList$ | async"></app-transborder-form>
-    </mat-card-content>
-</mat-card>
+ </div>
