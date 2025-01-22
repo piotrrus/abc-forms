@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
 import { AbstractControl, FormArray, FormBuilder } from '@angular/forms';
 import { List } from '@features/incident-registration-page/models/list.interface';
 import { BaseFormComponent } from 'src/shared/components/base-form.component';
-import { ListForm } from 'src/shared/forms/ListForm';
+import { ListForm } from 'src/shared/forms/list-form';
 
 @Component({
      selector: 'app-transborder-form',
@@ -12,8 +12,8 @@ import { ListForm } from 'src/shared/forms/ListForm';
 })
 export class TransBorderFormComponent extends BaseFormComponent {
      @Input() set countriesList(countriesList: List[] | null) {
-          // consumptionStandard ? this.addFormItems(consumptionStandard) : null;
           countriesList ? this.addFormItems(countriesList) : null;
+          console.log(countriesList);
      }
      @Output() public formChange = new EventEmitter<List[]>();
      @Output() public isFormValid = new EventEmitter<boolean>();

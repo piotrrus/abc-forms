@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit
 import { AbstractControl, FormBuilder } from '@angular/forms';
 import { List } from '@features/incident-registration-page/models/list.interface';
 import { BaseFormComponent } from 'src/shared/components/base-form.component';
-import { ListForm } from 'src/shared/forms/ListForm';
+import { ListForm } from 'src/shared/forms/list-form';
 
 @Component({
      selector: 'app-incident-reasons-form',
