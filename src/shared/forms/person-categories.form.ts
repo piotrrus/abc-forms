@@ -1,4 +1,4 @@
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormArray, FormGroup } from '@angular/forms';
 import { BaseForm } from './base.form';
 //section7
 export class PersonCategoriesForm extends BaseForm {
@@ -6,7 +6,7 @@ export class PersonCategoriesForm extends BaseForm {
 
      protected createForm(): FormGroup {
           return this.fb.group({
-               description: : ['', []],
+               description: ['', []],
                categories: new FormArray([]),
           });
      }
@@ -24,5 +24,9 @@ export class PersonCategoriesForm extends BaseForm {
                id: [''],
                name: [''],
           });
+     }
+
+     public getItemsControls(): AbstractControl[] {
+          return (this.form.get('categories') as FormArray).controls;
      }
 }

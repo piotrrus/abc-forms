@@ -13,6 +13,8 @@ import { TransBorderFormComponent } from './components/forms/transborder/transbo
 import { AdminAddressFormComponent } from './components/forms/admin-address-form/admin-address-form.component';
 import { DataSecurityInspectorFormComponent } from './components/forms/data-security-inspector-form/data-security-inspector-form.component';
 import { IncidentKindsFormComponent } from './components/forms/incident-kinds-form/incident-kinds-form.component';
+import { PersonalDataCategoriesFormComponent } from './components/forms/personal-data-categories-form/personal-data-categories-form.component';
+import { PersonCategoriesFormComponent } from './components/forms/person-categories-form/person-categories-form.component';
 
 const COMPONENTS = [
      ViolationReasonsFormComponent,
@@ -24,7 +26,7 @@ const COMPONENTS = [
      TransBorderFormComponent,
 ];
 @NgModule({
-     declarations: [COMPONENTS, IncidentRegistrationPageComponent, DataSecurityInspectorFormComponent, IncidentKindsFormComponent],
+     declarations: [COMPONENTS, IncidentRegistrationPageComponent, DataSecurityInspectorFormComponent, IncidentKindsFormComponent, PersonalDataCategoriesFormComponent, PersonCategoriesFormComponent],
      imports: [SharedModule, IncidentRegistrationPageRoutingModule],
      providers: [CountriesService, FormFieldsDescriptionService],
 })

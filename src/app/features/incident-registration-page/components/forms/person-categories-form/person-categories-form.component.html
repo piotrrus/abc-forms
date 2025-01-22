@@ -1,0 +1,12 @@
+<div [formGroup]="form.form">
+    <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls(); let z = index">
+        <ng-container [formGroupName]="z">
+            <div class="abc-form">
+                <span class="abc-form-label">incidentReason[z]</span>
+                <input matInput formControlName="categories" class="cross-border-checkbox" />
+            </div>
+        </ng-container>
+    </ng-container>
+    <span class="abc-form-label">Szczególowy opis...</span>
+    <input matInput formControlName="description" />
+</div>

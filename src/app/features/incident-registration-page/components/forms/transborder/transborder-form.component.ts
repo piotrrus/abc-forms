@@ -13,7 +13,6 @@ import { ListForm } from 'src/shared/forms/list-form';
 export class TransBorderFormComponent extends BaseFormComponent {
      @Input() set countriesList(countriesList: List[] | null) {
           countriesList ? this.addFormItems(countriesList) : null;
-          console.log(countriesList);
      }
      @Output() public formChange = new EventEmitter<List[]>();
      @Output() public isFormValid = new EventEmitter<boolean>();
