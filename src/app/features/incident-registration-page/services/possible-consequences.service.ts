@@ -5,11 +5,11 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { COMMON_MESSAGES } from 'src/shared/enums/common-messages';
 
 @Injectable()
-export class CountriesService {
+export class PossibleConsequencesService {
      constructor(private http: HttpClient) {}
 
-     public getCountriesList(): Observable<List[]> {
-          return this.http.get<List[]>('assets/data/countries.json').pipe(
+     public getImpactList(): Observable<List[]> {
+          return this.http.get<List[]>('assets/data/possible_consequences.json').pipe(
                shareReplay(1),
                take(1),
                catchError((error: HttpErrorResponse) => {

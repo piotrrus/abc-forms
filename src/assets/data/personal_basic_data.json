@@ -1,0 +1,18 @@
+[
+	{ "id": "1", "name": "Nazwiska i imiona" },
+	{ "id": "2", "name": "Data urodzenia" },
+	{ "id": "3", "name": "Numer rachunku bankowego" },
+	{ "id": "4", "name": "Adres zamieszkania lub pobytu" },
+	{ "id": "4", "name": "Numer ewidencyjny PESEL" },
+	{ "id": "4", "name": "Adres e-mail" },
+	{ "id": "4", "name": "Nazwa użytkownika i/lub hasło" },
+	{ "id": "4", "name": "Dane dotyczące zarobków i/lub posiadanego majątku" },
+	{ "id": "4", "name": "Nazwisko rodowe matki" },
+	{ "id": "4", "name": "Seria i numer dowodu osobistego" },
+	{ "id": "4", "name": "Numer telefonu" },
+	{ "id": "4", "name": "Wizerunek" },
+	{ "id": "4", "name": "Inne, wskaż jakie:" }
+]
+
+
+

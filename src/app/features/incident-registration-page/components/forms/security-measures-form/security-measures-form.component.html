@@ -1,0 +1,53 @@
+<div [formGroup]="form.form">
+    <div class="inline-stretch-info">
+        <h4 pageLayoutTitle>
+            <!---{{ 'uodos.section9A' | translate }}---->
+            9A. Ogólny opis
+        </h4>
+    </div>
+    <mat-form-field appearance="outline" class="form-field-full-width">
+        <textarea
+            matInput
+            formControlName="description"
+            placeholder="Kliknij tu..."
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="6"
+            cdkAutosizeMaxRows="8"
+        ></textarea>
+    </mat-form-field>
+    <div class="inline-stretch-info">
+        <h4 pageLayoutTitle>
+            <!---{{ 'uodos.section9B' | translate }}---->
+            9B. Środki bezpieczeństwa
+        </h4>
+    </div>
+    <mat-form-field appearance="outline" class="form-field-full-width">
+        <textarea
+            matInput
+            formControlName="measuresToAvoidAgain"
+            placeholder="Kliknij tu..."
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="6"
+            cdkAutosizeMaxRows="8"
+        ></textarea>
+    </mat-form-field>
+    <div class="inline-stretch-info">
+        <h4 pageLayoutTitle>
+            <!---{{ 'uodos.section9C' | translate }}---->
+            9C. Środki zastosowane
+        </h4>
+    </div>
+    <mat-form-field appearance="outline" class="form-field-full-width">
+        <textarea
+            matInput
+            formControlName="measuresAgainstImpacts"
+            placeholder="Kliknij tu..."
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="6"
+            cdkAutosizeMaxRows="8"
+        ></textarea>
+    </mat-form-field>
+</div>

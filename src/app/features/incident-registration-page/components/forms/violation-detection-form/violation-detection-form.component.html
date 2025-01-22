@@ -1,0 +1,50 @@
+<p>violation-detection-form works!</p>
+<!-- dateDiscoveryInfringement: ['', [Validators.required]],
+methodDeterminingViolation: ['', [Validators.required]],
+dateInformationSubject: ['', [Validators.required]],
+descriptionDateTimeEnd: ['', [Validators.required]], -->
+
+<div [formGroup]="form.form">
+    <div class="inline-stretch-info">
+        <h4 pageLayoutTitle>
+            <!---{{ 'uodos.section3A' | translate }}---->
+            3A. Ogólny opis
+        </h4>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <mat-label>Data stwierdzenia naruszenia...</mat-label>
+            <input matInput formControlName="dateDiscoveryInfringement" />
+        </div>
+    </div>
+
+    <mat-form-field appearance="outline" class="form-field-full-width">
+        <textarea
+            matInput
+            formControlName="descriptionDateTimeEnd"
+            placeholder="Kliknij tu..."
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="6"
+            cdkAutosizeMaxRows="8"
+        ></textarea>
+    </mat-form-field>
+    <div class="inline-stretch-info">
+        <h4 pageLayoutTitle>
+            <!---{{ 'uodos.section9B' | translate }}---->
+            9B. Środki bezpieczeństwa
+        </h4>
+    </div>
+    <mat-form-field appearance="outline" class="form-field-full-width">
+        <textarea
+            matInput
+            formControlName="methodDeterminingViolation"
+            placeholder="Kliknij tu..."
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="6"
+            cdkAutosizeMaxRows="8"
+        ></textarea>
+    </mat-form-field>
+</div>

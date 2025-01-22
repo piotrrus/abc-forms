@@ -19,6 +19,7 @@ export abstract class BaseFormComponent extends BaseComponent {
                     distinctUntilChanged(),
                     tap(() => {
                          if (this.form.form.valid) {
+                              // console.log(this.form.form.getRawValue());
                               this.formChange.emit(this.form.form.getRawValue());
                          }
                          this.isFormValid.emit(this.form.form.valid);

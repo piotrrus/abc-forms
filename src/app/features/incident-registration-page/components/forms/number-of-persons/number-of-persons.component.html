@@ -1,0 +1,36 @@
+<div [formGroup]="form.form">
+    <div class="inline-stretch-info">
+        <h4 pageLayoutTitle>
+            <!---{{ 'uodos.section9A' | translate }}---->
+            Przybliżona liczba osób...
+        </h4>
+    </div>
+    <mat-form-field appearance="outline" class="form-field-full-width">
+        <textarea
+            matInput
+            formControlName="nrOfViolated"
+            placeholder="Kliknij tu..."
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="6"
+            cdkAutosizeMaxRows="8"
+        ></textarea>
+    </mat-form-field>
+    <div class="inline-stretch-info">
+        <h4 pageLayoutTitle>
+            <!---{{ 'uodos.section9B' | translate }}---->
+            Przybliżona loiczba wpisów
+        </h4>
+    </div>
+    <mat-form-field appearance="outline" class="form-field-full-width">
+        <textarea
+            matInput
+            formControlName="nrOfViolatedData"
+            placeholder="Kliknij tu..."
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="6"
+            cdkAutosizeMaxRows="8"
+        ></textarea>
+    </mat-form-field>
+</div>

@@ -7,27 +7,53 @@ import { AdminRepresentativeFormComponent } from '@features/incident-registratio
 import { AdminDataFormComponent } from '@features/incident-registration-page/components/forms/admin-data-form/admin-data-form.component';
 import { CountriesService } from './services/countries.service';
 import { FormFieldsDescriptionService } from './services/form-fields-description.service';
-import { IncidentImpactFormComponent } from './components/forms/incident-reasons/incident-impact-form.component';
-import { IncidentReasonsFormComponent } from './components/forms/incident-impact/incident-reasons-form.component';
+// import { IncidentImpactFormComponent } from './components/forms/incident-reasons/incident-impact-form.component';
+// import { IncidentReasonsFormComponent } from './components/forms/incident-impact/incident-reasons-form.component';
 import { TransBorderFormComponent } from './components/forms/transborder/transborder-form.component';
 import { AdminAddressFormComponent } from './components/forms/admin-address-form/admin-address-form.component';
 import { DataSecurityInspectorFormComponent } from './components/forms/data-security-inspector-form/data-security-inspector-form.component';
 import { IncidentKindsFormComponent } from './components/forms/incident-kinds-form/incident-kinds-form.component';
 import { PersonalDataCategoriesFormComponent } from './components/forms/personal-data-categories-form/personal-data-categories-form.component';
 import { PersonCategoriesFormComponent } from './components/forms/person-categories-form/person-categories-form.component';
+import { PersonCategoriesService } from './services/person-categories.service';
+import { IncidentImpactComponent } from './components/forms/incident-impact/incident-impact.component';
+import { IncidentImpactsService } from './services/incident-impacts.service';
+import { IncidentReasonsFormComponent } from './components/forms/incident-reasons/incident-reasons-form.component';
+import { PossibleConsequencesFormComponent } from './components/forms/possible-consequences-form/possible-consequences-form.component';
+import { PossibleConsequencesService } from './services/possible-consequences.service';
+import { SecurityMeasuresFormComponent } from './components/forms/security-measures-form/security-measures-form.component';
+import { PersonalDataCategoriesService } from './services/personal-data-categories.service';
+import { NumberOfPersonsComponent } from './components/forms/number-of-persons/number-of-persons.component';
+import { ViolationTimeFormComponent } from './components/forms/violation-time-form/violation-time-form.component';
+import { ViolationDetectionFormComponent } from './components/forms/violation-detection-form/violation-detection-form.component';
 
 const COMPONENTS = [
      ViolationReasonsFormComponent,
      AdminRepresentativeFormComponent,
      AdminDataFormComponent,
      AdminAddressFormComponent,
-     IncidentImpactFormComponent,
+     IncidentImpactComponent,
      IncidentReasonsFormComponent,
      TransBorderFormComponent,
+     DataSecurityInspectorFormComponent,
+     IncidentKindsFormComponent,
+     PersonalDataCategoriesFormComponent,
+     PersonCategoriesFormComponent,
+     IncidentImpactComponent,
+     PossibleConsequencesFormComponent,
+     SecurityMeasuresFormComponent,
+     NumberOfPersonsComponent,
 ];
 @NgModule({
-     declarations: [COMPONENTS, IncidentRegistrationPageComponent, DataSecurityInspectorFormComponent, IncidentKindsFormComponent, PersonalDataCategoriesFormComponent, PersonCategoriesFormComponent],
+     declarations: [COMPONENTS, IncidentRegistrationPageComponent, ViolationTimeFormComponent, ViolationDetectionFormComponent],
      imports: [SharedModule, IncidentRegistrationPageRoutingModule],
-     providers: [CountriesService, FormFieldsDescriptionService],
+     providers: [
+          CountriesService,
+          FormFieldsDescriptionService,
+          PersonCategoriesService,
+          IncidentImpactsService,
+          PossibleConsequencesService,
+          PersonalDataCategoriesService,
+     ],
 })
 export class IncidentRegistrationPageModule {}

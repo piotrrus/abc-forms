@@ -29,6 +29,9 @@ export class TransBorderFormComponent extends BaseFormComponent {
      constructor(private fb: FormBuilder) {
           super();
      }
+     public ngOnInit(): void {
+          this.checkFormAndEmit();
+     }
 
      private addFormItems(dataArr: List[]): void {
           for (let item of dataArr) {

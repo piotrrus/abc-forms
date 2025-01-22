@@ -1,7 +1,7 @@
 import { AbstractControl, FormGroup, Validators } from '@angular/forms';
 import { BaseForm } from './base.form';
 
-export class TimeOfViolationForm extends BaseForm {
+export class ViolationTimeForm extends BaseForm {
      protected frm: FormGroup = this.createForm();
 
      protected createForm(): FormGroup {

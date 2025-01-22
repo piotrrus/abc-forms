@@ -1,12 +1,10 @@
 <div [formGroup]="form.form">
     <div class="inline-stretch-info">
         <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <!--             <mat-label>Naruszenie ma charakter transgraniczny</mat-label> -->
-                <!--  {{'uodos.theBreachIsCrossBorderInNature' | translate"}}--->
-            </div>
             <div class="col-md-6 col-sm-10">
-                <mat-checkbox formControlName="description" (change)="hasImpact($event.checked)"> </mat-checkbox>
+                <mat-checkbox formControlName="description" (change)="hasImpact($event.checked)">
+                    Naruszenie ma charakter transgraniczny
+                </mat-checkbox>
             </div>
         </div>
 
@@ -44,12 +42,11 @@
             <div class="col-md-4 col-sm-4">
                 <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls() | slice:startFirst:endFirst; let z = index">
                     <ng-container [formGroupName]="z">
-                        <div class="row">
+                        <div class="row checkbox-row">
                             <div class="col-md-6 col-sm-6">
-                                <mat-label>{{countriesFormData![z].name}}</mat-label>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <mat-checkbox (change)="assignCountry($event.checked, z)"> </mat-checkbox>
+                                <mat-checkbox formControlName="name" (change)="assignCountry($event.checked, z)">
+                                    {{countriesFormData![z].name}}
+                                </mat-checkbox>
                             </div>
                         </div>
                     </ng-container>
@@ -59,12 +56,14 @@
             <div class="col-md-4 col-sm-4">
                 <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls() | slice: startSec:endSec; let z = index">
                     <ng-container [formGroupName]="z">
-                        <div class="row">
+                        <div class="row checkbox-row">
                             <div class="col-md-6 col-sm-6">
-                                <mat-label>{{countriesFormData![z+startSec].name}}</mat-label>
+                                <mat-label></mat-label>
                             </div>
-                            <div class="col-md-6 col-sm-6">
-                                <mat-checkbox (change)="assignCountry($event.checked, z+startSec)"> </mat-checkbox>
+                            <div class="col-md-6 col-sm-6 checkbox-col">
+                                <mat-checkbox formControlName="name" (change)="assignCountry($event.checked, z+startSec)">
+                                    {{countriesFormData![z+startSec].name}}
+                                </mat-checkbox>
                             </div>
                         </div>
                     </ng-container>
@@ -72,5 +71,4 @@
             </div>
         </div>
     </div>
-    <!-- </div> -->
 </div>

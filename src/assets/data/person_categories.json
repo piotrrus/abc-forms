@@ -1,0 +1,13 @@
+[
+	{ "id": "1", "name": "Pracownicy" },
+	{ "id": "2", "name": "Użytkownicy" },
+	{ "id": "3", "name": "Subskrybenci" },
+	{ "id": "4", "name": "Studenci" },
+	{ "id": "5", "name": "Uczniowie" },
+	{ "id": "6", "name": "Służby mundurowe (np. wojsko, policja)" },
+	{ "id": "7", "name": "Klienci (obecni i potencjalni)" },
+	{ "id": "8", "name": "Klienci podmiotów publicznych" },
+	{ "id": "9", "name": "Pacjenci" },
+	{ "id": "10", "name": "Dzieci" },
+	{ "id": "11", "name": "Osoby o szczególnych potrzebach (np. osoby starsze, niepełnosprawne itp.)" }
+]

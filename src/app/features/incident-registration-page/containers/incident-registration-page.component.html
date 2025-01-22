@@ -66,23 +66,88 @@
 
 <mat-card appearance="outlined">
     <mat-card-content>
-        <app-incident-impact-form></app-incident-impact-form>
+        <!-- <app-incident-impact-form></app-incident-impact-form> -->
     </mat-card-content>
 </mat-card>
 
+<!-- section 6 -->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section5' | translate }}---->
+        5. liczba osób i wpisów
+    </h4>
+</div>
+<div class="inline-stretch-info">
+    <app-number-of-persons (formChange)="onNrOfPersonData($event)"></app-number-of-persons>
+</div>
 <!-- <app-incident-reasons-form> -->
 
+<!-- section 6 -->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section6' | translate }}---->
+        6. Kategoria danych osobowych
+    </h4>
+</div>
+<div class="inline-stretch-info">
+    <app-personal-data-categories-form
+        (formChange)="onPersonalCategories($event)"
+        [personalBasicCategoriesList]="personalBasicCategoriesList$ | async"
+        [personalSpecialCategoriesList]="personalSpecialCategoriesList$ | async"
+        [personalRodoCategoriesList]="personalRodoCategoriesList$ | async"
+    ></app-personal-data-categories-form>
+</div>
+<hr />
+
 <!-- section 7 -->
-<app-person-categories-form></app-person-categories-form>
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section7' | translate }}---->
+        7. Kategorie osób
+    </h4>
+</div>
+<div class="inline-stretch-info">
+    <app-person-categories-form
+        (formChange)="onPersonCategoriesData($event)"
+        [personCategoriesList]="personCategoriesList$ | async"
+    ></app-person-categories-form>
+</div>
+<hr />
+<!-- section 8 -->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section8' | translate }}---->
+        8. Możliwe konsekwencje
+    </h4>
+</div>
+<div class="inline-stretch-info">
+    <app-possible-consequences-form
+        (formChange)="onPossibleConsequencesData($event)"
+        [possibleConsequencesList]="possibleConsequencesList$ | async"
+    ></app-possible-consequences-form>
+    <!-- <app-incident-impact ></app-incident-impact> -->
+</div>
+<hr />
+<!-- section 9 -->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section9' | translate }}---->
+        9. Środki bezpieczeństwa
+    </h4>
+</div>
+
+<div class="inline-stretch-info">
+    <app-security-measures-form (formChange)="onSecurityMeasuresData($event)"></app-security-measures-form>
+</div>
 
 <!---11. Przetwarzanie transgraniczne-------------------------->
-   <hr>
-        <div class="inline-stretch-info">
-          <h4 pageLayoutTitle>
-            <!---{{ 'uodos.section11' | translate }}---->
-              Zaznacz kraje Europejskiego Obszaru Gospodarczego, których dotyczy naruszenie
-          </h4>
-        </div>
- <div class="inline-stretch-info">
-        <app-transborder-form [countriesList]="countriesList$ | async"></app-transborder-form>
- </div>
+<hr />
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section11' | translate }}---->
+        Zaznacz kraje Europejskiego Obszaru Gospodarczego, których dotyczy naruszenie
+    </h4>
+</div>
+<div class="inline-stretch-info">
+    <app-transborder-form (formChange)="onTransborderData($event)" [countriesList]="countriesList$ | async"></app-transborder-form>
+</div>

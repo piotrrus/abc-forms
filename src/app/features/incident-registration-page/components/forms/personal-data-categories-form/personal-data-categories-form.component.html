@@ -1,41 +1,73 @@
 <!-- 6A -->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section6A' | translate }}---->
+        6. Dane podstawowe
+    </h4>
+</div>
 <div [formGroup]="form.form">
-    <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls(); let z = index">
-        <ng-container [formGroupName]="z">
-            <div class="abc-form">
-                <span class="abc-form-label">incidentReason[z]</span>
-                <input matInput formControlName="name" class="cross-border-checkbox" />
+    <ng-container formArrayName="basic" *ngFor="let ctrl of getBasicsControls(); let x = index">
+        <ng-container [formGroupName]="x">
+            <div class="row checkbox-row">
+                <div class="col-md-6 col-sm-6">
+                    <mat-checkbox formControlName="name" (change)="assignBasicCategories($event.checked, x)">
+                        {{basicCategories![x].name}}
+                    </mat-checkbox>
+                </div>
             </div>
         </ng-container>
     </ng-container>
-    <span class="abc-form-label">Inne, wskaż jakie</span>
-    <input matInput formControlName="basicOthers" />
+
+    <ng-container *ngIf="isBasicOthersVisible">
+        <div class="row details-row">
+            <div class="col-md-6 col-sm-6">
+                <mat-label>Inne, wskaż jakie</mat-label>
+                <input matInput formControlName="basicOthers" />
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="inline-stretch-info">
+        <h4 pageLayoutTitle>
+            <!---{{ 'uodos.section6B' | translate }}---->
+            6. Dane szczególnej kategorii
+        </h4>
+    </div>
     <!-- 6B -->
 
-    <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls(); let z = index">
-        <ng-container [formGroupName]="z">
-            <div class="abc-form">
-                <span class="abc-form-label">incidentReason[z]</span>
-                <input matInput formControlName="name" class="cross-border-checkbox" />
+    <ng-container formArrayName="special" *ngFor="let ctrl of getSpecialsControls(); let y = index">
+        <ng-container [formGroupName]="y">
+            <div class="row checkbox-row">
+                <div class="col-md-6 col-sm-6">
+                    <mat-checkbox formControlName="name" (change)="assignSpecialCategories($event.checked, y)">
+                        {{specialCategories![y].name}}
+                    </mat-checkbox>
+                </div>
             </div>
         </ng-container>
     </ng-container>
     <!-- 6C -->
-    <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls(); let z = index">
+    <div class="inline-stretch-info">
+        <h4 pageLayoutTitle>
+            <!---{{ 'uodos.section6C' | translate }}---->
+            6. Dane, o których mowa RODO
+        </h4>
+    </div>
+    <ng-container formArrayName="rodo" *ngFor="let ctrl of getRodoControls(); let z = index">
         <ng-container [formGroupName]="z">
-            <div class="abc-form">
-                <span class="abc-form-label">incidentReason[z]</span>
-                <input matInput formControlName="name" class="cross-border-checkbox" />
+            <div class="col-md-6 col-sm-6">
+                <mat-checkbox formControlName="name" (change)="assignRodoCategories($event.checked, z)">
+                    {{rodoCategories![z].name}}
+                </mat-checkbox>
             </div>
         </ng-container>
     </ng-container>
-    <span class="abc-form-label">Inne</span>
-    <input matInput formControlName="rodoOthers" />
+    <ng-container *ngIf="isRodoOthersVisible">
+        <div class="row details-row">
+            <div class="col-md-6 col-sm-6">
+                <mat-label>Inne</mat-label>
+                <input matInput formControlName="rodoOthers" />
+            </div>
+        </div>
+    </ng-container>
 </div>
-
-<!-- basic: new FormArray([]),
-basicOthers: [''],
-
-special: new FormArray([]),
-rodo: new FormArray([]),
-rodoOthers: [''], -->

@@ -2,7 +2,7 @@
     <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls(); let z = index">
         <ng-container [formGroupName]="z">
             <div class="abc-form">
-                <span class="abc-form-label">incidentImpactLabel[z]</span>
+                <span class="abc-form-label">incidentReason[z]</span>
                 <input matInput formControlName="name" class="abc-form-checkbox" />
             </div>
         </ng-container>

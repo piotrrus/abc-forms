@@ -4,7 +4,11 @@
 // @import './app/styles/material.scss';
 // @import './app/styles/buttons.scss';
 // @import './app/styles/forms.scss';
-
+// @import
+body {
+     font-size: 16px;
+     font-family: Calibri;
+}
 .row-with-line {
      border-bottom: 0ch;
      margin-bottom: 25px;
@@ -20,4 +24,7 @@ input {
 
 .form-description {
      font-size: 10px;
+}
+.form-field-full-width {
+     width: 100%;
 }

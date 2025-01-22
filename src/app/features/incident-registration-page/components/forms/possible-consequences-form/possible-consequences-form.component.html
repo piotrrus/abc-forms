@@ -1,0 +1,22 @@
+<div [formGroup]="form.form">
+    <ng-container formArrayName="items" *ngFor="let ctrl of getItemsControls(); let z = index">
+        <ng-container [formGroupName]="z">
+            <div class="row checkbox-row">
+                <div class="col-md-6 col-sm-6 checkbox-col">
+                    <mat-checkbox formControlName="name" (change)="assignPossibleConsequences($event.checked, z)">
+                        {{possibleConsequencesData![z].name}}
+                    </mat-checkbox>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="isOthersVisible">
+        <div class="row details-row">
+            <div class="col-md-6 col-sm-6">
+                <mat-label>Opisz poniżej...</mat-label>
+                <input matInput formControlName="description" />
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { AbstractControl, FormBuilder } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder } from '@angular/forms';
 import { List } from '@features/incident-registration-page/models/list.interface';
 import { BaseFormComponent } from 'src/shared/components/base-form.component';
 import { PersonCategoriesForm } from 'src/shared/forms/person-categories.form';
@@ -18,8 +18,8 @@ export class PersonCategoriesFormComponent extends BaseFormComponent implements 
      @Output() public isFormValid = new EventEmitter<boolean>();
 
      public form: PersonCategoriesForm = new PersonCategoriesForm(this.fb);
-
-     private personCategories: List[] = [];
+     public items: FormArray = this.form.itemsArray;
+     public personCategories: List[] = [];
 
      constructor(private fb: FormBuilder) {
           super();
@@ -31,14 +31,15 @@ export class PersonCategoriesFormComponent extends BaseFormComponent implements 
      private initPersonCategories(personCategories: List[]): void {
           for (let category of personCategories) {
                this.personCategories.push(category);
+               this.items.push(this.form.createFormArray());
           }
-     }
-
-     public updatePersonCategories(value: boolean, id: number): void {
-          value ? (this.personCategories[id].value = value) : null;
      }
 
      public getItemsControls(): AbstractControl[] {
           return this.form.getItemsControls();
+     }
+     public assignCategory(value: boolean, id: number): void {
+          value ? (this.personCategories[id].value = value) : null;
+          console.log(this.personCategories);
      }
 }

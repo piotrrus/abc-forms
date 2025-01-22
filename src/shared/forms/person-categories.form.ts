@@ -7,7 +7,7 @@ export class PersonCategoriesForm extends BaseForm {
      protected createForm(): FormGroup {
           return this.fb.group({
                description: ['', []],
-               categories: new FormArray([]),
+               items: new FormArray([]),
           });
      }
 
@@ -15,8 +15,8 @@ export class PersonCategoriesForm extends BaseForm {
           return this.frm.get('description');
      }
 
-     public get categoriesArray(): FormArray {
-          return this.form.get('categories') as FormArray;
+     public get itemsArray(): FormArray {
+          return this.form.get('items') as FormArray;
      }
 
      public createFormArray(): FormGroup {
@@ -27,6 +27,6 @@ export class PersonCategoriesForm extends BaseForm {
      }
 
      public getItemsControls(): AbstractControl[] {
-          return (this.form.get('categories') as FormArray).controls;
+          return (this.form.get('items') as FormArray).controls;
      }
 }
