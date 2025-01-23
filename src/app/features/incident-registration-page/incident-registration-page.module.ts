@@ -26,6 +26,9 @@ import { PersonalDataCategoriesService } from './services/personal-data-categori
 import { NumberOfPersonsComponent } from './components/forms/number-of-persons/number-of-persons.component';
 import { ViolationTimeFormComponent } from './components/forms/violation-time-form/violation-time-form.component';
 import { ViolationDetectionFormComponent } from './components/forms/violation-detection-form/violation-detection-form.component';
+import { Section2Component } from './components/sections/section2/section2.component';
+import { Section4Component } from './components/sections/section4/section4.component';
+import { Section1Component } from './components/sections/section1/section1.component';
 
 const COMPONENTS = [
      ViolationReasonsFormComponent,
@@ -43,9 +46,14 @@ const COMPONENTS = [
      PossibleConsequencesFormComponent,
      SecurityMeasuresFormComponent,
      NumberOfPersonsComponent,
+     ViolationTimeFormComponent,
+     ViolationDetectionFormComponent,
+     Section1Component,
+     Section2Component,
+     Section4Component,
 ];
 @NgModule({
-     declarations: [COMPONENTS, IncidentRegistrationPageComponent, ViolationTimeFormComponent, ViolationDetectionFormComponent],
+     declarations: [COMPONENTS, IncidentRegistrationPageComponent],
      imports: [SharedModule, IncidentRegistrationPageRoutingModule],
      providers: [
           CountriesService,

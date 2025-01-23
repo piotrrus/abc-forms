@@ -27,13 +27,26 @@ export class IncidentRegistrationPageComponent {
 
      public incidentKinds: any;
      public violationReasons: any;
-     public transborderCountries: any;
+     // public transborderCountries: any;
      public incidentResults: any;
      public incidentImpact: any;
      public incidentReasons: any;
+
      public adminRepresentative: any;
      public adminData: any;
      public adminAddress: any;
+
+     public section1Data: any;
+     public section2Data: any;
+     public section3Data: any;
+     public section4Data: any;
+     public section5Data: any;
+     public section6Data: any;
+     public section7Data: any;
+     public section8Data: any;
+     public section9Data: any;
+     public section10Data: any;
+     public section11Data: any;
 
      constructor(
           private readonly formFieldsDescriptionService: FormFieldsDescriptionService,
@@ -85,10 +98,12 @@ export class IncidentRegistrationPageComponent {
 
                ...this.incidentKinds,
                ...this.violationReasons,
-               ...this.transborderCountries,
+               // ...this.transborderCountries,
                ...this.incidentResults,
                ...this.incidentImpact,
                ...this.incidentReasons,
+
+               ...this.section11Data,
           };
      }
 }

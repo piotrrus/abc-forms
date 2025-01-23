@@ -1,0 +1,88 @@
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section1' | translate }}---->
+        1. Typ zgłoszenia
+    </h4>
+</div>
+
+<div class="inline-stretch-info">
+    <mat-label>Podaj swoją...</mat-label>
+    <input matInput formControlName="optionalSign" />
+</div>
+
+<div class="inline-stretch-info">
+    <mat-radio-group aria-label="Select an option" formControlName="registrationType">
+        <div class="row">
+            <ng-container *ngFor="let type of registrationTypes">
+                <div class="col-md-4 col-sm-4">
+                    <mat-radio-button class="example-radio-button" (change)="selectOption(type.id)" [value]="type.id">
+                        {{type.name}}
+                    </mat-radio-button>
+                </div>
+            </ng-container>
+        </div>
+    </mat-radio-group>
+</div>
+
+<div class="inline-stretch-info">
+    <div class="row">
+        <div class="col-md-4 col-sm-4"></div>
+        <div class="col-md-4 col-sm-4">
+            <p>Podaj przybliżoną..</p>
+
+            <input matInput formControlName="addDatereopen" class="form-field-full-width" />
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <p>Data poprzedniego naruszenia...</p>
+            <input matInput formControlName="addDateold" class="form-field-full-width" />
+            <p>Podaj sygnaturę spawy UODO</p>
+            <input matInput formControlName="addTaskSignUodo" class="form-field-full-width" />
+        </div>
+    </div>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <mat-checkbox formControlName="theViolationHasBeenReportedOtherCoutry">
+            Naruszenie zostało.. zgłoszone w innym państwie
+            <!-- {{"'uodos.theViolationHasBeenReportedOtherCoutry' | translate"}} -->
+        </mat-checkbox>
+    </div>
+
+    <div class="col-md-6 col-sm-6">
+        <!-- {{"'uodos.addSignatureRegistration' | translate"}} -->
+        <!-- <p>podaj numer/sygnaturę złoszenia do innych ...</p> -->
+        <input matInput formControlName="addNameDepart" class="form-field-full-width" />
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <mat-checkbox formControlName="theViolationHasBeenReportedOtherCoutry">
+                Naruszenie zostało.. zgłoszone organowi
+                <!-- {{"'uodos.theViolationHasBeenReported' | translate"}} -->
+            </mat-checkbox>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <!-- {{"'uodos.addSignatureRegistration' | translate"}} -->
+            <!-- <p>podaj numer/sygnaturę złoszenia do innych ...</p> -->
+            <input matInput formControlName="addNameDepart" class="form-field-full-width" />
+        </div>
+        <!-- addNameDepart -->
+        <
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6"></div>
+        <div class="col-md-6 col-sm-6">
+            <!-- {{"'uodos.addSignatureRegistration' | translate"}} -->
+            <p>podaj numer/sygnaturę złoszenia do innych ...</p>
+            <input matInput formControlName="addSignatureRegistration" class="form-field-full-width" />
+        </div>
+
+        <hr />
+        <!-- <div class="inline-stretch-info">
+    <mat-label>Podaj swoją...</mat-label>
+    <input matInput formControlName="optionalSign" class="form-field-full-width"/>
+</div> -->
+    </div>
+</div>
