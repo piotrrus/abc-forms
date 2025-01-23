@@ -1,6 +1,6 @@
 import { AbstractControl, FormArray, FormGroup } from '@angular/forms';
 import { BaseForm } from './base.form';
-//section4
+
 export class ViolationDetailsForm extends BaseForm {
      protected frm: FormGroup = this.createForm();
 
