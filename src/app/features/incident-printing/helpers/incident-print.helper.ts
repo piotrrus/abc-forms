@@ -1,15 +1,15 @@
-// import { Injectable } from '@angular/core';
-// import { Content } from 'pdfmake/interfaces';
+import { Injectable } from '@angular/core';
+import { Content } from 'pdfmake/interfaces';
+import { DescriptionDTO } from './models/desription-dto.ts';
 // import { createHeaderSection } from './descriptions/header.desription.function';
-// import { ProductionPrintAssortsStrategy } from './description-print-assorts.strategy';
 // import { BasePrintHelper } from 'src/shared/helpers/base-print.helper';
+//extends BasePrintHelper {
+@Injectable()
+export class Section11PrintHelper {
+     private content: Content;
 
-// @Injectable()
-// export class DescriptionPrintHelper extends BasePrintHelper {
-//      private content: Content;
-
-//      public generatePdf(data: ProductionDescriptionModel): void {
-//           this.content = [];
+     public generatePdf(data: DescriptionDTO): void {
+          this.content = [];
 
 //           this.content.push(createHeaderSection(data));
 
@@ -21,5 +21,5 @@
 
 //           const pdfFileName = data.prod_order ? data.prod_order : data.client_nr;
 //           this.createPdf(this.content, pdfFileName);
-//      }
-// }
+     }
+}
