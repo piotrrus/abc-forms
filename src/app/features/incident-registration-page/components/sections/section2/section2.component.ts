@@ -28,13 +28,17 @@ export class Section2Component {
           this.adminRepresentative = $event;
           this.createIncidentModel();
      }
+     public onSecurityInspectorFormChange($event: any): void {
+          console.log($event);
+     }
 
      private createIncidentModel(): void {
-          const adminData: any = {
+          const sectionData: any = {
                ...this.adminData,
                ...this.adminAddress,
                ...this.adminRepresentative,
           };
-          this.adminForms.emit(adminData);
+          console.log(sectionData);
+          this.adminForms.emit(sectionData);
      }
 }

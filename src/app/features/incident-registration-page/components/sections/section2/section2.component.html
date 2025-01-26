@@ -11,7 +11,10 @@
         2A. Dane administratora danych
     </h4>
 </div>
-<div class="inline-stretch-info"></div>
+<div class="inline-stretch-info">
+    <app-admin-data-form (formChange)="onAdminDataFormChange($event)"></app-admin-data-form>
+</div>
+
 <div class="inline-stretch-info">
     <h4 pageLayoutTitle>
         <!---{{ 'uodos.section2B' | translate }}---->
@@ -19,7 +22,7 @@
     </h4>
 </div>
 <div class="inline-stretch-info">
-    <!-- <app-admin-address-form [countriesList]="countriesList$ | async"></app-admin-address-form> -->
+    <app-admin-address-form [countriesList]="countriesList" (formChange)="onAdminAddressFormChange($event)"></app-admin-address-form>
 </div>
 
 <div class="inline-stretch-info">
@@ -29,7 +32,7 @@
     </h4>
 </div>
 <div class="inline-stretch-info">
-    <!-- <app-admin-representative-form></app-admin-representative-form> -->
+    <!-- <app-admin-representative-form (formChange)="onRepresentativeFormChange($event)"></app-admin-representative-form> -->
 </div>
 
 <div class="inline-stretch-info">
@@ -39,7 +42,8 @@
     </h4>
 </div>
 <div class="inline-stretch-info">
-    <app-admin-representative-form></app-admin-representative-form>
+    <!-- <app-admin-representative-form></app-admin-representative-form> -->
+    <app-admin-representative-form (formChange)="onAdminRepresentativeFormChange($event)"></app-admin-representative-form>
 </div>
 
 <div class="inline-stretch-info">
@@ -49,7 +53,7 @@
     </h4>
 </div>
 <div class="inline-stretch-info">
-    <!-- <app-data-security-inspector-form></app-data-security-inspector-form> -->
+    <!-- <app-data-security-inspector-form (formChange)="onSecurityInspectorFormChange($event)"></app-data-security-inspector-form> -->
 </div>
 
 <div class="inline-stretch-info">

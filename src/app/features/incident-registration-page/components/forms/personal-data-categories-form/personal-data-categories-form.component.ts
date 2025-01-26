@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { List } from '@features/incident-registration-page/models/list.interface';
 import { BaseFormComponent } from 'src/shared/components/base-form.component';
 import { PersonalDataCategoriesForm } from 'src/shared/forms/personal-data-categories.form';
@@ -11,10 +11,6 @@ import { PersonalDataCategoriesForm } from 'src/shared/forms/personal-data-categ
      changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonalDataCategoriesFormComponent extends BaseFormComponent implements OnInit {
-     //  @Input() personalBasicCategoriesList: List[] | null = null;
-     // @Input() personalSpecialCategoriesList: List[] | null = null;
-     // @Input() personalRodoCategoriesList: List[] | null = null;
-
      @Input() set personalBasicCategoriesList(personalBasicCategoriesList: List[] | null) {
           personalBasicCategoriesList ? this.addFormBasicItems(personalBasicCategoriesList) : null;
      }
@@ -72,14 +68,14 @@ export class PersonalDataCategoriesFormComponent extends BaseFormComponent imple
 
      public assignBasicCategories(value: boolean, id: number): void {
           value ? (this.basicCategories[id].value = value) : null;
-          this.basicCategories[id].name.includes('Inne') ? (this.isBasicOthersVisible = value) : null;
+          this.basicCategories[id].name.includes('Inne') ? this.setBasicsOthersValidation(value) : null;
      }
      public assignSpecialCategories(value: boolean, id: number): void {
           value ? (this.specialCategories[id].value = value) : null;
      }
      public assignRodoCategories(value: boolean, id: number): void {
           value ? (this.rodoCategories[id].value = value) : null;
-          this.rodoCategories[id].name === 'Inne' ? (this.isRodoOthersVisible = value) : null;
+          this.rodoCategories[id].name === 'Inne' ? this.setRodoOthersValidation(value) : null;
      }
 
      public getBasicsControls(): AbstractControl[] {
@@ -90,5 +86,31 @@ export class PersonalDataCategoriesFormComponent extends BaseFormComponent imple
      }
      public getRodoControls(): AbstractControl[] {
           return this.form.getRodoControls();
+     }
+
+     private setBasicsOthersValidation(isOthers: boolean): void {
+          this.isBasicOthersVisible = isOthers;
+          const basicOthersFormField: AbstractControl | null = this.form.basicOthers;
+          isOthers
+               ? basicOthersFormField?.setValidators([
+                      Validators.required,
+                      Validators.minLength(3),
+                      Validators.maxLength(30),
+                 ])
+               : basicOthersFormField?.setValidators([]);
+          basicOthersFormField?.updateValueAndValidity();
+     }
+
+     private setRodoOthersValidation(isOthers: boolean): void {
+          this.isRodoOthersVisible = isOthers;
+          const rodoOthersFormField: AbstractControl | null = this.form.rodoOthers;
+          isOthers
+               ? rodoOthersFormField?.setValidators([
+                      Validators.required,
+                      Validators.minLength(3),
+                      Validators.maxLength(30),
+                 ])
+               : rodoOthersFormField?.setValidators([]);
+          rodoOthersFormField?.updateValueAndValidity();
      }
 }

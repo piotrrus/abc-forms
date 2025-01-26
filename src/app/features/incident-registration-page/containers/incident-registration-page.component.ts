@@ -7,6 +7,7 @@ import { PersonCategoriesService } from '../services/person-categories.service';
 import { IncidentImpactsService } from '../services/incident-impacts.service';
 import { PossibleConsequencesService } from '../services/possible-consequences.service';
 import { PersonalDataCategoriesService } from '../services/personal-data-categories.service';
+import { Section11 } from '../models/countries.interface';
 
 @Component({
      selector: 'app-incident-registration-page',
@@ -46,7 +47,7 @@ export class IncidentRegistrationPageComponent {
      public section8Data: any;
      public section9Data: any;
      public section10Data: any;
-     public section11Data: any;
+     public section11Data = <Section11>{};
 
      constructor(
           private readonly formFieldsDescriptionService: FormFieldsDescriptionService,
@@ -58,36 +59,44 @@ export class IncidentRegistrationPageComponent {
           private readonly personalDataCategoriesService: PersonalDataCategoriesService
      ) {}
 
-     public onAdminDataFormChange($event: any): void {
-          this.adminData = $event;
-          this.createIncidentModel();
-     }
-     public onAdminAddressFormChange($event: any): void {
-          this.adminAddress = $event;
-          this.createIncidentModel();
-     }
-     public onAdminRepresentativeFormChange($event: any): void {
-          this.adminRepresentative = $event;
-          this.createIncidentModel();
-     }
+     // public onAdminDataFormChange($event: any): void {
+     //      this.adminData = $event;
+     //      this.createIncidentModel();
+     // }
+     // public onAdminAddressFormChange($event: any): void {
+     //      this.adminAddress = $event;
+     //      this.createIncidentModel();
+     // }
+     // public onAdminRepresentativeFormChange($event: any): void {
+     //      this.adminRepresentative = $event;
+     //      this.createIncidentModel();
+     // }
 
      public onPossibleConsequencesData($event: any): void {
-          console.log($event);
+          // console.log($event);
+          // this.adminRepresentative = $event;
+          this.createIncidentModel();
      }
-     public onTransborderData($event: any): void {
+     public onTransborderData($event: Section11): void {
           console.log($event);
+          this.section11Data = $event;
+
+          this.createIncidentModel();
      }
      public onPersonCategoriesData($event: any): void {
-          console.log($event);
+          // console.log($event);
      }
      public onSecurityMeasuresData($event: any): void {
-          console.log($event);
+          // console.log($event);
      }
      public onPersonalCategories($event: any): void {
-          console.log($event);
+          // console.log($event);
      }
      public onNrOfPersonData($event: any): void {
-          console.log($event);
+          // console.log($event);
+     }
+     public onSection4FormChange($event: any): void {
+          // console.log($event);
      }
 
      private createIncidentModel(): void {
@@ -105,5 +114,6 @@ export class IncidentRegistrationPageComponent {
 
                ...this.section11Data,
           };
+          console.log(incident);
      }
 }

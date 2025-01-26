@@ -15,7 +15,28 @@
         <div class="row details-row">
             <div class="col-md-6 col-sm-6">
                 <mat-label>Opisz poniżej...</mat-label>
-                <input matInput formControlName="description" />
+                <mat-form-field appearance="outline" class="form-field-full-width">
+                    <input matInput formControlName="description" />
+                    <mat-error
+                        *ngIf="form.description?.hasError('required') &&
+                                      (form.description?.dirty || form.description?.touched)"
+                    >
+                        To pole jest wymagane
+                    </mat-error>
+                    <mat-error
+                        *ngIf="form.description?.hasError('minlength') &&
+                                  (form.description?.dirty || form.description?.touched)"
+                    >
+                        Wpisz przynajmniej 3 znaki
+                    </mat-error>
+                    <mat-error
+                        *ngIf="form.description?.hasError('maxlength') &&
+                                      (form.description?.dirty || form.description?.touched)"
+                    >
+                        Przekroczono dopuszczalną ilość znaków (30)
+                    </mat-error>
+                </mat-form-field>
+                <!-- <input matInput formControlName="description" /> -->
             </div>
         </div>
     </ng-container>

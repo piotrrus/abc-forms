@@ -3,7 +3,7 @@
     <!-- {{ 'uodos.uodo' | translate }} -->
 </h4>
 
-<app-section1></app-section1>
+<!-- <app-section1></app-section1> -->
 
 <!-- <div class="section section-title">1. Typ zgłoszenia</div>
 <mat-card appearance="outlined">
@@ -28,7 +28,7 @@
 <div class="section section-subtitle">3A. Wykrycie</div>
 
 <!----------------------------->
-<app-section4></app-section4>
+<app-section4 (formChange)="onSection4FormChange($event)"></app-section4>
 <!-- <div class="section section-title">4. Charakter naruszenia</div>
 <div class="section section-subtitle">4A. Opisz szczegółówo na czym..</div> -->
 
@@ -72,10 +72,10 @@
     </h4>
 </div>
 <div class="inline-stretch-info">
-    <app-person-categories-form
+    <!-- <app-person-categories-form
         (formChange)="onPersonCategoriesData($event)"
         [personCategoriesList]="personCategoriesList$ | async"
-    ></app-person-categories-form>
+    ></app-person-categories-form> -->
 </div>
 <hr />
 <!-- section 8 -->
@@ -86,10 +86,10 @@
     </h4>
 </div>
 <div class="inline-stretch-info">
-    <app-possible-consequences-form
+    <!-- <app-possible-consequences-form
         (formChange)="onPossibleConsequencesData($event)"
         [possibleConsequencesList]="possibleConsequencesList$ | async"
-    ></app-possible-consequences-form>
+    ></app-possible-consequences-form> -->
     <!-- <app-incident-impact ></app-incident-impact> -->
 </div>
 <hr />
@@ -102,7 +102,7 @@
 </div>
 
 <div class="inline-stretch-info">
-    <app-security-measures-form (formChange)="onSecurityMeasuresData($event)"></app-security-measures-form>
+    <!-- <app-security-measures-form (formChange)="onSecurityMeasuresData($event)"></app-security-measures-form> -->
 </div>
 <hr />
 
@@ -114,5 +114,5 @@
     </h4>
 </div>
 <div class="inline-stretch-info">
-    <app-transborder-form (formChange)="onTransborderData($event)" [countriesList]="countriesList$ | async"></app-transborder-form>
+    <!-- <app-transborder-form (formChange)="onTransborderData($event)" [countriesList]="countriesList$ | async"></app-transborder-form> -->
 </div>

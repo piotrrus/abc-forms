@@ -6,12 +6,12 @@ export class TransborderForm extends BaseArrayForm {
 
      protected createForm(): FormGroup {
           return this.fb.group({
-               description: ['', []],
+               theBreachIsCrossBorderInNature: ['', []],
                items: new FormArray([]),
           });
      }
 
-     public get description(): AbstractControl | null {
-          return this.frm.get('description');
+     public get theBreachIsCrossBorderInNature(): AbstractControl | null {
+          return this.frm.get('theBreachIsCrossBorderInNature');
      }
 }

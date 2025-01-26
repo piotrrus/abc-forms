@@ -5,32 +5,31 @@
             Przybliżona liczba osób...
         </h4>
     </div>
+    <!-- <input matInput formControlName="nrOfViolated" placeholder="Kliknij tu..." /> -->
     <mat-form-field appearance="outline" class="form-field-full-width">
-        <textarea
-            matInput
-            formControlName="nrOfViolated"
-            placeholder="Kliknij tu..."
-            cdkTextareaAutosize
-            #autosize="cdkTextareaAutosize"
-            cdkAutosizeMinRows="6"
-            cdkAutosizeMaxRows="8"
-        ></textarea>
+        <input matInput formControlName="nrOfViolated" appNumberOnly />
+        <mat-error
+            *ngIf="form.nrOfViolated?.hasError('required') &&
+                              (form.nrOfViolated?.dirty || form.nrOfViolated?.touched)"
+        >
+            To pole jest wymagane
+        </mat-error>
     </mat-form-field>
+
     <div class="inline-stretch-info">
         <h4 pageLayoutTitle>
             <!---{{ 'uodos.section9B' | translate }}---->
-            Przybliżona loiczba wpisów
+            Przybliżona liczba wpisów AAA
         </h4>
     </div>
+    <!-- <input matInput formControlName="nrOfViolatedData" placeholder="Kliknij tu..." /> -->
     <mat-form-field appearance="outline" class="form-field-full-width">
-        <textarea
-            matInput
-            formControlName="nrOfViolatedData"
-            placeholder="Kliknij tu..."
-            cdkTextareaAutosize
-            #autosize="cdkTextareaAutosize"
-            cdkAutosizeMinRows="6"
-            cdkAutosizeMaxRows="8"
-        ></textarea>
+        <input matInput formControlName="nrOfViolatedData" appNumberOnly />
+        <mat-error
+            *ngIf="form.nrOfViolatedData?.hasError('required') &&
+                          (form.nrOfViolatedData?.dirty || form.nrOfViolatedData?.touched)"
+        >
+            To pole jest wymagane
+        </mat-error>
     </mat-form-field>
 </div>

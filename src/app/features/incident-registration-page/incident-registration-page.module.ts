@@ -29,6 +29,8 @@ import { ViolationDetectionFormComponent } from './components/forms/violation-de
 import { Section2Component } from './components/sections/section2/section2.component';
 import { Section4Component } from './components/sections/section4/section4.component';
 import { Section1Component } from './components/sections/section1/section1.component';
+import { Section6Component } from './components/sections/section6/section6.component';
+import { Section3Component } from './components/sections/section3/section3.component';
 
 const COMPONENTS = [
      ViolationReasonsFormComponent,
@@ -53,7 +55,7 @@ const COMPONENTS = [
      Section4Component,
 ];
 @NgModule({
-     declarations: [COMPONENTS, IncidentRegistrationPageComponent],
+     declarations: [COMPONENTS, IncidentRegistrationPageComponent, Section6Component, Section3Component],
      imports: [SharedModule, IncidentRegistrationPageRoutingModule],
      providers: [
           CountriesService,

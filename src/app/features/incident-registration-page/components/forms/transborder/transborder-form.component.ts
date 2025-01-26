@@ -1,8 +1,10 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder } from '@angular/forms';
+import { Section11 } from '@features/incident-registration-page/models/countries.interface';
 import { List } from '@features/incident-registration-page/models/list.interface';
 import { BaseFormComponent } from 'src/shared/components/base-form.component';
 import { TransborderForm } from 'src/shared/forms/transborder.form';
+import { atLeastOne } from 'src/shared/validators/at-least-one.validator';
 
 @Component({
      selector: 'app-transborder-form',
@@ -14,7 +16,7 @@ export class TransBorderFormComponent extends BaseFormComponent {
      @Input() set countriesList(countriesList: List[] | null) {
           countriesList ? this.addFormItems(countriesList) : null;
      }
-     @Output() public formChange = new EventEmitter<List[]>();
+     @Output() public formChange = new EventEmitter<Section11>();
      @Output() public isFormValid = new EventEmitter<boolean>();
 
      public form: TransborderForm = new TransborderForm(this.fb);
@@ -25,6 +27,7 @@ export class TransBorderFormComponent extends BaseFormComponent {
      public endFirst = 0;
      public startSec = 0;
      public endSec = 0;
+     public isVisibleCountriesList: boolean = false;
 
      constructor(private fb: FormBuilder) {
           super();
@@ -44,21 +47,17 @@ export class TransBorderFormComponent extends BaseFormComponent {
           this.endSec = this.countriesFormData.length;
      }
 
-     public hasImpact(value: boolean): void {
-          console.log(value);
-          // this.form.getItemsControls()
-          // this.form.form.get('items')?.disable();
-          // for (let item of this.form.form.get('items').) {
-          //      item.disable();
-          // }
-          // this.form.itemsArray.disable();
-          this.form.form.get('items')?.get('name')?.disable();
-          //.get('name')
-          // console.log(this.form.form.get('items')?.get('name'));
-          // this.form.form.get('items')?[0]. .get('name').disable();
+     public hasImpact(isChecked: boolean): void {
+          this.isVisibleCountriesList = isChecked;
+          isChecked
+               ? this.form.form.get('items')?.setValidators([atLeastOne()])
+               : this.form.form.get('items')?.setValidators([]);
+
+          this.form.form.get('items')?.updateValueAndValidity();
      }
 
-     public assignCountry(value: boolean, id: number): void {
+     public addCountry(value: boolean, id: number): void {
+          console.log(value, id);
           value ? (this.countriesFormData[id].value = value) : null;
      }
 

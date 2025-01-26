@@ -22,9 +22,32 @@
         <div class="row details-row">
             <div class="col-md-6 col-sm-6">
                 <mat-label>Inne, wskaż jakie</mat-label>
-                <input matInput formControlName="basicOthers" />
+                <mat-form-field appearance="outline" class="form-field-full-width">
+                    <input matInput formControlName="basicOthers" />
+                    <mat-error
+                        *ngIf="form.basicOthers?.hasError('required') &&
+                                              (form.basicOthers?.dirty || form.basicOthers?.touched)"
+                    >
+                        To pole jest wymagane
+                    </mat-error>
+                    <mat-error
+                        *ngIf="form.basicOthers?.hasError('minlength') &&
+                                          (form.basicOthers?.dirty || form.basicOthers?.touched)"
+                    >
+                        Wpisz przynajmniej 3 znaki
+                    </mat-error>
+                    <mat-error
+                        *ngIf="form.basicOthers?.hasError('maxlength') &&
+                                              (form.basicOthers?.dirty || form.basicOthers?.touched)"
+                    >
+                        Przekroczono dopuszczalną ilość znaków (30)
+                    </mat-error>
+                </mat-form-field>
+                <!-- <input matInput formControlName="description" /> -->
             </div>
         </div>
+        <!-- <mat-label>Inne, wskaż jakie</mat-label>
+                <input matInput formControlName="basicOthers" /> -->
     </ng-container>
 
     <div class="inline-stretch-info">
@@ -65,8 +88,31 @@
     <ng-container *ngIf="isRodoOthersVisible">
         <div class="row details-row">
             <div class="col-md-6 col-sm-6">
-                <mat-label>Inne</mat-label>
-                <input matInput formControlName="rodoOthers" />
+                <!-- <mat-label>Inne</mat-label>
+                <input matInput formControlName="rodoOthers" /> -->
+                <mat-label>Inne, wskaż jakie</mat-label>
+                <mat-form-field appearance="outline" class="form-field-full-width">
+                    <input matInput formControlName="rodoOthers" />
+                    <mat-error
+                        *ngIf="form.rodoOthers?.hasError('required') &&
+                                      (form.rodoOthers?.dirty || form.rodoOthers?.touched)"
+                    >
+                        To pole jest wymagane
+                    </mat-error>
+                    <mat-error
+                        *ngIf="form.rodoOthers?.hasError('minlength') &&
+                                  (form.rodoOthers?.dirty || form.rodoOthers?.touched)"
+                    >
+                        Wpisz przynajmniej 3 znaki
+                    </mat-error>
+                    <mat-error
+                        *ngIf="form.rodoOthers?.hasError('maxlength') &&
+                                      (form.rodoOthers?.dirty || form.rodoOthers?.touched)"
+                    >
+                        Przekroczono dopuszczalną ilość znaków (30)
+                    </mat-error>
+                </mat-form-field>
+                <!-- <input matInput formControlName="description" /> -->
             </div>
         </div>
     </ng-container>

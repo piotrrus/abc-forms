@@ -8,6 +8,7 @@ import { PersonCategoriesForm } from 'src/shared/forms/person-categories.form';
      selector: 'app-person-categories-form',
      templateUrl: './person-categories-form.component.html',
      styleUrls: ['./person-categories-form.component.scss'],
+     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonCategoriesFormComponent extends BaseFormComponent implements OnInit {
      @Input() set personCategoriesList(personCategoriesList: List[] | null) {
@@ -35,11 +36,10 @@ export class PersonCategoriesFormComponent extends BaseFormComponent implements 
           }
      }
 
-     public getItemsControls(): AbstractControl[] {
-          return this.form.getItemsControls();
-     }
      public assignCategory(value: boolean, id: number): void {
           value ? (this.personCategories[id].value = value) : null;
-          console.log(this.personCategories);
+     }
+     public getItemsControls(): AbstractControl[] {
+          return this.form.getItemsControls();
      }
 }

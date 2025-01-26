@@ -8,8 +8,8 @@ export class AdminDataForm extends BaseForm {
           return this.fb.group({
                fullNameAdmin: ['', [Validators.required]],
                regon: ['', [Validators.required]],
-               nip: ['', [Validators.maxLength(20)]],
-               krs: ['', [Validators.maxLength(50)]],
+               nip: ['', [Validators.required]],
+               krs: ['', [Validators.required]],
                forSectorPublic: ['', []],
                forSectorPrivate: ['', []],
           });

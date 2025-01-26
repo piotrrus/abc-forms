@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { List } from '@features/incident-registration-page/models/list.interface';
 import { BaseFormComponent } from 'src/shared/components/base-form.component';
 import { PossibleConsequencesForm } from 'src/shared/forms/possible-consequences.form';
@@ -8,6 +8,7 @@ import { PossibleConsequencesForm } from 'src/shared/forms/possible-consequences
      selector: 'app-possible-consequences-form',
      templateUrl: './possible-consequences-form.component.html',
      styleUrls: ['./possible-consequences-form.component.scss'],
+     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PossibleConsequencesFormComponent extends BaseFormComponent implements OnInit {
      @Input() set possibleConsequencesList(possibleConsequencesList: List[] | null) {
@@ -37,11 +38,22 @@ export class PossibleConsequencesFormComponent extends BaseFormComponent impleme
 
      public assignPossibleConsequences(value: boolean, id: number): void {
           value ? (this.possibleConsequencesData[id].value = value) : null;
-          console.log(this.possibleConsequencesData[id].name);
-          this.possibleConsequencesData[id].name === 'Inne' ? (this.isOthersVisible = value) : null;
+          this.possibleConsequencesData[id].name === 'Inne' ? this.setOthersField(value) : null;
      }
 
      public getItemsControls(): AbstractControl[] {
           return this.form.getItemsControls();
+     }
+
+     private setOthersField(isOthers: boolean): void {
+          this.isOthersVisible = isOthers;
+          isOthers
+               ? this.form.description?.setValidators([
+                      Validators.required,
+                      Validators.minLength(3),
+                      Validators.maxLength(30),
+                 ])
+               : this.form.description?.setValidators([]);
+          this.form.description?.updateValueAndValidity();
      }
 }
