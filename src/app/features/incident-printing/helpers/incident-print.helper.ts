@@ -1,25 +1,56 @@
 import { Injectable } from '@angular/core';
-import { Content } from 'pdfmake/interfaces';
-import { DescriptionDTO } from './models/desription-dto.ts';
-// import { createHeaderSection } from './descriptions/header.desription.function';
-// import { BasePrintHelper } from 'src/shared/helpers/base-print.helper';
-//extends BasePrintHelper {
+import { Content, ContentCanvas } from 'pdfmake/interfaces';
+import { BasePrintHelper } from './base-print.helper';
+import { DescriptionDTO } from 'src/description-dto';
+import { createHeaderSection } from './header.incident.function';
+import { createSection11 } from './section11-print.function';
+import { createSection9 } from './section9-print.function';
+import { createSection8 } from './section8-print.function';
+import { createSection7 } from './section7-print.function';
+import { createSection6 } from './section6-print.function';
+import { createSection5 } from './section5-print.function';
+import { createSection4 } from './section4-print.function';
+import { createSection3 } from './section3-print.function';
+import { createSection2 } from './section2-print.function';
+import { createSection1 } from './section1-print.function';
+
 @Injectable()
-export class Section11PrintHelper {
-     private content: Content;
-
+export class IncidentPrintHelper extends BasePrintHelper {
      public generatePdf(data: DescriptionDTO): void {
-          this.content = [];
+          const content: Content = [];
+          const pdfFileName = 'incident-test';
 
-//           this.content.push(createHeaderSection(data));
+          content.push(createHeaderSection());
+          content.push(this.horizontalLine());
 
-//           this.content.push(ProductionPrintAssortsStrategy.generateList(data));
+          content.push(createSection1(data));
+          content.push(createSection2(data));
+          content.push(createSection3(data));
+          content.push(createSection4(data));
+          content.push(createSection5(data));
+          content.push(createSection6(data));
+          content.push(createSection7(data));
+          content.push(createSection8(data));
+          content.push(createSection9(data));
 
-//           this.content.push({ text: 'Filc ' + data.felt ? data.felt : '', style: 'list' });
+          content.push(createSection11(data));
 
-//           this.content.push(createFabricSection(data));
+          this.createPdf(content, pdfFileName);
+     }
 
-//           const pdfFileName = data.prod_order ? data.prod_order : data.client_nr;
-//           this.createPdf(this.content, pdfFileName);
+     private horizontalLine(): ContentCanvas {
+          return {
+               canvas: [
+                    {
+                         type: 'line',
+                         lineColor: '#BDBDBD',
+                         x1: 0,
+                         y1: 5,
+                         x2: 595 - 2 * 40,
+                         y2: 5,
+                         lineWidth: 1,
+                    },
+               ],
+          };
      }
 }

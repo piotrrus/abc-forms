@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { FormFieldsDescriptionService } from '../services/form-fields-description.service';
 import { CountriesService } from '../services/countries.service';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { List } from '../models/list.interface';
 import { PersonCategoriesService } from '../services/person-categories.service';
 import { IncidentImpactsService } from '../services/incident-impacts.service';
 import { PossibleConsequencesService } from '../services/possible-consequences.service';
 import { PersonalDataCategoriesService } from '../services/personal-data-categories.service';
 import { Section11 } from '../models/countries.interface';
+import { IncidentsService } from '../services/incident.service';
+import { IncidentPrintHelper } from '@features/incident-printing/helpers/incident-print.helper';
 
 @Component({
      selector: 'app-incident-registration-page',
@@ -49,15 +51,21 @@ export class IncidentRegistrationPageComponent {
      public section10Data: any;
      public section11Data = <Section11>{};
 
+     private incidentData: any;
+
      constructor(
           private readonly formFieldsDescriptionService: FormFieldsDescriptionService,
           private readonly countriesService: CountriesService,
           private readonly personCategoriesService: PersonCategoriesService,
           private readonly incidentImpactsService: IncidentImpactsService,
           private readonly possibleConsequencesService: PossibleConsequencesService,
-
-          private readonly personalDataCategoriesService: PersonalDataCategoriesService
-     ) {}
+          private readonly personalDataCategoriesService: PersonalDataCategoriesService,
+          private readonly incidentsService: IncidentsService,
+          private readonly incidentPrintHelper: IncidentPrintHelper
+          //
+     ) {
+          this.getIncidentData();
+     }
 
      // public onAdminDataFormChange($event: any): void {
      //      this.adminData = $event;
@@ -115,5 +123,20 @@ export class IncidentRegistrationPageComponent {
                ...this.section11Data,
           };
           console.log(incident);
+     }
+
+     private getIncidentData(): void {
+          this.incidentsService
+               .getIncident()
+               .pipe(
+                    tap((data) => {
+                         console.log(data);
+                         this.incidentData = data;
+                    })
+               )
+               .subscribe();
+     }
+     public pdfExport(): void {
+          this.incidentPrintHelper.generatePdf(this.incidentData);
      }
 }

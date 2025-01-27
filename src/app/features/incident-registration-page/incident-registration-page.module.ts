@@ -31,6 +31,8 @@ import { Section4Component } from './components/sections/section4/section4.compo
 import { Section1Component } from './components/sections/section1/section1.component';
 import { Section6Component } from './components/sections/section6/section6.component';
 import { Section3Component } from './components/sections/section3/section3.component';
+import { IncidentsService } from './services/incident.service';
+import { IncidentPrintModule } from './incident-print.module';
 
 const COMPONENTS = [
      ViolationReasonsFormComponent,
@@ -56,7 +58,7 @@ const COMPONENTS = [
 ];
 @NgModule({
      declarations: [COMPONENTS, IncidentRegistrationPageComponent, Section6Component, Section3Component],
-     imports: [SharedModule, IncidentRegistrationPageRoutingModule],
+     imports: [SharedModule, IncidentRegistrationPageRoutingModule, IncidentPrintModule],
      providers: [
           CountriesService,
           FormFieldsDescriptionService,
@@ -64,6 +66,7 @@ const COMPONENTS = [
           IncidentImpactsService,
           PossibleConsequencesService,
           PersonalDataCategoriesService,
+          IncidentsService,
      ],
 })
 export class IncidentRegistrationPageModule {}
