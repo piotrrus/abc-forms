@@ -6,19 +6,20 @@
 - dodać klasę wspólną – rozszerzającą (Abstract), zawierającą wspólny kod dla klas formularzy oraz interface’y metod, zmiennych.
 ## 2.	Usunięcie modułu tłumaczeń ?
 ## 3.	Weryfikacja i ewentualne usunięcie zbędnych pakietów (package.json) m.in.
-	"timsort": "^0.3.0",
-	"tooltip.js": "^1.3.2", 
-	"component-emitter": "^1.3.0", 
-	"core-js": "^2.6.9", ?
-	"flat": "^4.1.0", 
-	"http-status-codes": "^1.3.2", 
-	moment=>dayjs? moment jest w chwili obecnej nierozwijany
+-	"timsort": "^0.3.0",
+-	"tooltip.js": "^1.3.2", 
+-	"component-emitter": "^1.3.0", 
+-	"core-js": "^2.6.9", ?
+-	"flat": "^4.1.0", 
+-	"http-status-codes": "^1.3.2", 
+-	moment=>dayjs? moment jest w chwili obecnej nierozwijany
 ## 4.	Wyczyszczenie i ujednolicenie kodu, przygotowanie pod migrację – interfaces (any)
 ## 5.	Wykorzystanie ng linta do automatycznego formatowania kodu i sprawdzenia jego poprawności
 ## 6.	Dodać interceptory – nagłówek, ew. obsługa błędów, wysyłanych zapytań
 
-## 7.	Refactoring dużych komponentów – podzielenie na mniejsze zgodnie z zasadami Clean Code i OOP – z uwzględnieniem podziału komponenty na smart/dump (formularze, modale, itp).
-Główny formularz to ok 1500 linii kodu w części HTML.
+## 7.	Refactoring dużych komponentów – podzielenie na mniejsze zgodnie z zasadami Clean Code i OOP 
+– z uwzględnieniem podziału komponenty na smart/dump (formularze, modale, itp).
+- Główny formularz to ok 1500 linii kodu w części HTML.
 
 ## 8.	Sprawdzić kod pod względem jego powtarzalności i utrzymania i poprawić (utworzyć reużywalne komponenty, klasy typu abstract…).
 ## 9.	Podbicie wersji Angulara do 18, po wyczyszczeniu pakietów i wprowadzeniu w/w poprawek.
