@@ -1,8 +1,99 @@
 [
+    
+    {"description": "Wskaż czy zgłaszasz naruszenie ochrony danych osobowych mające charakter jednorazowego zdarzenia (np. zgubienie, kradzież nośnika danych, przypadkowe wysłanie danych osobie nieuprawnionej), czy przygotowujesz wstępne zgłoszenie, które uzupełnisz później, lub czy uzupełniasz lub zmieniasz wcześniejsze zgłoszenie", "label": ""},
+    
+    {"typeControl1": "Zgłoszenie kompletne/jednoerazowe", "label": ""},
+
+    {"addTaskSignUodo": "ABC-TEST", "label": "Podaj sygnaturę sprawy UODO"},
+
+    
+    {"theViolationHasBeenReportedOtherCoutry": true, "label": "Naruszenie zostało lub zostanie zgłoszone organowi ochrony danych osobowych w innym państwie"},
+    
+    {"addNameDepart": "Policja", "label": "Podaj nazwy tych organów"},
+    {"addSignatureRegistration": "ABC-122345", "label": "Podaj numer/sygnaturę zgłoszenia do innego organu"},
 
 
-    {"noHighRiskWasFound": true, "label": "8B. Czy wystąpiło wysokie ryzyko naruszenia praw lub wolności osób fizycznych?"},
-    {"justification": true, "label": "justification"},
+    {"forSectorPublic": "Administracja rządowa", "label": "Dla sektora publicznego"},
+    {"forSectorPrivate": "Uczelnie wyższe", "label": "Dla sektora prywatnego"},
+
+    {"fullNameAdmin": true, "label": "Pełna nazwa administratora"},
+
+    {"regon": true, "label": "regon"},
+    {"nip": true, "label": "nip"},
+    {"krs": true, "label": "krs"},
+
+    {"street": true, "label": "uica"},
+    {"city": "Warszawa", "label": "Miasto"},
+    {"communeAdministrativeArea": "Wola", "label": "Gmina"},
+    {"countyAdministrativeArea": true, "label": "Województwo"},
+
+    {"numberHouse": true, "label": "Numer domu"},
+    {"numberflat": true, "label": "Numer lokalu"},
+
+    
+    {"postCode": "00-123", "label": "Kod pocztowy"},
+    {"provinceAdministrativeArea": "warszawski", "label": "Powiat"},
+
+    {"country": "polska", "label": "Państwo"},
+  
+    {"applicationCompletedTheRepresentative": true, "label": "Wniosek wypełniany przez pełnomocnika "},
+    {"nameDateContact": "Jan Kowalski", "label": "Imię i nazwisko"},
+    {"phoneNumber": "123-123-123", "label": "Numer telefonu"},
+    {"mail": "abc@wp.pl", "label": "Adres e-mail"},
+    {"anInspectorHasNotBeenAppointed": true, "label": "Inspektor nie został wyznaczony"},
+ 
+    {"austria": true, "label": "Nazwa i dane kontaktowe"},
+    {"austria": true, "label": "Rola"},
+
+    {"dateDiscoveryInfringement": true, "2025-01-18": "Data stwierdzenia naruszenia"},
+    {"methodDeterminingViolation": true, "2025-01-9": "Sposób stwierdzenia naruszenia"},
+
+    {"dateInformationSubject": "2025-01-20", "label": "Data powiadomienia przez podmiot przetwarzający"},
+
+    
+    {"reasonsForDelay": "test", "label": "Powody opóźnienia powiadomienia organu nadzorczego o naruszeniu"},
+
+
+    {"dateTime3b": "2025-01-20", "Data i czas zaistnienia/rozpoczęcia naruszenia"},
+    {"dateTimeEnd3b": "2025-01-21", "label": "Data i czas zakończenia naruszenia"},
+
+    {"descSection4a": "test", "label": "Na czym polegało naruszenie?"},
+    {"section4bcheckboxA": true, "label": "a) Zgubienie lub kradzież nośnika/urządzenia"},
+    {"section4bcheckboxB": true, "label": "b) Dokumentacja papierowa (zawierająca dane osobowe) zgubiona, skradziona lub pozostawiona w niezabezpieczonej lokalizacji"},
+    {"section4bcheckboxD": true, "label": "d) Nieuprawnione uzyskanie dostępu do informacji"},
+
+
+    {"descriptionSection4Ca": "test", "label": "a) Jeśli w ocenie administratora doszło wyłącznie do naruszenia dostępności danych, w jaki sposób stwierdzono, że nie doszło do naruszenia ich poufności? "},
+    {"descriptionSection4Cb": "test", "label": "b) Czy, a jeżeli tak, to w jakiej formie, złośliwe oprogramowanie poinformowało o konieczności uiszczenia opłaty w celu odzyskania dostępu do danych"},
+    {"descriptionSection4Cc": "test", "label": "c) Jeżeli doszło do utraty dostępności danych, to czy administrator był w posiadaniu kopii zapasowej, jeśli tak to w jakim czasie ją przywrócił?"},
+
+    {"internalActionUnintentional": true, "label": "Wewnętrzne działanie niezamierzone"},
+    
+
+    {"dataIntegrityBreach": true, "label": "Naruszenie integralności danych"},
+
+    {"section4FKids": true, "label": "Naruszenie dotyczy przetwarzania danych w związku ze świadczeniem usług społeczeństwa informacyjnego oferowanych bezpośrednio dziecku"},
+
+    {"approximateNumberOfPeopleBreached": true, "label": "Przybliżona liczba osób, których dotyczy naruszenie"},
+    {"approximateNumberOfPeopleBreachedEntry": true, "label": "Przybliżona liczba wpisów danych osobowych, których dotyczy naruszenie"},
+
+    {"serialNumberPersonallDocument": true, "label": "Numer rachunku bankowego"},
+    {"surnamesAndNames": true, "label": "Nazwiska i imiona"},    
+    {"imagePerson": true, "label": "Wizerunek"},
+
+
+    {"dataAboutRacialEthnicOrigin": true, "label": "Dane o pochodzeniu rasowym lub etnicznym"},
+    {"dataAboutGuiltyverdicts": true, "label": "Dane dotyczące wyroków skazujących"},
+
+    {"employes": true, "label": "Pracownicy"},
+    {"users": true, "label": "Użytkownicy"},
+
+    {"lossControlOverPersonalData": true, "label": "Utrata kontroli nad własnymi danymi osobowymi"},
+    {"financialLoss": true, "label": "Strata finansowa"},
+   
+
+    {"typeControl2": true, "label": "8B. Czy wystąpiło wysokie ryzyko naruszenia praw lub wolności osób fizycznych?"},
+    {"justification": "Wystąpiło wysokie ryzyko naruszenia praw", "label": "justification"},
 
 
     {"section9a": "Ogólny opis technicznych środków bezpieczeństwa", "label": "9A. Ogólny opis technicznych i organizacyjnych środków bezpieczeństwa dotychczas stosowanych "},
