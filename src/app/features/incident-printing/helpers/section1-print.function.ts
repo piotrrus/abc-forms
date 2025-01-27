@@ -10,6 +10,20 @@ export function createSection1(data: DescriptionDTO): Content {
           style: 'description',
      });
 
+     // content.push({
+     //      layout: 'noBorders', // optional
+     //      table: {
+     //           headerRows: 1,
+     //           widths: [200, 200, '*'],
+
+     //           body: [
+     //                ['', '', ''],
+     //                ['Value 1', 'Value 2', 'Value 3'],
+     //                [{ text: 'Bold value', bold: true }, 'Val 2', 'Val 3'],
+     //           ],
+     //      },
+     // });
+
      // {
      //      "addSignatureRegistration": "ABC-122345",
      //      "label": "Podaj numer/sygnaturę zgłoszenia do innego organu"

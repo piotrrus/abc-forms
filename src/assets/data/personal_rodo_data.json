@@ -1,7 +1,5 @@
 [
-	{ "id": "1", "name": "Dane dotyczące wyroków skazujących" },
-	{ "id": "2", "name": "Dane dotyczące czynów zabronionych" },
-	{ "id": "3", "name": "Inne" }
+     { "id": "1", "name": "Dane dotyczące wyroków skazujących" },
+     { "id": "2", "name": "Dane dotyczące czynów zabronionych" },
+     { "id": "3", "name": "Inne" }
 ]
-
-

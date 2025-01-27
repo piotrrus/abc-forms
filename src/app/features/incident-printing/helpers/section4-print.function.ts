@@ -38,7 +38,7 @@ export function createSection4(data: DescriptionDTO): Content {
           : null;
 
      content.push({
-          text: '4E. Character',
+          text: '4E. Charakter',
           style: 'sectionItem',
      });
 

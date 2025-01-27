@@ -7,12 +7,12 @@ export function createSection11(data: DescriptionDTO): Content {
      content.push({ text: '11. Przetwarzanie transgraniczne', style: 'sectionHeader' });
 
      data.theBreachIsCrossBorderInNature
-          ? content.push({ text: 'Naruszenie ma charakter transgraniczny', style: 'list' })
-          : content.push({ text: 'Naruszenie nie ma charakteru transgranicznego', style: 'list' });
-
-     content.push({ text: 'Lista krajów, których dotyczy naruszenie', style: 'list' });
+          ? content.push({ text: 'Naruszenie ma charakter transgraniczny', style: 'listTitle' })
+          : content.push({ text: 'Naruszenie nie ma charakteru transgranicznego', style: 'listTitle' });
 
      if (data.theBreachIsCrossBorderInNature) {
+          content.push({ text: 'Lista krajów, których dotyczy naruszenie', style: 'list' });
+
           data.austria ? content.push({ text: 'Austria', style: 'list' }) : null;
           data.belgium ? content.push({ text: 'Austria', style: 'list' }) : null;
           data.bulgaria ? content.push({ text: 'Bułgaria', style: 'list' }) : null;
