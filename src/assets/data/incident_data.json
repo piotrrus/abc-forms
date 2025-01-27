@@ -1,0 +1,31 @@
+[
+
+
+    {"noHighRiskWasFound": true, "label": "8B. Czy wystąpiło wysokie ryzyko naruszenia praw lub wolności osób fizycznych?"},
+    {"justification": true, "label": "justification"},
+
+
+    {"section9a": "Ogólny opis technicznych środków bezpieczeństwa", "label": "9A. Ogólny opis technicznych i organizacyjnych środków bezpieczeństwa dotychczas stosowanych "},
+    {"section9b": "Środki bezpieczeństwa zastosowan", "label": "9B. Środki bezpieczeństwa zastosowane lub proponowane w celu zminimalizowana ryzyka ponownego wystąpienia naruszenia "},
+    {"section9c": "Środki zastosowane lub proponowane w celu zaradzenia naruszeniu", "label": "9C. Środki zastosowane lub proponowane w celu zaradzenia naruszeniu i zminimalizowania negatywnych skutków dla osób, których dane dotyczą "},
+
+
+    {"typeControl3": "SECTION_10NOTICE"},
+    {"typeControl4": "INDVIDUAL"},
+    {"typeControl5": "APPROPRITE_TECHNICAL"},
+    {"section10IndwidualFalse": true, "label": ""},
+
+    {"indicateTheDateNotification": "2025.02.02", "label": ""},
+    {"indicateTheDateOfThePlannedNotification": "2025.03.02", "label": ""},
+    {"numberOfPeopleNotified": "test", "label": ""},
+    
+    {"meansOfCommunicationUsedToNotifyDataSubject": "test", "label": ""},
+    {"iDoNotYetKnowDateWhenIntendToNotifyDataSubjects": true, "label": ""},
+    {"includeDheAnonymized": "test", "label": ""},
+    {"theBreachIsCrossBorderInNature": true, "label": ""},
+    {"austria": true, "label": "austria"},
+    {"spain": true, "label": "spain"}
+]
+
+
+
