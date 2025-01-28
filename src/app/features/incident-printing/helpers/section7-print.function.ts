@@ -20,86 +20,79 @@ export function createSection7(data: DescriptionDTO): Content {
             })
           : null;
 
-          data.users
+     data.users
           ? content.push({
                  text: 'Subskrybenci',
                  style: BLOCK_STYLES.LIST,
             })
-          : null;    
-          
-          data.students
+          : null;
+
+     data.students
           ? content.push({
                  text: 'Studenci',
                  style: BLOCK_STYLES.LIST,
             })
-          : null;   
+          : null;
 
-          data.studentsHightSchool
+     data.studentsHightSchool
           ? content.push({
                  text: 'Uczniowie',
                  style: BLOCK_STYLES.LIST,
             })
-          : null;   
+          : null;
 
-          data.uniformedServices
+     data.uniformedServices
           ? content.push({
                  text: 'Służby mundurowe (np. wojsko, policja)',
                  style: BLOCK_STYLES.LIST,
             })
-          : null; 
+          : null;
 
-          data.customers
+     data.customers
           ? content.push({
                  text: 'Klienci (obecni i potencjalni)',
                  style: BLOCK_STYLES.LIST,
             })
           : null;
 
-          data.customersPublic
+     data.customersPublic
           ? content.push({
                  text: 'Klienci podmiotów publicznych',
                  style: BLOCK_STYLES.LIST,
             })
           : null;
-    
-          data.patients
+
+     data.patients
           ? content.push({
                  text: 'Pacjenci',
                  style: BLOCK_STYLES.LIST,
             })
           : null;
 
-          data.kids
+     data.kids
           ? content.push({
                  text: 'Dzieci',
                  style: BLOCK_STYLES.LIST,
             })
           : null;
 
-          data.peopleWithSpecialNeeds
+     data.peopleWithSpecialNeeds
           ? content.push({
                  text: 'Osoby o szczególnych potrzebach (np. osoby starsze, niepełnosprawne itp.)',
                  style: BLOCK_STYLES.LIST,
             })
           : null;
-          //{{ 'uodos.detailedDescriptionOfCategoriesPersonsAffectedThebreach'| translate }}
-          content.push({
-               text: 'Szczegółowy opis kategorii osób, których dotyczy naruszenie:',
-               style: BLOCK_STYLES.DESCRIPTION,
-          })
-          content.push({
-               text: 'Opisz np. kogo i w jakim przedziale czasowym dotyczy naruszenie',
-               style: BLOCK_STYLES.DESCRIPTION,
-          })
-          content.push({
-               text: 'W zgłoszeniu nie podawaj danych konkretnych osób, których dotyczy naruszenie.',
-               style: BLOCK_STYLES.DESCRIPTION,
-          })
-          data.descDetailedDescriptionOfCategoriesPersonsAffectedThebreach ?
-          content.push({
-               text: data.descDetailedDescriptionOfCategoriesPersonsAffectedThebreach,
-               style: BLOCK_STYLES.LIST,
-          }) : null
+     //{{ 'uodos.detailedDescriptionOfCategoriesPersonsAffectedThebreach'| translate }}
+     content.push({
+          text: 'Szczegółowy opis kategorii osób, których dotyczy naruszenie:',
+          style: BLOCK_STYLES.DESCRIPTION,
+     });
+     data.descDetailedDescriptionOfCategoriesPersonsAffectedThebreach
+          ? content.push({
+                 text: data.descDetailedDescriptionOfCategoriesPersonsAffectedThebreach,
+                 style: BLOCK_STYLES.LIST,
+            })
+          : null;
 
      return content;
 }

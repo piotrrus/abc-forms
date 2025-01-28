@@ -13,6 +13,7 @@ import { createSection4 } from './section4-print.function';
 import { createSection3 } from './section3-print.function';
 import { createSection2 } from './section2-print.function';
 import { createSection1 } from './section1-print.function';
+import { createSection10 } from './section10-print.function';
 
 @Injectable()
 export class IncidentPrintHelper extends BasePrintHelper {
@@ -32,7 +33,7 @@ export class IncidentPrintHelper extends BasePrintHelper {
           content.push(createSection7(data));
           content.push(createSection8(data));
           content.push(createSection9(data));
-
+          content.push(createSection10(data));
           content.push(createSection11(data));
 
           this.createPdf(content, pdfFileName);

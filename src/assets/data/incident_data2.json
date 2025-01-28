@@ -5,7 +5,7 @@
      "registrationCompletModify": false,
 
      "addDatereopen": "2025-01-10",
-     "addDateold" : "2025-01-20",
+     "addDateold": "2025-01-20",
      "addTaskSignUodo": "test 234",
      "theViolationHasBeenReportedOtherCoutry": true,
      "theViolationHasBeenReportedOtherCoutryDesc": "abc",
@@ -31,8 +31,9 @@
      "dataProtectionOfficer": true,
      "phoneNumber": "123123123",
      "mail": "abc@wp.pl",
-     
 
+     "dateTime3b": 1519211809934,
+     "dateTimeEnd3b": 1519129864400,
      "descriptionSection4Cb": "test",
      "descriptionSection4Cc": "test",
      "internalActionUnintentional": true,
@@ -58,20 +59,18 @@
      "section10IndwidualTrue": true,
      "section10IndwidualTrue2": false,
      "section10IndwidualFalse": false,
-     
 
      "theyWillNotBeNotifiedBecause": false,
      "ihaventRatedItYet": false,
      "appropriateTechnicalMeasuresHaveBeenImplementedBeforeTheViolation": false,
      "measuresWereTakenFollowingTheBreach": false,
      "noHighRiskWasFound": true,
-     "indicateTheDateNotification": 333,
-     "indicateTheDateOfThePlannedNotification1":222,
-     "numberOfPeopleNotified": "test",
+     "indicateTheDateNotification": 1519211809934,
+     "indicateTheDateOfThePlannedNotification1": 1519211809934,
+     "numberOfPeopleNotified": 33,
      "iDoNotYetKnowDateWhenIntendToNotifyDataSubjects": false,
      "meansOfCommunicationUsedToNotifyDataSubject": "Środki komunikacji wykorzystane do zawiadomienia osoby - test",
      "includeDheAnonymized": "zanonimizowana treść zawiadomienia - test",
-     
 
      "theBreachIsCrossBorderInNature": false,
      "austria": true,

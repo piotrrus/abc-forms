@@ -13,69 +13,70 @@ export function createSection8(data: DescriptionDTO): Content {
      });
      data.lossControlOverPersonalData
           ? content.push({
-               text: 'Utrata kontroli nad własnymi danymi osobowymi',
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: 'Utrata kontroli nad własnymi danymi osobowymi',
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
      data.financialLoss
           ? content.push({
-               text: 'Strata finansowa',
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: 'Strata finansowa',
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
      data.limitationAbilityToExerciseRightsRodo
           ? content.push({
-               text: 'Ograniczenie możliwości realizowania praw z art. 15-22 RODO',
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: 'Ograniczenie możliwości realizowania praw z art. 15-22 RODO',
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
      data.limitationAbilityToExerciseRights
           ? content.push({
-               text: 'Ograniczenie możliwości realizowania praw',
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: 'Ograniczenie możliwości realizowania praw',
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
      data.discrimination
           ? content.push({
-               text: 'Dyskryminacja',
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: 'Dyskryminacja',
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
      data.identityTheftFraud
           ? content.push({
-               text: 'Kradzież lub sfałszowanie tożsamości',
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: 'Kradzież lub sfałszowanie tożsamości',
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
      data.infringementGoodName
           ? content.push({
-               text: 'Naruszenie dobrego imienia',
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: 'Naruszenie dobrego imienia',
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
      data.lossConfidentialityPersonalDataProtectedProfessionalSecrecy
           ? content.push({
-               text: 'Utrata poufności danych osobowych chronionych tajemnicą zawodową',
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: 'Utrata poufności danych osobowych chronionych tajemnicą zawodową',
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
      data.unauthorizedReversalPseudonymization
           ? content.push({
-               text: 'Nieuprawnione odwrócenie pseudonimizacji',
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: 'Nieuprawnione odwrócenie pseudonimizacji',
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
      data.section8aOthers
           ? content.push({
-               text: 'Inne',
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: 'Inne',
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
-     data.section8aOthers
+
+     data.descWritelaw
           ? content.push({
-               text: data.descWritelaw,
-               style: BLOCK_STYLES.LIST,
-          })
+                 text: data.descWritelaw,
+                 style: BLOCK_STYLES.LIST,
+            })
           : null;
 
      content.push({

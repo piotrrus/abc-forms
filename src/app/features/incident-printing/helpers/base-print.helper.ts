@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Content, TDocumentDefinitions } from 'pdfmake/interfaces';
+
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
-(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+(<any>pdfMake).vfs = pdfFonts;
 
 @Injectable()
 export class BasePrintHelper {

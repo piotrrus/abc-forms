@@ -28,19 +28,70 @@ export function createSection4(data: DescriptionDTO): Content {
      // });
 
      // "'uodos.section4bcheckboxA' | translate"
-     data.section4bcheckboxA ? content.push({ text: 'a) Zgubienie lub kradzież nośnika/urządzenia', style: BLOCK_STYLES.LIST, }) : null;
-     data.section4bcheckboxB ? content.push({ text: 'b) Dokumentacja papierowa (zawierająca dane osobowe) zgubiona, skradziona lub pozostawiona w niezabezpieczonej lokalizacji', style: BLOCK_STYLES.LIST, }) : null;
-     data.section4bcheckboxC ? content.push({ text: 'c) Korespondencja papierowa utracona przez operatora pocztowego lub otwarta przed zwróceniem jej do nadawcy', style: BLOCK_STYLES.LIST, }) : null;
-     data.section4bcheckboxD ? content.push({ text: 'd) Nieuprawnione uzyskanie dostępu do informacji', style: BLOCK_STYLES.LIST, }) : null;
-     data.section4bcheckboxE ? content.push({ text: 'e) Nieuprawnione uzyskanie dostępu do informacji poprzez złamanie zabezpieczeń' }) : null;
-     data.section4bcheckboxF ? content.push({ text: 'f) Złośliwe oprogramowanie ingerujące w poufność, integralność lub dostępność danych' }) : null;
-     data.section4bcheckboxG ? content.push({ text: 'g) Uzyskanie poufnych informacji przez pozornie zaufaną osobę w oficjalnej komunikacji elektronicznej, takiej jak e-mail czy komunikator internetowy (phishing)', style: BLOCK_STYLES.LIST, }) : null;
-     data.section4bcheckboxH ? content.push({ text: 'h) Nieprawidłowa anonimizacja danych osobowych w dokumencie', style: BLOCK_STYLES.LIST, }) : null;
-     data.section4bcheckboxI ? content.push({ text: 'i) Nieprawidłowe usunięcie/zniszczenie danych osobowych z nośnika/urządzenia elektronicznego przed jego zbyciem przez administratora', style: BLOCK_STYLES.LIST, }) : null;
-     data.section4bcheckboxJ ? content.push({ text: 'j) Niezamierzona publikacja', style: BLOCK_STYLES.LIST, }) : null;
-     data.section4bcheckboxK ? content.push({ text: 'k) Dane osobowe wysłane do niewłaściwego odbiorcy', style: BLOCK_STYLES.LIST, }) : null;
-     data.section4bcheckboxL ? content.push({ text: 'l) Ujawnienie danych niewłaściwej osoby', style: BLOCK_STYLES.LIST, }) : null;
-     data.section4bcheckboxM ? content.push({ text: 'm) Ustne ujawnienie danych osobowych', style: BLOCK_STYLES.LIST, }) : null;
+     data.section4bcheckboxA
+          ? content.push({ text: 'a) Zgubienie lub kradzież nośnika/urządzenia', style: BLOCK_STYLES.LIST })
+          : null;
+     data.section4bcheckboxB
+          ? content.push({
+                 text: 'b) Dokumentacja papierowa (zawierająca dane osobowe) zgubiona, skradziona lub pozostawiona w niezabezpieczonej lokalizacji',
+                 style: BLOCK_STYLES.LIST,
+            })
+          : null;
+     data.section4bcheckboxC
+          ? content.push({
+                 text: 'c) Korespondencja papierowa utracona przez operatora pocztowego lub otwarta przed zwróceniem jej do nadawcy',
+                 style: BLOCK_STYLES.LIST,
+            })
+          : null;
+     data.section4bcheckboxD
+          ? content.push({
+                 text: 'd) Nieuprawnione uzyskanie dostępu do informacji',
+                 style: BLOCK_STYLES.LIST,
+            })
+          : null;
+     data.section4bcheckboxE
+          ? content.push({
+                 text: 'e) Nieuprawnione uzyskanie dostępu do informacji poprzez złamanie zabezpieczeń',
+            })
+          : null;
+     data.section4bcheckboxF
+          ? content.push({
+                 text: 'f) Złośliwe oprogramowanie ingerujące w poufność, integralność lub dostępność danych',
+            })
+          : null;
+     data.section4bcheckboxG
+          ? content.push({
+                 text: 'g) Uzyskanie poufnych informacji przez pozornie zaufaną osobę w oficjalnej komunikacji elektronicznej, takiej jak e-mail czy komunikator internetowy (phishing)',
+                 style: BLOCK_STYLES.LIST,
+            })
+          : null;
+     data.section4bcheckboxH
+          ? content.push({
+                 text: 'h) Nieprawidłowa anonimizacja danych osobowych w dokumencie',
+                 style: BLOCK_STYLES.LIST,
+            })
+          : null;
+     data.section4bcheckboxI
+          ? content.push({
+                 text: 'i) Nieprawidłowe usunięcie/zniszczenie danych osobowych z nośnika/urządzenia elektronicznego przed jego zbyciem przez administratora',
+                 style: BLOCK_STYLES.LIST,
+            })
+          : null;
+     data.section4bcheckboxJ
+          ? content.push({ text: 'j) Niezamierzona publikacja', style: BLOCK_STYLES.LIST })
+          : null;
+     data.section4bcheckboxK
+          ? content.push({
+                 text: 'k) Dane osobowe wysłane do niewłaściwego odbiorcy',
+                 style: BLOCK_STYLES.LIST,
+            })
+          : null;
+     data.section4bcheckboxL
+          ? content.push({ text: 'l) Ujawnienie danych niewłaściwej osoby', style: BLOCK_STYLES.LIST })
+          : null;
+     data.section4bcheckboxM
+          ? content.push({ text: 'm) Ustne ujawnienie danych osobowych', style: BLOCK_STYLES.LIST })
+          : null;
 
      content.push(sectionItem('4C. Działanie złoliwego oprogramowania'));
      // content.push({
@@ -48,7 +99,11 @@ export function createSection4(data: DescriptionDTO): Content {
      //      text: '4C. Działanie złoliwego oprogramowania',
      //      style: BLOCK_STYLES.SECTION_ITEM,
      // });
-     content.push(sectionList('a) Jeśli w ocenie administratora doszło wyłącznie do naruszenia dostępności danych, w jaki sposób stwierdzono, że nie doszło do naruszenia ich poufności?'));
+     content.push(
+          sectionList(
+               'a) Jeśli w ocenie administratora doszło wyłącznie do naruszenia dostępności danych, w jaki sposób stwierdzono, że nie doszło do naruszenia ich poufności?'
+          )
+     );
      // content.push({
      //      text: 'a) Jeśli w ocenie administratora doszło wyłącznie do naruszenia dostępności danych, w jaki sposób stwierdzono, że nie doszło do naruszenia ich poufności?',
      //      style: BLOCK_STYLES.LIST,
@@ -66,7 +121,9 @@ export function createSection4(data: DescriptionDTO): Content {
           text: 'c) Jeżeli doszło do utraty dostępności danych, to czy administrator był w posiadaniu kopii zapasowej, jeśli tak to w jakim czasie ją przywrócił?',
           style: BLOCK_STYLES.LIST,
      });
-     data.descriptionSection4Cc ? content.push({ text: data.descriptionSection4Cc, style: BLOCK_STYLES.LIST, }) : null;
+     data.descriptionSection4Cc
+          ? content.push({ text: data.descriptionSection4Cc, style: BLOCK_STYLES.LIST })
+          : null;
 
      content.push(sectionHeader('4D. Przyczyna naruszenia'));
      // content.push({
@@ -98,23 +155,32 @@ export function createSection4(data: DescriptionDTO): Content {
           : null;
      // {{ 'uodos.descbreachOfDataConfidentiality' | translate }}
      data.breachOfDataConfidentiality
-          ? content.push({ text: 'Nieuprawnione lub przypadkowe ujawnienie bądź udostępnienie danych', style: BLOCK_STYLES.DESCRIPTION })
+          ? content.push({
+                 text: 'Nieuprawnione lub przypadkowe ujawnienie bądź udostępnienie danych',
+                 style: BLOCK_STYLES.DESCRIPTION,
+            })
           : null;
 
      data.dataIntegrityBreach
-          ? content.push({ text: 'Naruszenie integralności danych', style: BLOCK_STYLES.LIST, })
+          ? content.push({ text: 'Naruszenie integralności danych', style: BLOCK_STYLES.LIST })
           : null;
      //{{ 'uodos.descDataIntegrityBreach' | translate }}
      data.dataIntegrityBreach
-          ? content.push({ text: 'Wprowadzenie nieuprawnionych zmian podczas odczytu, zapisu, transmisji lub przechowywania', style: 'BLOCK_STYLES.DESCRIPTION' })
+          ? content.push({
+                 text: 'Wprowadzenie nieuprawnionych zmian podczas odczytu, zapisu, transmisji lub przechowywania',
+                 style: 'BLOCK_STYLES.DESCRIPTION',
+            })
           : null;
 
      data.dataAvailabilityViolation
-          ? content.push({ text: 'Naruszenie dostępności danych', style: BLOCK_STYLES.LIST, })
+          ? content.push({ text: 'Naruszenie dostępności danych', style: BLOCK_STYLES.LIST })
           : null;
      // {{ 'uodos.descDataAvailabilityViolation' | translate }}
      data.dataAvailabilityViolation
-          ? content.push({ text: 'Brak możliwości wykorzystania danych na żądanie, w założonym czasie, przez osobę do tego uprawnioną', style: 'BLOCK_STYLES.DESCRIPTION' })
+          ? content.push({
+                 text: 'Brak możliwości wykorzystania danych na żądanie, w założonym czasie, przez osobę do tego uprawnioną',
+                 style: 'BLOCK_STYLES.DESCRIPTION',
+            })
           : null;
      content.push(sectionItem('4F. Dzieci'));
      // content.push({
@@ -126,7 +192,7 @@ export function createSection4(data: DescriptionDTO): Content {
           ? 'Naruszenie dotyczy przetwarzania danych..'
           : 'Naruszenie nie dotyczy przetwarzania danych..';
      content.push(sectionList(kidsIndidentText));
-    // content.push({ text: kidsIndidentText, style: BLOCK_STYLES.LIST, });
+     // content.push({ text: kidsIndidentText, style: BLOCK_STYLES.LIST, });
 
      return content;
 }
