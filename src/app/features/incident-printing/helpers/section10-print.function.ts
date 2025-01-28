@@ -2,7 +2,7 @@ import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
 import { sectionDescription, sectionHeader, sectionList } from './printing.util';
 import * as dayjs from 'dayjs';
-import { DATE_FORMAT } from '../enums/date-time.formats.enum';
+import { DATE_FORMAT, DATE_TIME_FORMAT } from '../enums/date-time.formats.enum';
 
 export function createSection10(data: DescriptionDTO): Content {
      const content: Content = [];
@@ -16,8 +16,8 @@ export function createSection10(data: DescriptionDTO): Content {
           content.push(sectionDescription(isIndividualText));
 
           content.push(sectionList('Wskaż datę zawiadomienia'));
-          const notificationDate = dayjs(data.indicateTheDateNotification).format(DATE_FORMAT);
-          const plannedDate = dayjs(data.indicateTheDateOfThePlannedNotification1).format(DATE_FORMAT);
+          const notificationDate = dayjs(data.indicateTheDateNotification).format(DATE_TIME_FORMAT);
+          const plannedDate = dayjs(data.indicateTheDateOfThePlannedNotification1).format(DATE_TIME_FORMAT);
 
           data.indicateTheDateNotification ? content.push(sectionList(notificationDate)) : null;
 
