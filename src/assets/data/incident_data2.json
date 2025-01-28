@@ -69,8 +69,8 @@
      "indicateTheDateOfThePlannedNotification1":222,
      "numberOfPeopleNotified": "test",
      "iDoNotYetKnowDateWhenIntendToNotifyDataSubjects": false,
-     "meansOfCommunicationUsedToNotifyDataSubject": "test",
-     "includeDheAnonymized": "test",
+     "meansOfCommunicationUsedToNotifyDataSubject": "Środki komunikacji wykorzystane do zawiadomienia osoby - test",
+     "includeDheAnonymized": "zanonimizowana treść zawiadomienia - test",
      
 
      "theBreachIsCrossBorderInNature": false,
