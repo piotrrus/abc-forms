@@ -35,6 +35,16 @@ export function createSection10(data: DescriptionDTO): Content {
           content.push(content.push(sectionList('Środki komunikacji wykorzystane do zawiadomienia osoby, której dane dotyczą')));
           data.meansOfCommunicationUsedToNotifyDataSubject ? content.push(content.push(sectionList(data.meansOfCommunicationUsedToNotifyDataSubject.toString()))) : null;
 
+          //includeDheAnonymized
+          content.push(content.push(sectionList('Umieść zanonimizowaną treść zawiadomienia, którą przesłałeś bądź zamierzasz przesłać do osób, których dane dotyczą.')));
+          content.push(content.push(sectionDescription('• opisywać jasnym i prostym językiem charakter naruszenia ochrony danych osobowych,')));
+          content.push(content.push(sectionDescription('• zawierać imię i nazwisko oraz dane kontaktowe inspektora ochrony danych lub oznaczenie innego punktu kontaktowego, od którego można uzyskać więcej informacji,')));
+          content.push(content.push(sectionDescription('• opisywać możliwe konsekwencje naruszenia ochrony danych osobowych,')));
+          content.push(content.push(sectionDescription('• opisywać środki zastosowane lub proponowane przez administratora w celu zaradzenia naruszeniu ochrony danych osobowych, w tym stosownych przypadkach środki w celu zminimalizowania jego ewentualnych negatywnych skutków.')));
+
+          
+          data.includeDheAnonymized ? content.push(content.push(sectionList(data.includeDheAnonymized))) : null;
+          
           //      <h6 pageLayoutTitle>
           //      {{ 'uodos.includeDheAnonymized' | translate }}<br>
           //      {{ 'uodos.desIncludeDheAnonymized0' | translate }}<br>
