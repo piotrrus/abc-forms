@@ -1,72 +1,48 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
+import { sectionDescription, sectionHeader, sectionList } from './printing.util';
 
 export function createSection1(data: DescriptionDTO): Content {
      const content: Content = [];
+     //'uodos.section1' | translate
+     content.push(sectionHeader('1. Typ zgloszenia'));
+     //'uodos.section1Desc' | translate
+     content.push(sectionDescription('Wskaż czy zgłaszasz naruszenie ochrony danych osobowych mające charakter jednorazowego zdarzenia (np. zgubienie, kradzież nośnika danych, przypadkowe wysłanie danych osobie nieuprawnionej), czy przygotowujesz wstępne zgłoszenie, które uzupełnisz później, lub czy uzupełniasz lub zmieniasz wcześniejsze zgłoszenie'));
 
-     content.push({ text: '1. Typ zgloszenia', style: 'sectionHeader' });
-     content.push({
-          text: 'Wskaż czy zgłaszasz naruszenie ochrony danych osobowych mające charakter jednorazowego zdarzenia (np. zgubienie, kradzież nośnika danych, przypadkowe wysłanie danych osobie nieuprawnionej), czy przygotowujesz wstępne zgłoszenie, które uzupełnisz później, lub czy uzupełniasz lub zmieniasz wcześniejsze zgłoszenie',
-          style: 'description',
-     });
+     // 'uodos.optionalSign' | translate
+     let signatureText = 'Sygnatura sprawy';
+     data.optionalSign ?
+          signatureText = `${signatureText} ${data.optionalSign}` : signatureText;
+     content.push(sectionList(signatureText));
 
-     // content.push({
-     //      layout: 'noBorders', // optional
-     //      table: {
-     //           headerRows: 1,
-     //           widths: [200, 200, '*'],
+     // 'uodos.registrationComplet' | translate"
+     data.registrationComplet ?
+          content.push(sectionList('Zgłoszenie kompletne/jednorazowe')) : null;
 
-     //           body: [
-     //                ['', '', ''],
-     //                ['Value 1', 'Value 2', 'Value 3'],
-     //                [{ text: 'Bold value', bold: true }, 'Val 2', 'Val 3'],
-     //           ],
-     //      },
-     // });
+     // 'uodos.registrationBegin' | translate"
+     if (data.registrationBegin) {
+          content.push(sectionList('Zgłoszenie wstępne'));
+          data.addDatereopen ? content.push(sectionList(data.addDatereopen?.toString())) : null;
+     }
 
-     // {
-     //      "addSignatureRegistration": "ABC-122345",
-     //      "label": "Podaj numer/sygnaturę zgłoszenia do innego organu"
-     // },
+     // 'uodos.registrationCompletModify' | translate"
+     //uodos.addTaskSignUodo, uodos.addDateold
+     if (data.registrationCompletModify) {
+          content.push(sectionList('Zgłoszenie uzupełniające/zmieniające'));
+          const prevRegistratioDate = 'Data poprzedniego zgłoszenia';
+          const uodoSignature = 'Data poprzedniego zgłoszenia';
 
-     // data.addSignatureRegistration
-     //      ? content.push({
-     //             text: `Przybliżona liczba osób, których dotyczy naruszenie ${data.approximateNumberOfPeopleBreached}`,
-     //             style: 'list',
-     //        })
-     //      : null;
+          data.addDateold ? content.push(sectionList(`${prevRegistratioDate} ${data.addDateold?.toString()}`)) : prevRegistratioDate;
 
-     // content.push({
-     //      text: '2A. Dane administratora danych',
-     //      style: 'sectionItem',
-     // });
-     // content.push({
-     //      text: '2B. Adres siedziby administratora danych',
-     //      style: 'sectionItem',
-     // });
-     // content.push({
-     //      text: '2C. Osoby uprawnione do reprezentowania administratora',
-     //      style: 'sectionItem',
-     // });
-     // content.push({
-     //      text: '2D. Pełnomocik',
-     //      style: 'sectionItem',
-     // });
-     // content.push({
-     //      text: '2E. Inspektor ochrony danych',
-     //      style: 'sectionItem',
-     // });
-     // content.push({
-     //      text: '2F. Inne podmioty uczestniczące',
-     //      style: 'sectionItem',
-     // });
+          data.addTaskSignUodo ? content.push(sectionList(`${uodoSignature} ${data.addTaskSignUodo?.toString()}`)) : uodoSignature;
 
-     // data.approximateNumberOfPeopleBreachedEntry
-     //      ? content.push({
-     //             text: `Przybliżona liczba wpisów danych osobowych, których dotyczy naruszenie ${data.approximateNumberOfPeopleBreachedEntry}`,
-     //             style: 'list',
-     //        })
-     //      : null;
+     }
+
+     // 'uodos.theViolationHasBeenReportedOtherCoutry' | translate
+     content.push(sectionList('Naruszenie zostało lub zostanie zgłoszone organowi ochrony danych osobowych w innym państwie'));
+
+     data.theViolationHasBeenReportedOtherCoutry ?
+          content.push(sectionList('TAK')) : 'NIE';
 
      return content;
 }
