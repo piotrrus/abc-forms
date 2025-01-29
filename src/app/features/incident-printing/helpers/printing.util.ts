@@ -34,8 +34,11 @@ export function createTable(tableData: TableData[]): ContentTable {
 }
 
 export function createContentTable(tableData: TableData[]): SectionContent[] {
-     let tableArr: any[] = [];
-
+     const tableArr: any[] = [];
+     // [
+     //      { text: 'Data i czas zaistnienia/rozpoczęcia naruszenia', style: 'list' },
+     //      { text: startEnd, style: 'list' },
+     // ],
      tableData.forEach((data) => {
           const body = [
                { text: data.description, style: 'list' },

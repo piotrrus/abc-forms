@@ -49,6 +49,18 @@ export function createSection3(data: DescriptionDTO): Content {
      const startEnd = dayjs(data.dateTime3b).format(DATE_TIME_FORMAT);
      const dateEnd = dayjs(data.dateTimeEnd3b).format(DATE_TIME_FORMAT);
 
+     // const body = createContentTable([
+     //      { description: 'Data i czas zaistnienia/rozpoczęcia naruszenia', value: startEnd },
+     //      { description: 'Data i czas zakończenia naruszenia', value: dateEnd },
+     // ]);
+
+     const body = [
+          { description: 'Data i czas zaistnienia/rozpoczęcia naruszenia', value: startEnd },
+          { description: 'Data i czas zakończenia naruszenia', value: dateEnd },
+     ];
+     console.log(createTable(body));
+     content.push(createTable(body));
+
      content.push({
           layout: 'noBorders',
           table: {

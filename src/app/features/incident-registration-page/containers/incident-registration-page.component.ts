@@ -6,7 +6,7 @@ import { List } from '../models/list.interface';
 import { PersonCategoriesService } from '../services/person-categories.service';
 import { IncidentImpactsService } from '../services/incident-impacts.service';
 import { PossibleConsequencesService } from '../services/possible-consequences.service';
-import { PersonalDataCategoriesService } from '../services/personal-data-categories.service';
+import { PersonalCategoriesService } from '../services/personal-categories.service';
 import { Section11 } from '../models/countries.interface';
 import { IncidentsService } from '../services/incident.service';
 import { IncidentPrintHelper } from '@features/incident-printing/helpers/incident-print.helper';
@@ -22,11 +22,11 @@ export class IncidentRegistrationPageComponent {
      public possibleConsequencesList$: Observable<List[]> = this.possibleConsequencesService.getImpactList();
 
      public personalBasicCategoriesList$: Observable<List[]> =
-          this.personalDataCategoriesService.getBasicCategorieList();
+          this.personalCategoriesService.getBasicCategorieList();
      public personalSpecialCategoriesList$: Observable<List[]> =
-          this.personalDataCategoriesService.getSpecialCategorieList();
+          this.personalCategoriesService.getSpecialCategorieList();
      public personalRodoCategoriesList$: Observable<List[]> =
-          this.personalDataCategoriesService.getRodoCategorieList();
+          this.personalCategoriesService.getRodoCategorieList();
 
      public incidentKinds: any;
      public violationReasons: any;
@@ -59,7 +59,7 @@ export class IncidentRegistrationPageComponent {
           private readonly personCategoriesService: PersonCategoriesService,
           private readonly incidentImpactsService: IncidentImpactsService,
           private readonly possibleConsequencesService: PossibleConsequencesService,
-          private readonly personalDataCategoriesService: PersonalDataCategoriesService,
+          private readonly personalCategoriesService: PersonalCategoriesService,
           private readonly incidentsService: IncidentsService,
           private readonly incidentPrintHelper: IncidentPrintHelper
           //

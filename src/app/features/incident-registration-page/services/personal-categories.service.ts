@@ -5,7 +5,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { COMMON_MESSAGES } from 'src/shared/enums/common-messages';
 
 @Injectable()
-export class PersonalDataCategoriesService {
+export class PersonalCategoriesService {
      constructor(private http: HttpClient) {}
 
      public getBasicCategorieList(): Observable<List[]> {
@@ -19,7 +19,7 @@ export class PersonalDataCategoriesService {
           );
      }
      public getRodoCategorieList(): Observable<List[]> {
-          return this.http.get<List[]>('assets/data/personal_rodo_data.json').pipe(
+          return this.http.get<List[]>('assets/data/personal-rodo-data.json').pipe(
                shareReplay(1),
                take(1),
                catchError((error: HttpErrorResponse) => {
@@ -29,7 +29,7 @@ export class PersonalDataCategoriesService {
           );
      }
      public getSpecialCategorieList(): Observable<List[]> {
-          return this.http.get<List[]>('assets/data/personal_special_data.json').pipe(
+          return this.http.get<List[]>('assets/data/personal-special-data.json').pipe(
                shareReplay(1),
                take(1),
                catchError((error: HttpErrorResponse) => {

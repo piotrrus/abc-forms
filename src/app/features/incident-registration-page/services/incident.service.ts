@@ -8,7 +8,7 @@ export class IncidentsService {
      constructor(private http: HttpClient) {}
 
      public getIncident(): Observable<IncidentData[]> {
-          return this.http.get<IncidentData[]>('assets/data/incident_data2.json').pipe(
+          return this.http.get<IncidentData[]>('assets/data/incident-data2.json').pipe(
                shareReplay(1),
                take(1),
                catchError((error: HttpErrorResponse) => {

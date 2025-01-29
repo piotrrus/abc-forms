@@ -22,7 +22,7 @@ import { IncidentReasonsFormComponent } from './components/forms/incident-reason
 import { PossibleConsequencesFormComponent } from './components/forms/possible-consequences-form/possible-consequences-form.component';
 import { PossibleConsequencesService } from './services/possible-consequences.service';
 import { SecurityMeasuresFormComponent } from './components/forms/security-measures-form/security-measures-form.component';
-import { PersonalDataCategoriesService } from './services/personal-data-categories.service';
+import { PersonalCategoriesService } from './services/personal-categories.service';
 import { NumberOfPersonsComponent } from './components/forms/number-of-persons/number-of-persons.component';
 import { ViolationTimeFormComponent } from './components/forms/violation-time-form/violation-time-form.component';
 import { ViolationDetectionFormComponent } from './components/forms/violation-detection-form/violation-detection-form.component';
@@ -65,7 +65,7 @@ const COMPONENTS = [
           PersonCategoriesService,
           IncidentImpactsService,
           PossibleConsequencesService,
-          PersonalDataCategoriesService,
+          PersonalCategoriesService,
           IncidentsService,
      ],
 })

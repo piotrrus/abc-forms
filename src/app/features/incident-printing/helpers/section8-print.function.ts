@@ -1,6 +1,12 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { sectionHeader, sectionItem, sectionList } from './printing.util';
+import {
+     sectionDescription,
+     sectionHeader,
+     sectionItem,
+     sectionList,
+     sectionListBold,
+} from './printing.util';
 
 export function createSection8(data: DescriptionDTO): Content {
      const content: Content = [];
@@ -31,9 +37,17 @@ export function createSection8(data: DescriptionDTO): Content {
      data.unauthorizedReversalPseudonymization
           ? content.push(sectionList('Nieuprawnione odwrócenie pseudonimizacji'))
           : null;
-     data.section8aOthers ? content.push(sectionList('Inne')) : null;
 
      data.descWritelaw ? content.push(sectionList(data.descWritelaw)) : null;
+
+     data.section8aOthers ? content.push(sectionList('Inne')) : null;
+
+     data.section8aOthers && data.descWritelaw
+          ? (content.push(
+                 sectionListBold('Inne skutki naruszenia prawa do ochrony danych osoby, której dane dotyczą:')
+            ),
+            content.push(sectionList(data.descWritelaw)))
+          : null;
 
      content.push(
           sectionItem('8B. Czy wystąpiło wysokie ryzyko naruszenia praw lub wolności osób fizycznych?')
@@ -41,7 +55,7 @@ export function createSection8(data: DescriptionDTO): Content {
 
      data.section8B ? content.push(sectionList('TAK')) : content.push(sectionList('NIE'));
 
-     data.justification ? content.push(sectionList(`Uzasadnienie  ${data.justification}`)) : null;
+     data.section8B && data.justification ? content.push(sectionList(data.justification)) : null;
 
      return content;
 }

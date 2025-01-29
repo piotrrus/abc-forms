@@ -1,6 +1,6 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { sectionHeader, sectionList, sectionListTitle } from './printing.util';
+import { sectionHeader, sectionList, sectionListBold, sectionListTitle } from './printing.util';
 import { INCIDENT_LABELS } from '../enums/incident-titles.enum';
 
 export function createSection11(data: DescriptionDTO): Content {
@@ -13,7 +13,7 @@ export function createSection11(data: DescriptionDTO): Content {
           : content.push(sectionListTitle(INCIDENT_LABELS.NO_TRANSBORDER_TYPE));
 
      if (data.theBreachIsCrossBorderInNature) {
-          content.push(sectionList(INCIDENT_LABELS.COUNTRIES_LIST));
+          content.push(sectionListBold(INCIDENT_LABELS.COUNTRIES_LIST));
 
           data.austria ? content.push(sectionList('Austria')) : null;
           data.belgium ? content.push(sectionList('Belgia')) : null;
