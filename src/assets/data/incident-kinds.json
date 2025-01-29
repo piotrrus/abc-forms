@@ -1,0 +1,17 @@
+[
+     {
+          "id": "1",
+          "name": "Naruszenie poufności danych",
+          "description": "Nieuprawnione lub przypadkowe ujawnienie bądź udostępnienie danych"
+     },
+     {
+          "id": "2",
+          "name": "Naruszenie integralności danych",
+          "description": "Wprowadzenie nieuprawnionych zmian podczas odczytu, zapisu, transmisji lub przechowywania"
+     },
+     {
+          "id": "3",
+          "name": "Naruszenie dostępności danych",
+          "description": "Brak możliwości wykorzystania danych na żądanie, w założonym czasie, przez osobę do tego uprawnioną"
+     }
+]

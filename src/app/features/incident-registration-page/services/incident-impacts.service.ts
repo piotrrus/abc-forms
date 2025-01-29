@@ -9,7 +9,7 @@ export class IncidentImpactsService {
      constructor(private http: HttpClient) {}
 
      public getImpactList(): Observable<List[]> {
-          return this.http.get<List[]>('assets/data/incident_impact.json').pipe(
+          return this.http.get<List[]>('assets/data/incident-impact.json').pipe(
                shareReplay(1),
                take(1),
                catchError((error: HttpErrorResponse) => {

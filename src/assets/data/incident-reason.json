@@ -1,0 +1,6 @@
+[
+     { "id": "1", "name": "Wewnętrzne działanie niezamierzone" },
+     { "id": "2", "name": "Wewnętrzne działanie zamierzone" },
+     { "id": "3", "name": "Zewnętrzne działanie niezamierzone" },
+     { "id": "4", "name": "Zewnętrzne działanie zamierzone" }
+]

@@ -9,7 +9,7 @@ export class PersonalDataCategoriesService {
      constructor(private http: HttpClient) {}
 
      public getBasicCategorieList(): Observable<List[]> {
-          return this.http.get<List[]>('assets/data/personal_basic_data.json').pipe(
+          return this.http.get<List[]>('assets/data/personal-basic-data.json').pipe(
                shareReplay(1),
                take(1),
                catchError((error: HttpErrorResponse) => {

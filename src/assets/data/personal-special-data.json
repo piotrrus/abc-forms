@@ -1,0 +1,10 @@
+[
+     { "id": "1", "name": "Dane o pochodzeniu rasowym lub etnicznym" },
+     { "id": "2", "name": "Dane o poglądach politycznych" },
+     { "id": "3", "name": "Dane o przekonaniach religijnych lub światopoglądowych" },
+     { "id": "4", "name": "Dane o przynależności do związków zawodowych" },
+     { "id": "5", "name": "Dane dotyczące seksualności lub orientacji seksualnej" },
+     { "id": "6", "name": "Dane dotyczące zdrowia" },
+     { "id": "7", "name": "Dane genetyczne" },
+     { "id": "8", "name": "Dane biometryczne w celu jednoznacznego zidentyfikowania osoby fizycznej" }
+]

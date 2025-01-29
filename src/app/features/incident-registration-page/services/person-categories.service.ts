@@ -9,7 +9,7 @@ export class PersonCategoriesService {
      constructor(private http: HttpClient) {}
 
      public getPersonCategorieList(): Observable<List[]> {
-          return this.http.get<List[]>('assets/data/person_categories.json').pipe(
+          return this.http.get<List[]>('assets/data/person-categories.json').pipe(
                shareReplay(1),
                take(1),
                catchError((error: HttpErrorResponse) => {
