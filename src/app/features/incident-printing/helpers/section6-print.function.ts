@@ -1,6 +1,5 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { BLOCK_STYLES } from '../enums/block-styles.enum';
 import { sectionHeader, sectionItem, sectionList } from './printing.util';
 
 export function createSection6(data: DescriptionDTO): Content {

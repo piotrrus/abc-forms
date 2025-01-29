@@ -2,7 +2,7 @@ import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
 import { sectionDescription, sectionHeader, sectionList } from './printing.util';
 import * as dayjs from 'dayjs';
-import { DATE_FORMAT, DATE_TIME_FORMAT } from '../enums/date-time.formats.enum';
+import { DATE_TIME_FORMAT } from '../enums/date-time.formats.enum';
 
 export function createSection10(data: DescriptionDTO): Content {
      const content: Content = [];
@@ -10,27 +10,39 @@ export function createSection10(data: DescriptionDTO): Content {
      content.push(sectionHeader('10. Czy osoby, których dane dotyczą, zostały zawiadomione o naruszeniu?'));
 
      if (data.section10true || data.section10Notice) {
-          content.push(sectionDescription('Czy indywidualnie?'));
+          // content.push(sectionList('Czy indywidualnie?'));
 
           const isIndividualText = data.section10IndwidualTrue ? 'TAK' : 'NIE';
-          content.push(sectionDescription(isIndividualText));
+          // content.push(sectionList(`Czy indywidualnie? ${isIndividualText}`));
 
-          content.push(sectionList('Wskaż datę zawiadomienia'));
           const notificationDate = dayjs(data.indicateTheDateNotification).format(DATE_TIME_FORMAT);
           const plannedDate = dayjs(data.indicateTheDateOfThePlannedNotification1).format(DATE_TIME_FORMAT);
 
-          data.indicateTheDateNotification ? content.push(sectionList(notificationDate)) : null;
-
-          content.push(sectionList('Wskaż datę planowanego zawiadomienia'));
-
-          data.indicateTheDateOfThePlannedNotification1 ? content.push(sectionList(plannedDate)) : null;
-
-          // content.push(sectionList('Liczba zawiadomionych osób'));
-          data.numberOfPeopleNotified
-               ? content.push(
-                      sectionList(`Liczba zawiadomionych osób ${data.numberOfPeopleNotified.toString()}`)
-                 )
-               : null;
+          content.push({
+               layout: 'noBorders',
+               table: {
+                    headerRows: 0,
+                    widths: ['*', '*'],
+                    body: [
+                         [
+                              { text: 'Czy indywidualnie?', style: 'list' },
+                              { text: isIndividualText, style: 'list' },
+                         ],
+                         [
+                              { text: 'Wskaż datę zawiadomienia', style: 'list' },
+                              { text: notificationDate, style: 'list' },
+                         ],
+                         [
+                              { text: 'Wskaż datę planowanego zawiadomienia', style: 'list' },
+                              { text: plannedDate, style: 'list' },
+                         ],
+                         [
+                              { text: 'Liczba zawiadomionych osób', style: 'list' },
+                              { text: data.numberOfPeopleNotified?.toString(), style: 'list' },
+                         ],
+                    ],
+               },
+          });
 
           content.push(
                sectionList('Nie znam jeszcze daty kiedy zamierzam zawiadomić osoby, których dane dotyczą')
@@ -42,6 +54,7 @@ export function createSection10(data: DescriptionDTO): Content {
           content.push(
                sectionList('Środki komunikacji wykorzystane do zawiadomienia osoby, której dane dotyczą')
           );
+
           data.meansOfCommunicationUsedToNotifyDataSubject
                ? content.push(sectionList(data.meansOfCommunicationUsedToNotifyDataSubject.toString()))
                : null;

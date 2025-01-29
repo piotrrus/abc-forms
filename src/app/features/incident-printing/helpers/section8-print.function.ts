@@ -1,96 +1,47 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { BLOCK_STYLES } from '../enums/block-styles.enum';
+import { sectionHeader, sectionItem, sectionList } from './printing.util';
 
 export function createSection8(data: DescriptionDTO): Content {
      const content: Content = [];
 
-     content.push({ text: '8. Możliwe konsekwencje', style: 'sectionHeader' });
+     content.push(sectionHeader('8. Możliwe konsekwencje'));
 
-     content.push({
-          text: '8A. Uszczerbek fizyczny, majątkowy, niemajątkowy lub inne znaczące konsekwencje dla osoby, której dane dotyczą',
-          style: 'sectionItem',
-     });
+     content.push(
+          sectionItem(
+               '8A. Uszczerbek fizyczny, majątkowy, niemajątkowy lub inne znaczące konsekwencje dla osoby, której dane dotyczą'
+          )
+     );
      data.lossControlOverPersonalData
-          ? content.push({
-                 text: 'Utrata kontroli nad własnymi danymi osobowymi',
-                 style: BLOCK_STYLES.LIST,
-            })
+          ? content.push(sectionList('Utrata kontroli nad własnymi danymi osobowymi'))
           : null;
-     data.financialLoss
-          ? content.push({
-                 text: 'Strata finansowa',
-                 style: BLOCK_STYLES.LIST,
-            })
-          : null;
+     data.financialLoss ? content.push(sectionList('Strata finansowa')) : null;
      data.limitationAbilityToExerciseRightsRodo
-          ? content.push({
-                 text: 'Ograniczenie możliwości realizowania praw z art. 15-22 RODO',
-                 style: BLOCK_STYLES.LIST,
-            })
+          ? content.push(sectionList('Ograniczenie możliwości realizowania praw z art. 15-22 RODO'))
           : null;
      data.limitationAbilityToExerciseRights
-          ? content.push({
-                 text: 'Ograniczenie możliwości realizowania praw',
-                 style: BLOCK_STYLES.LIST,
-            })
+          ? content.push(sectionList('Ograniczenie możliwości realizowania praw'))
           : null;
-     data.discrimination
-          ? content.push({
-                 text: 'Dyskryminacja',
-                 style: BLOCK_STYLES.LIST,
-            })
-          : null;
-     data.identityTheftFraud
-          ? content.push({
-                 text: 'Kradzież lub sfałszowanie tożsamości',
-                 style: BLOCK_STYLES.LIST,
-            })
-          : null;
-     data.infringementGoodName
-          ? content.push({
-                 text: 'Naruszenie dobrego imienia',
-                 style: BLOCK_STYLES.LIST,
-            })
-          : null;
+     data.discrimination ? content.push(sectionList('Dyskryminacja')) : null;
+     data.identityTheftFraud ? content.push(sectionList('Kradzież lub sfałszowanie tożsamości')) : null;
+     data.infringementGoodName ? content.push(sectionList('Naruszenie dobrego imienia')) : null;
      data.lossConfidentialityPersonalDataProtectedProfessionalSecrecy
-          ? content.push({
-                 text: 'Utrata poufności danych osobowych chronionych tajemnicą zawodową',
-                 style: BLOCK_STYLES.LIST,
-            })
+          ? content.push(sectionList('Utrata poufności danych osobowych chronionych tajemnicą zawodową'))
           : null;
      data.unauthorizedReversalPseudonymization
-          ? content.push({
-                 text: 'Nieuprawnione odwrócenie pseudonimizacji',
-                 style: BLOCK_STYLES.LIST,
-            })
+          ? content.push(sectionList('Nieuprawnione odwrócenie pseudonimizacji'))
           : null;
-     data.section8aOthers
-          ? content.push({
-                 text: 'Inne',
-                 style: BLOCK_STYLES.LIST,
-            })
-          : null;
+     data.section8aOthers ? content.push(sectionList('Inne')) : null;
 
-     data.descWritelaw
-          ? content.push({
-                 text: data.descWritelaw,
-                 style: BLOCK_STYLES.LIST,
-            })
-          : null;
+     data.descWritelaw ? content.push(sectionList(data.descWritelaw)) : null;
 
-     content.push({
-          text: '8B. Czy wystąpiło wysokie ryzyko naruszenia praw lub wolności osób fizycznych?',
-          style: 'sectionItem',
-     });
+     content.push(
+          sectionItem('8B. Czy wystąpiło wysokie ryzyko naruszenia praw lub wolności osób fizycznych?')
+     );
 
-     data.section8B
-          ? content.push({ text: 'TAK', style: BLOCK_STYLES.LIST })
-          : content.push({ text: 'NIE', style: BLOCK_STYLES.LIST });
+     data.section8B ? content.push(sectionList('TAK')) : content.push(sectionList('NIE'));
 
-     data.justification
-          ? content.push({ text: `Uzasadnienie  ${data.justification}`, style: BLOCK_STYLES.LIST })
-          : null;
+     data.justification ? content.push(sectionList(`Uzasadnienie  ${data.justification}`)) : null;
 
      return content;
 }

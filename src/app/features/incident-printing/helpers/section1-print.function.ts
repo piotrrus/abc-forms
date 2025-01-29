@@ -45,13 +45,15 @@ export function createSection1(data: DescriptionDTO): Content {
      }
 
      // 'uodos.theViolationHasBeenReportedOtherCoutry' | translate
-     content.push(
-          sectionList(
-               'Naruszenie zostało lub zostanie zgłoszone organowi ochrony danych osobowych w innym państwie'
-          )
-     );
+     const otherCoutryViolationReported =
+          'Naruszenie zostało lub zostanie zgłoszone organowi ochrony danych osobowych w innym państwie';
+     const otherCoutryViolationReportedText = data.theViolationHasBeenReportedOtherCoutry
+          ? `${otherCoutryViolationReported} TAK`
+          : `${otherCoutryViolationReported} NIE`;
 
-     data.theViolationHasBeenReportedOtherCoutry ? content.push(sectionList('TAK')) : 'NIE';
+     content.push(sectionList(otherCoutryViolationReportedText));
+
+     // data.theViolationHasBeenReportedOtherCoutry ? content.push(sectionList('TAK')) : 'NIE';
 
      return content;
 }

@@ -17,6 +17,7 @@ export class BasePrintHelper {
                     subheader: { fontSize: 12, bold: false, margin: [0, 0, 0, 5] },
                     listTitle: { fontSize: 8, bold: false, margin: [25, 0, 0, 5] },
                     list: { fontSize: 8, bold: false, margin: [25, 0, 0, 1] },
+                    listBold: { fontSize: 8, bold: true, margin: [25, 5, 0, 3] },
                     sectionHeader: { fontSize: 10, bold: true, margin: [0, 5, 0, 5] },
                     sectionItem: { fontSize: 9, bold: true, margin: [10, 5, 0, 3] },
                     footer: { fontSize: 10 },
