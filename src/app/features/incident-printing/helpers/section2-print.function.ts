@@ -115,6 +115,7 @@ export function createSection2(data: DescriptionDTO): Content {
      data.applicationCompletedTheRepresentative
           ? content.push(sectionList('Wniosek wypełniany przez pełnomocnika'))
           : null;
+
      // 'uodos.section2e' | translate
      content.push(sectionItem('2E. Inspektor ochrony danych'));
      content.push({

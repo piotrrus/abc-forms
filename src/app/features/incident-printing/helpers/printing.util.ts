@@ -1,3 +1,4 @@
+import { ContentTable } from 'pdfmake/interfaces';
 import { BLOCK_STYLES } from '../enums/block-styles.enum';
 
 export function sectionHeader(label: string): SectionContent {
@@ -21,7 +22,7 @@ export function sectionListTitle(label: string): SectionContent {
      return { text: label, style: BLOCK_STYLES.LIST_TITLE };
 }
 
-export function createTable(tableData: TableData[]): any {
+export function createTable(tableData: TableData[]): ContentTable {
      return {
           layout: 'noBorders',
           table: {
@@ -33,11 +34,16 @@ export function createTable(tableData: TableData[]): any {
 }
 
 export function createContentTable(tableData: TableData[]): SectionContent[] {
-     let tableArr: SectionContent[] = [];
+     let tableArr: any[] = [];
+
      tableData.forEach((data) => {
-          tableArr.push({ text: data.description, style: 'list' }, { text: data.value, style: 'list' });
-          data.description;
+          const body = [
+               { text: data.description, style: 'list' },
+               { text: data.value, style: 'list' },
+          ];
+          tableArr.push(body);
      });
+
      return tableArr;
 }
 

@@ -1,17 +1,18 @@
 {
      "optionalSign": "test 123",
-     "registrationComplet": true,
+     "registrationComplet": false,
      "registrationBegin": false,
-     "registrationCompletModify": false,
+     "registrationCompletModify": true,
 
      "addDatereopen": "2025-01-10",
      "addDateold": "2025-01-20",
      "addTaskSignUodo": "test 234",
      "theViolationHasBeenReportedOtherCoutry": true,
-     "theViolationHasBeenReportedOtherCoutryDesc": "abc",
+     "theViolationHasBeenReportedOtherCoutryDesc": "Szwecja",
+
      "theViolationHasBeenReported": true,
-     "addNameDepart": true,
-     "addSignatureRegistration": "test 666",
+     "addNameDepart": "Test organu",
+     "addSignatureRegistration": "test sygnatury",
 
      "fullNameAdmin": "Jan Kowalski",
      "regon": "121523112",
@@ -28,7 +29,7 @@
      "communeAdministrativeArea": "wola",
      "country": "Polska",
      "nameDateContact": "Roman Jabłoński",
-     "applicationCompletedTheRepresentative": true,
+     "applicationCompletedTheRepresentative": false,
      "dataProtectionOfficer": true,
      "phoneNumber": "123123123",
      "mail": "abc@wp.pl",
@@ -81,7 +82,7 @@
      "descDetailedDescriptionOfCategoriesPersonsAffectedThebreach": "opis - test",
      "includeDheAnonymized": "zanonimizowana treść zawiadomienia - test",
 
-     "theBreachIsCrossBorderInNature": false,
+     "theBreachIsCrossBorderInNature": true,
      "austria": true,
      "spain": true
 }

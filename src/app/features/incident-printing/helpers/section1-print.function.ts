@@ -1,6 +1,6 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { sectionDescription, sectionHeader, sectionList } from './printing.util';
+import { sectionDescription, sectionHeader, sectionList, sectionListBold } from './printing.util';
 
 export function createSection1(data: DescriptionDTO): Content {
      const content: Content = [];
@@ -14,34 +14,65 @@ export function createSection1(data: DescriptionDTO): Content {
      );
 
      // 'uodos.optionalSign' | translate
-     let signatureText = 'Sygnatura sprawy';
-     data.optionalSign ? (signatureText = `${signatureText} ${data.optionalSign}`) : signatureText;
-     content.push(sectionList(signatureText));
 
-     // 'uodos.registrationComplet' | translate"
-     data.registrationComplet ? content.push(sectionList('Zgłoszenie kompletne/jednorazowe')) : null;
+     content.push({
+          layout: 'noBorders',
+          table: {
+               headerRows: 0,
+               widths: ['*', '*'],
+               body: [
+                    [
+                         {
+                              text: 'Sygnatura sprawy',
+                              style: 'list',
+                         },
+                         { text: data.optionalSign, style: 'list' },
+                    ],
+               ],
+          },
+     });
+     // 'uodos.registrationComplet' | translate
+     data.registrationComplet ? content.push(sectionListBold('Zgłoszenie kompletne/jednorazowe')) : null;
 
      // 'uodos.registrationBegin' | translate"
      if (data.registrationBegin) {
           content.push(sectionList('Zgłoszenie wstępne'));
-          data.addDatereopen ? content.push(sectionList(data.addDatereopen?.toString())) : null;
+          data.addDatereopen
+               ? content.push(
+                      sectionListBold(
+                           `Przybliżona data uzupełnienia zgłoszenia ${data.addDatereopen?.toString()}`
+                      )
+                 )
+               : null;
      }
 
      // 'uodos.registrationCompletModify' | translate"
-     // uodos.addTaskSignUodo, uodos.addDateold
      if (data.registrationCompletModify) {
-          content.push(sectionList('Zgłoszenie uzupełniające/zmieniające'));
+          content.push(sectionListBold('Zgłoszenie uzupełniające/zmieniające'));
 
-          const prevRegistratioDate = 'Data poprzedniego zgłoszenia';
-          const uodoSignature = 'Data poprzedniego zgłoszenia';
-
-          data.addDateold
-               ? content.push(sectionList(`${prevRegistratioDate} ${data.addDateold?.toString()}`))
-               : prevRegistratioDate;
-
-          data.addTaskSignUodo
-               ? content.push(sectionList(`${uodoSignature} ${data.addTaskSignUodo?.toString()}`))
-               : uodoSignature;
+          content.push({
+               layout: 'noBorders',
+               table: {
+                    headerRows: 0,
+                    widths: ['*', '*'],
+                    body: [
+                         [
+                              {
+                                   text: 'Data poprzedniego zgłoszenia',
+                                   style: 'list',
+                              },
+                              { text: data.addDateold, style: 'list' },
+                         ],
+                         [
+                              {
+                                   text: 'Podaj sygnaturę sprawy UODO',
+                                   style: 'list',
+                              },
+                              { text: data.addTaskSignUodo, style: 'list' },
+                         ],
+                    ],
+               },
+          });
      }
 
      // 'uodos.theViolationHasBeenReportedOtherCoutry' | translate
@@ -53,7 +84,29 @@ export function createSection1(data: DescriptionDTO): Content {
 
      content.push(sectionList(otherCoutryViolationReportedText));
 
-     // data.theViolationHasBeenReportedOtherCoutry ? content.push(sectionList('TAK')) : 'NIE';
+     content.push({
+          layout: 'noBorders',
+          table: {
+               headerRows: 0,
+               widths: ['*', '*'],
+               body: [
+                    [
+                         {
+                              text: 'Nazwy organów, którym zostało lub zostanie zgłoszone naruszenie',
+                              style: 'list',
+                         },
+                         { text: data.addNameDepart, style: 'list' },
+                    ],
+                    [
+                         {
+                              text: 'Sygnatura/numer zgłoszenia do innego organu',
+                              style: 'list',
+                         },
+                         { text: data.addSignatureRegistration, style: 'list' },
+                    ],
+               ],
+          },
+     });
 
      return content;
 }

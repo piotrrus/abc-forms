@@ -1,6 +1,6 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { createContentTable, sectionHeader, sectionItem, sectionList } from './printing.util';
+import { createContentTable, createTable, sectionHeader, sectionItem, sectionList } from './printing.util';
 import * as dayjs from 'dayjs';
 import { DATE_TIME_FORMAT } from '../enums/date-time.formats.enum';
 
@@ -48,11 +48,6 @@ export function createSection3(data: DescriptionDTO): Content {
 
      const startEnd = dayjs(data.dateTime3b).format(DATE_TIME_FORMAT);
      const dateEnd = dayjs(data.dateTimeEnd3b).format(DATE_TIME_FORMAT);
-
-     const body = createContentTable([
-          { description: 'Data i czas zaistnienia/rozpoczęcia naruszenia', value: startEnd },
-          { description: 'Data i czas zakończenia naruszenia', value: dateEnd },
-     ]);
 
      content.push({
           layout: 'noBorders',
