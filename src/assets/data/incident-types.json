@@ -1,0 +1,5 @@
+[
+     { "id": "1", "name": "breachOfDataConfidentiality", "label": "Naruszenie poufności danych" },
+     { "id": "2", "name": "dataIntegrityBreach", "label": "Naruszenie integralności danych" },
+     { "id": "3", "name": "dataAvailabilityViolation", "label": "Naruszenie dostępności danych" }
+]

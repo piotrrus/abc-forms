@@ -1,12 +1,12 @@
 [
      {
           "id": "1",
-          "name": "Naruszenie poufności danych",
+          "name": "breachOfDataConfidentiality",
           "description": "Nieuprawnione lub przypadkowe ujawnienie bądź udostępnienie danych"
      },
      {
           "id": "2",
-          "name": "Naruszenie integralności danych",
+          "name": "descbreachOfDataConfidentiality",
           "description": "Wprowadzenie nieuprawnionych zmian podczas odczytu, zapisu, transmisji lub przechowywania"
      },
      {
