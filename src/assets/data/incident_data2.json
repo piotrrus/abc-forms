@@ -36,6 +36,10 @@
      "reasonsForDelay": "powody opóźnienia test",
      "dateDiscoveryInfringement": "2024-12-12",
      "methodDeterminingViolation": "uszkodzony system operacyjny",
+     "personsAuthorizedRepresentAdministratorDTO": [
+          { "nameDateContact": "Roman Jabłoński", "position": "kierownik" }
+     ],
+     "entitiesAffectedInfringementDTO": [{ "nameAndSurname2f": "Robert Nowicki", "role": "Admin" }],
      "dateTime3b": 1519211809934,
      "dateTimeEnd3b": 1519129864400,
      "descriptionSection4Ca": "test",

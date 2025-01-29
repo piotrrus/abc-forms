@@ -1,6 +1,7 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
 import { sectionHeader, sectionItem, sectionList } from './printing.util';
+import { PersonsAuthorizedRepresentAdministratorDTO } from 'src/persons-authorized-represent-administrator-dto';
 
 export function createSection2(data: DescriptionDTO): Content {
      const content: Content = [];
@@ -92,23 +93,14 @@ export function createSection2(data: DescriptionDTO): Content {
           },
      });
      // 'uodos.street'| translate
-     // data.street
-     //      ? content.push(sectionList(`Ulica ${data.street} ${data.numberHouse} ${data.numberflat}`))
-     //      : null;
-     // data.city ? content.push(sectionList(`Miasto i kod pocztowy ${data.city} ${data.postCode}`)) : null;
-     // data.countyAdministrativeArea
-     //      ? content.push(sectionList(`Województwo ${data.countyAdministrativeArea}`))
-     //      : null;
-     // data.provinceAdministrativeArea
-     //      ? content.push(sectionList(`Powiat ${data.provinceAdministrativeArea}`))
-     //      : null;
-     // data.communeAdministrativeArea
-     //      ? content.push(sectionList(`Gmina ${data.communeAdministrativeArea}`))
-     //      : null;
-     // 'uodos.country'| translate
-     // data.country ? content.push(sectionList(`Państwo ${data.country}`)) : null;
 
      content.push(sectionItem('2C. Osoby uprawnione do reprezentowania administratora'));
+
+     data.personsAuthorizedRepresentAdministratorDTO.forEach((data) => {
+          const personData: string = `Imię i nazwisko ${data.nameDateContact} Stanowisko ${data.position}`;
+          data.nameDateContact ? content.push(sectionList(personData)) : null;
+     });
+
      // 'uodos.section2d' | translate
      content.push(sectionItem('2D. Pełnomocnik'));
 
@@ -159,6 +151,11 @@ export function createSection2(data: DescriptionDTO): Content {
 
      // 'uodos.descriptionSection2f' | translate
      content.push(sectionItem('2F. Inne podmioty uczestniczące'));
+
+     data.entitiesAffectedInfringementDTO.forEach((data) => {
+          const personData: string = `Imię i nazwisko ${data.nameAndSurname2f} Rola ${data.role}`;
+          data.nameAndSurname2f ? content.push(sectionList(personData)) : null;
+     });
 
      return content;
 }
