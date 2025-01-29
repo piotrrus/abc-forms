@@ -4,7 +4,7 @@ import { sectionHeader, sectionItem, sectionList } from './printing.util';
 
 export function createSection8(data: DescriptionDTO): Content {
      const content: Content = [];
-
+     // 'uodos.section8' | translate
      content.push(sectionHeader('8. Możliwe konsekwencje'));
 
      content.push(

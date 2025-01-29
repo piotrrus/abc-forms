@@ -1,18 +1,19 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
 import { sectionHeader, sectionList, sectionListTitle } from './printing.util';
+import { INCIDENT_LABELS } from '../enums/incident-titles.enum';
 
 export function createSection11(data: DescriptionDTO): Content {
      const content: Content = [];
-
+     // 'uodos.section11' | translate
      content.push(sectionHeader('11. Przetwarzanie transgraniczne'));
 
      data.theBreachIsCrossBorderInNature
-          ? content.push(sectionListTitle('Naruszenie ma charakter transgraniczny'))
-          : content.push(sectionListTitle('Naruszenie nie ma charakteru transgranicznego'));
+          ? content.push(sectionListTitle(INCIDENT_LABELS.TRANSBORDER_TYPE))
+          : content.push(sectionListTitle(INCIDENT_LABELS.NO_TRANSBORDER_TYPE));
 
      if (data.theBreachIsCrossBorderInNature) {
-          content.push(sectionList('Lista krajów, których dotyczy naruszenie'));
+          content.push(sectionList(INCIDENT_LABELS.COUNTRIES_LIST));
 
           data.austria ? content.push(sectionList('Austria')) : null;
           data.belgium ? content.push(sectionList('Belgia')) : null;

@@ -4,7 +4,7 @@ import { sectionHeader, sectionItem, sectionList } from './printing.util';
 
 export function createSection9(data: DescriptionDTO): Content {
      const content: Content = [];
-
+     // 'uodos.section9' | translate
      content.push(sectionHeader('9. Środki bezpieczeństwa i środki zaradcze'));
 
      content.push(
