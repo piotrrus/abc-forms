@@ -1,4 +1,3 @@
-import { ContentTable } from 'pdfmake/interfaces';
 import { BLOCK_STYLES } from '../enums/block-styles.enum';
 
 export function sectionHeader(label: string): SectionContent {
@@ -21,32 +20,24 @@ export function sectionList(label: string): SectionContent {
 export function sectionListTitle(label: string): SectionContent {
      return { text: label, style: BLOCK_STYLES.LIST_TITLE };
 }
-
-export function createTable(tableData: TableData[]): ContentTable {
+// export function createTable(tableData: TableData[]): any {
+export function createTable(body: any): any {
      return {
           layout: 'noBorders',
           table: {
                headerRows: 0,
                widths: ['*', '*'],
-               body: [createContentTable(tableData)],
+               body: [body],
           },
      };
 }
 
 export function createContentTable(tableData: TableData[]): SectionContent[] {
-     const tableArr: any[] = [];
-     // [
-     //      { text: 'Data i czas zaistnienia/rozpoczęcia naruszenia', style: 'list' },
-     //      { text: startEnd, style: 'list' },
-     // ],
+     let tableArr: SectionContent[] = [];
      tableData.forEach((data) => {
-          const body = [
-               { text: data.description, style: 'list' },
-               { text: data.value, style: 'list' },
-          ];
-          tableArr.push(body);
+          tableArr.push({ text: data.description, style: 'list' }, { text: data.value, style: 'list' });
+          data.description;
      });
-
      return tableArr;
 }
 

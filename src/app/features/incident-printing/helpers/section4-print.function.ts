@@ -49,25 +49,6 @@ export function createSection4(data: DescriptionDTO): Content {
           content.push(sectionList(label));
      });
 
-     // content.push({
-     //      text: 'a) Jeśli w ocenie administratora doszło wyłącznie do naruszenia dostępności danych, w jaki sposób stwierdzono, że nie doszło do naruszenia ich poufności?',
-     //      style: 'list',
-     // });
-
-     // data.descriptionSection4Ca ? content.push({ text: data.descriptionSection4Ca, style: 'list' }) : null;
-
-     // content.push({
-     //      text: 'b) Czy, a jeżeli tak, to w jakiej formie, złośliwe oprogramowanie poinformowało o konieczności uiszczenia opłaty w celu odzyskania dostępu do danych',
-     //      style: 'list',
-     // });
-
-     // data.descriptionSection4Cb ? content.push({ text: data.descriptionSection4Cb, style: 'list' }) : null;
-     // content.push({
-     //      text: 'c) Jeżeli doszło do utraty dostępności danych, to czy administrator był w posiadaniu kopii zapasowej, jeśli tak to w jakim czasie ją przywrócił?',
-     //      style: 'list',
-     // });
-     // data.descriptionSection4Cc ? content.push({ text: data.descriptionSection4Cc, style: 'list' }) : null;
-
      content.push(sectionItem('4D. Przyczyna naruszenia'));
      const formLabels4d: string[] = [];
 

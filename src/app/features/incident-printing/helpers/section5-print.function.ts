@@ -1,6 +1,7 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
 import { BLOCK_STYLES } from '../enums/block-styles.enum';
+import { createTable } from './printing.util';
 
 export function createSection5(data: DescriptionDTO): Content {
      const content: Content = [];
@@ -9,20 +10,21 @@ export function createSection5(data: DescriptionDTO): Content {
 
      // uodos.approximateNumberOfPeopleBreached | translate
      // uodos.approximateNumberOfPeopleBreachedEntry | translate
-
-     // data.approximateNumberOfPeopleBreached
-     //      ? content.push({
-     //             text: `Przybliżona liczba osób, których dotyczy naruszenie ${data.approximateNumberOfPeopleBreached}`,
-     //             style: BLOCK_STYLES.LIST,
-     //        })
-     //      : null;
-     //
-     // data.approximateNumberOfPeopleBreachedEntry
-     //      ? content.push({
-     //             text: `Przybliżona liczba wpisów danych osobowych, których dotyczy naruszenie ${data.approximateNumberOfPeopleBreachedEntry}`,
-     //             style: BLOCK_STYLES.LIST,
-     //        })
-     //      : null;
+    const body = [
+          [
+               { text: 'Przybliżona liczba osób, których dotyczy naruszenie', style: 'list' },
+               { text: data.approximateNumberOfPeopleBreached, style: 'list' },
+          ],
+          [
+               {
+                    text: 'Przybliżona liczba wpisów danych osobowych, których dotyczy naruszenie',
+                    style: 'list',
+               },
+               { text: data.approximateNumberOfPeopleBreachedEntry, style: 'list' },
+          ]
+     ];
+     
+    content.push(createTable(body));
 
      content.push({
           layout: 'noBorders',

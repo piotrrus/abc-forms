@@ -78,7 +78,7 @@ export function createSection1(data: DescriptionDTO): Content {
      // 'uodos.theViolationHasBeenReportedOtherCoutry' | translate
      const otherCoutryViolationReported =
           'Naruszenie zostało lub zostanie zgłoszone organowi ochrony danych osobowych w innym państwie';
-     const otherCoutryViolationReportedText = data.theViolationHasBeenReportedOtherCoutry
+     const otherCoutryViolationReportedText = data.theViolationHasBeenReportedOtherCountry
           ? `${otherCoutryViolationReported} TAK`
           : `${otherCoutryViolationReported} NIE`;
 
