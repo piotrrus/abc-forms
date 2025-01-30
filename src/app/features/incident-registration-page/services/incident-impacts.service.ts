@@ -8,8 +8,8 @@ import { COMMON_MESSAGES } from 'src/shared/enums/common-messages';
 export class IncidentImpactsService {
      constructor(private http: HttpClient) {}
 
-     public getImpactList(): Observable<List[]> {
-          return this.http.get<List[]>('assets/data/incident-impact.json').pipe(
+     public getImpacts(): Observable<List[]> {
+          return this.http.get<List[]>('assets/data/incident-impacts.json').pipe(
                shareReplay(1),
                take(1),
                catchError((error: HttpErrorResponse) => {

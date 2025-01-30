@@ -8,7 +8,7 @@ import { COMMON_MESSAGES } from 'src/shared/enums/common-messages';
 export class PersonCategoriesService {
      constructor(private http: HttpClient) {}
 
-     public getPersonCategorieList(): Observable<List[]> {
+     public getPersonCategories(): Observable<List[]> {
           return this.http.get<List[]>('assets/data/person-categories.json').pipe(
                shareReplay(1),
                take(1),

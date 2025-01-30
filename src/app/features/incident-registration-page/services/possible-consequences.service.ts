@@ -8,7 +8,7 @@ import { COMMON_MESSAGES } from 'src/shared/enums/common-messages';
 export class PossibleConsequencesService {
      constructor(private http: HttpClient) {}
 
-     public getImpactList(): Observable<List[]> {
+     public getConsequences(): Observable<List[]> {
           return this.http.get<List[]>('assets/data/possible-consequences.json').pipe(
                shareReplay(1),
                take(1),

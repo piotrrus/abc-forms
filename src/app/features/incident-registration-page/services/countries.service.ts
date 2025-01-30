@@ -8,7 +8,7 @@ import { COMMON_MESSAGES } from 'src/shared/enums/common-messages';
 export class CountriesService {
      constructor(private http: HttpClient) {}
 
-     public getCountriesList(): Observable<List[]> {
+     public getCountries(): Observable<List[]> {
           return this.http.get<List[]>('assets/data/countries.json').pipe(
                shareReplay(1),
                take(1),
