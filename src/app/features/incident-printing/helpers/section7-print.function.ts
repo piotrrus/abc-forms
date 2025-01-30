@@ -16,7 +16,7 @@ export function createSection7(data: DescriptionDTO): Content {
      data.employes ? content.push(sectionList('Pracownicy')) : null;
      data.users ? content.push(sectionList('Użytkownicy')) : null;
 
-     data.users ? content.push(sectionList('Subskrybenci')) : null;
+     data.subscribers ? content.push(sectionList('Subskrybenci')) : null;
 
      data.students ? content.push(sectionList('Studenci')) : null;
 
