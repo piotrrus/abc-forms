@@ -1,3 +1,5 @@
+import { SimpleList } from './list.interface';
+
 export interface Country {
      id: string;
      name: string;
@@ -6,5 +8,5 @@ export interface Country {
 
 export interface Section11 {
      theBreachIsCrossBorderInNature: boolean;
-     countries: [{ id: number; name: string }];
+     countries: SimpleList[];
 }

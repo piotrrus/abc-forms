@@ -38,7 +38,7 @@ export function createSection8(data: DescriptionDTO): Content {
           ? content.push(sectionList('Nieuprawnione odwrócenie pseudonimizacji'))
           : null;
 
-     data.descWritelaw ? content.push(sectionList(data.descWritelaw)) : null;
+     // data.descWritelaw ? content.push(sectionList(data.descWritelaw)) : null;
 
      data.section8aOthers ? content.push(sectionList('Inne')) : null;
 

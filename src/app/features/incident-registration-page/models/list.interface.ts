@@ -1,11 +1,9 @@
-export interface List {
-     id: string;
-     name: string;
+export interface List extends SimpleList {
      description: string;
      value: boolean;
 }
 
-// export interface List {
-//      id: string;
-//      name: string;
-// }
+export interface SimpleList {
+     id: string;
+     name: string;
+}

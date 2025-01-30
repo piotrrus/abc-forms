@@ -10,8 +10,8 @@ export interface DescriptionDTO {
      addDatereopen?: number;
      addDateold?: number;
      addTaskSignUodo?: string;
-     theViolationHasBeenReportedOtherCoutry?: boolean;
-     theViolationHasBeenReportedOtherCoutryDesc?: string;
+     theViolationHasBeenReportedOtherCountry?: boolean;
+     theViolationHasBeenReportedOtherCountryDesc?: string;
      theViolationHasBeenReported?: boolean;
      addNameDepart?: string;
      addSignatureRegistration?: string;
@@ -105,6 +105,7 @@ export interface DescriptionDTO {
      customers?: boolean;
      customersPublic?: boolean;
      patients?: boolean;
+     subscribers?: boolean;
      kids?: boolean;
      peopleWithSpecialNeeds?: boolean;
      detailedDescriptionOfCategoriesPersonsAffectedThebreach?: string;

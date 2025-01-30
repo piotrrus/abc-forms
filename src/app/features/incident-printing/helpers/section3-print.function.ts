@@ -54,12 +54,12 @@ export function createSection3(data: DescriptionDTO): Content {
      //      { description: 'Data i czas zakończenia naruszenia', value: dateEnd },
      // ]);
 
-     const body = [
-          { description: 'Data i czas zaistnienia/rozpoczęcia naruszenia', value: startEnd },
-          { description: 'Data i czas zakończenia naruszenia', value: dateEnd },
-     ];
-     console.log(createTable(body));
-     content.push(createTable(body));
+     // const body = [
+     //      { description: 'Data i czas zaistnienia/rozpoczęcia naruszenia', value: startEnd },
+     //      { description: 'Data i czas zakończenia naruszenia', value: dateEnd },
+     // ];
+     // console.log(createTable(body));
+     // content.push(createTable(body));
 
      content.push({
           layout: 'noBorders',
