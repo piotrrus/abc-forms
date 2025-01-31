@@ -7,10 +7,6 @@ export function createSection6(data: DescriptionDTO): Content {
 
      content.push(sectionHeader('6. Kategorie danych osobowych'));
 
-     // content.push({
-     //      text: 'UWAGA: W zgłoszeniu nie podawaj konkretnych osób',
-     //      style: 'BLOCK_STYLES.DESCRIPTION',
-     // });
      content.push(sectionItem('6A. Dane podstawowe'));
 
      data.surnamesAndNames ? content.push(sectionList('Nazwiska i imiona')) : null;

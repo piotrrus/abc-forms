@@ -1,12 +1,6 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import {
-     sectionDescription,
-     sectionHeader,
-     sectionList,
-     sectionListBold,
-     sectionListTitle,
-} from './printing.util';
+import { sectionHeader, sectionList, sectionListBold } from './printing.util';
 
 export function createSection7(data: DescriptionDTO): Content {
      const content: Content = [];
@@ -14,6 +8,7 @@ export function createSection7(data: DescriptionDTO): Content {
      content.push(sectionHeader('7. Kategorie osób'));
 
      data.employes ? content.push(sectionList('Pracownicy')) : null;
+
      data.users ? content.push(sectionList('Użytkownicy')) : null;
 
      data.subscribers ? content.push(sectionList('Subskrybenci')) : null;

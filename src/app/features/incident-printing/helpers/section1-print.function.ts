@@ -36,10 +36,10 @@ export function createSection1(data: DescriptionDTO): Content {
 
      // 'uodos.registrationBegin' | translate"
      if (data.registrationBegin) {
-          content.push(sectionList('Zgłoszenie wstępne'));
+          content.push(sectionListBold('Zgłoszenie wstępne'));
           data.addDatereopen
                ? content.push(
-                      sectionListBold(
+                      sectionList(
                            `Przybliżona data uzupełnienia zgłoszenia ${data.addDatereopen?.toString()}`
                       )
                  )

@@ -17,9 +17,10 @@ import { IncidentPrintHelper } from '@features/incident-printing/helpers/inciden
      styleUrls: ['./incident-registration-page.component.scss'],
 })
 export class IncidentRegistrationPageComponent {
-     public countriesList$: Observable<List[]> = this.countriesService.getCountriesList();
-     public personCategoriesList$: Observable<List[]> = this.personCategoriesService.getPersonCategorieList();
-     public possibleConsequencesList$: Observable<List[]> = this.possibleConsequencesService.getImpactList();
+     public countriesList$: Observable<List[]> = this.countriesService.getCountries();
+     public personCategoriesList$: Observable<List[]> = this.personCategoriesService.getPersonCategories();
+     public possibleConsequencesList$: Observable<List[]> =
+          this.possibleConsequencesService.getConsequences();
 
      public personalBasicCategoriesList$: Observable<List[]> =
           this.personalCategoriesService.getBasicCategorieList();

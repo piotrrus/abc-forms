@@ -1,12 +1,6 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import {
-     sectionDescription,
-     sectionHeader,
-     sectionItem,
-     sectionList,
-     sectionListBold,
-} from './printing.util';
+import { sectionHeader, sectionItem, sectionList, sectionListBold } from './printing.util';
 
 export function createSection8(data: DescriptionDTO): Content {
      const content: Content = [];
@@ -38,9 +32,7 @@ export function createSection8(data: DescriptionDTO): Content {
           ? content.push(sectionList('Nieuprawnione odwrócenie pseudonimizacji'))
           : null;
 
-     // data.descWritelaw ? content.push(sectionList(data.descWritelaw)) : null;
-
-     data.section8aOthers ? content.push(sectionList('Inne')) : null;
+     // data.section8aOthers ? content.push(sectionList('Inne')) : null;
 
      data.section8aOthers && data.descWritelaw
           ? (content.push(
