@@ -11,7 +11,8 @@
 - nie wykorzystujemy ich fukcjonalności.
 ## 3. Uporządkowanie i ujednolicenie metodod unsubscribe
 - wydzielenie do zewnętrznego komponentu metody opartej na implementacji OnDestroy
-## 4. Uporządkowanie i uproszczenie serwisów
+## 4. Uporządkowanie i uproszczenie serwisów (przebudowa)
+- nie tworzymy serwisów z automatu!
 - oddzielne serwisy powiązane z domenami
 - klasa abstrakcyjna zawierająca wszystkie metody typu GET, POST, DELETE..
 - wpólna obsługa błędów - catchError
