@@ -19,7 +19,7 @@
 - część api ścieżki umiścić w pliku enviroment /api/uodom/ (/api/uodom/contacts/allStandardUsers)
 - ścieżkę domeny umiszczamy w pliakch enums contacts/allStandardUsers (/api/uodom/contacts/allStandardUsers)
 - header (autoryzacja) dołączany interceptorem - unikamy powielania kodu DRY
-- podobnie ze ścieżką (plik enviroment)
+- podobnie przy tworzeniu ścieżki do API (z pliku enviroment)
 - określamy strukturę zwracanych z API danych (nie any!)
 ## 5.	Dodać interceptory – nagłówek, ew. obsługa błędów, wysyłanych zapytań  
 ## 6.	Refactoring dużych komponentów – podzielenie na mniejsze zgodnie z zasadami Clean Code i OOP 
