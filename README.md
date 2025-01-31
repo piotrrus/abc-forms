@@ -12,10 +12,15 @@
 ## 3. Uporządkowanie i ujednolicenie metodod unsubscribe
 - wydzielenie do zewnętrznego komponentu metody opartej na implementacji OnDestroy
 ## 4. Uporządkowanie i uproszczenie serwisów (przebudowa)
-- nie tworzymy serwisów z automatu!
-- oddzielne serwisy powiązane z domenami
+- nie tworzymy serwisów z automatu - generujemy mnóstwo powtarzalnego DRY i małoczytelnego kodu 
+- tworzymy oddzielne serwisy powiązane z domenami
 - klasa abstrakcyjna zawierająca wszystkie metody typu GET, POST, DELETE..
 - wpólna obsługa błędów - catchError
+- część api ścieżki umiścić w pliku enviroment /api/uodom/ (/api/uodom/contacts/allStandardUsers)
+- ścieżkę domeny umiszczamy w pliakch enums contacts/allStandardUsers (/api/uodom/contacts/allStandardUsers)
+- header (autoryzacja) dołączany interceptorem - unikamy powielania kodu DRY
+- podobnie ze ścieżką (plik enviroment)
+- określamy strukturę zwracanych z API danych (nie any!)
 ## 5.	Dodać interceptory – nagłówek, ew. obsługa błędów, wysyłanych zapytań  
 ## 6.	Refactoring dużych komponentów – podzielenie na mniejsze zgodnie z zasadami Clean Code i OOP 
 – z uwzględnieniem podziału komponenty na smart/dump (formularze, modale, itp).
