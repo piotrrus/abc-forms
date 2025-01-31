@@ -22,6 +22,7 @@ export class BasePrintHelper {
                     sectionItem: { fontSize: 9, bold: true, margin: [10, 5, 0, 3] },
                     footer: { fontSize: 10 },
                     description: { fontSize: 8, bold: false, margin: [12, 0, 0, 5], color: 'grey' },
+                    listDescription: { fontSize: 8, bold: false, margin: [25, 0, 0, 5], color: 'grey' },
                },
           };
           pdfMake.createPdf(docDefinition).download(`${pdfFileName}.pdf`);

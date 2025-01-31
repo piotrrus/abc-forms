@@ -7,5 +7,6 @@ export enum BLOCK_STYLES {
      SECTION_ITEM = 'sectionItem',
      SECTION_HEADER = 'sectionHeader',
      DESCRIPTION = 'description',
+     LIST_DESCRIPTION = 'listDescription',
      FOOOTER = 'footer',
 }

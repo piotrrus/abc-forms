@@ -7,7 +7,9 @@ export function sectionHeader(label: string): SectionContent {
 export function sectionDescription(label: string): SectionContent {
      return { text: label, style: BLOCK_STYLES.DESCRIPTION };
 }
-
+export function listDescription(label: string): SectionContent {
+     return { text: label, style: BLOCK_STYLES.LIST_DESCRIPTION };
+}
 export function sectionItem(label: string): SectionContent {
      return { text: label, style: BLOCK_STYLES.SECTION_ITEM };
 }
