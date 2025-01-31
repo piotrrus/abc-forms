@@ -3,6 +3,7 @@
  - formatowanie - wykorzystanie ng linta do automatycznego formatowania kodu i sprawdzenia jego poprawności
  - tslint (eslint, po przejściu na nowszą wersję)
  - husky - automatyczne formatowanie
+ - definiujemy wszędzie modyfikatory dostępu dla metod (private/public) - czytelność kodu
 ## 1. Przebudowa formularzy
 - usunięcie pól formularzy opartych na FormControls
 - zastąpienie w/w formularzami opartymi na ReactiveForms i Material Design, podzielonymi na klasy definiujące formularze oraz cześć wizualną – komponenty formularzy.
@@ -21,6 +22,7 @@
 - header (autoryzacja) dołączany interceptorem - unikamy powielania kodu DRY
 - podobnie przy tworzeniu ścieżki do API (z pliku enviroment)
 - określamy strukturę zwracanych z API danych (nie any!)
+
 ## 5.	Dodać interceptory – nagłówek, ew. obsługa błędów, wysyłanych zapytań  
 ## 6.	Refactoring dużych komponentów – podzielenie na mniejsze zgodnie z zasadami Clean Code i OOP 
 – z uwzględnieniem podziału komponenty na smart/dump (formularze, modale, itp).
