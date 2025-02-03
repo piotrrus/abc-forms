@@ -1,6 +1,6 @@
 import { catchError, Observable, shareReplay, take, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { COMMON_MESSAGES } from 'src/shared/enums/common-messages';
+import { COMMON_MESSAGES } from '@shared/enums/common-messages';
 import { Injectable } from '@angular/core';
 
 @Injectable()

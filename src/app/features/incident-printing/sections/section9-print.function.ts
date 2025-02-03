@@ -1,11 +1,10 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { sectionHeader, sectionItem, sectionList } from '../helpers/printing.util';
+import { sectionItem, sectionList } from '../helpers/printing.util';
+import { contentSectionHeader } from '../helpers/content-create.helper';
 
 export function createSection9(data: DescriptionDTO): Content {
-     const content: Content = [];
-     // 'uodos.section9' | translate
-     content.push(sectionHeader('9. Środki bezpieczeństwa i środki zaradcze'));
+     const content: Content = [...contentSectionHeader('9. Środki bezpieczeństwa i środki zaradcze')];
 
      content.push(
           sectionItem(

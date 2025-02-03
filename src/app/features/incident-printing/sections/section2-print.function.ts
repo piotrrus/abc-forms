@@ -1,10 +1,12 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { sectionHeader, sectionItem, sectionList } from '../helpers/printing.util';
+import { sectionItem, sectionList } from '../helpers/printing.util';
+import { contentSectionHeader } from '../helpers/content-create.helper';
 
 export function createSection2(data: DescriptionDTO): Content {
-     const content: Content = [];
-     content.push(sectionHeader('2. Podmiot zglaszający'));
+     // const content: Content = [];
+     // content.push(sectionHeader('2. Podmiot zglaszający'));
+     const content: Content = [...contentSectionHeader('2. Podmiot zglaszający')];
 
      content.push(sectionItem('2A. Dane administratora danych'));
      // 'uodos.fullNameAdmin'| translate

@@ -1,17 +1,19 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import {
-     listDescription,
-     sectionDescription,
-     sectionHeader,
-     sectionItem,
-     sectionList,
-} from './printing.util';
+import { listDescription, sectionItem, sectionList } from '../helpers/printing.util';
+import { contentSectionHeader } from '../helpers/content-create.helper';
+// import {
+//      listDescription,
+//      sectionDescription,
+//      sectionHeader,
+//      sectionItem,
+//      sectionList,
+// } from './printing.util';
 
 export function createSection4(data: DescriptionDTO): Content {
-     const content: Content = [];
+     // const content: Content = [];
      // {{ 'uodos.section4' | translate }}
-     content.push(sectionHeader('4. Charakter naruszenia'));
+     const content: Content = [...contentSectionHeader('4. Charakter naruszenia')];
 
      content.push(sectionItem('4A. Opisz szczegółowo na czym polegało naruszenie'));
 

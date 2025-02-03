@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { BaseFormComponent } from 'src/shared/components/base-form.component';
-import { DataSecurityInspectorForm } from 'src/shared/forms/data-security-inspector.form';
+import { BaseFormComponent } from '@shared/components/base-form.component';
+import { DataSecurityInspectorForm } from '@shared/forms/data-security-inspector.form';
 
 @Component({
      selector: 'app-data-security-inspector-form',

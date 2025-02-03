@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder } from '@angular/forms';
 import { List } from '@features/incident-registration-page/models/list.interface';
-import { BaseFormComponent } from 'src/shared/components/base-form.component';
-import { PersonCategoriesForm } from 'src/shared/forms/person-categories.form';
+import { BaseFormComponent } from '@shared/components/base-form.component';
+import { PersonCategoriesForm } from '@shared/forms/person-categories.form';
 
 @Component({
      selector: 'app-person-categories-form',

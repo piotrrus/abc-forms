@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IncidentRegistrationPageComponent } from './containers/incident-registration-page.component';
-import { SharedModule } from 'src/shared/modules/shared.modules';
+import { SharedModule } from '@shared/modules/shared.modules';
 import { IncidentRegistrationPageRoutingModule } from './incident-registration-page-routing.module';
 import { ViolationReasonsFormComponent } from '@features/incident-registration-page/components/forms/violation-reasons-form/violation-reasons-form.component';
 import { AdminRepresentativeFormComponent } from '@features/incident-registration-page/components/forms/admin-representative-form/admin-representative-form.component';

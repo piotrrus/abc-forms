@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatSliderModule } from '@angular/material/slider';
 @NgModule({
      exports: [
           MatFormFieldModule,
@@ -24,7 +24,7 @@ import { MatCardModule } from '@angular/material/card';
           MatIconModule,
           MatInputModule,
           MatSelectModule,
-
+          MatSliderModule,
           MatExpansionModule,
           MatButtonModule,
           MatTabsModule,

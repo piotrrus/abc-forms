@@ -1,11 +1,13 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { sectionHeader,  sectionList, sectionListBold,sectionDescription} from '../helpers/printing.util';
+import { sectionList, sectionListBold, sectionDescription } from '../helpers/printing.util';
+import { contentSectionHeader } from '../helpers/content-create.helper';
 
 export function createSection1(data: DescriptionDTO): Content {
-     const content: Content = [];
+     // const content: Content = [];
      //'uodos.section1' | translate
-     content.push(sectionHeader('1. Typ zgloszenia'));
+     // content.push(sectionHeader('1. Typ zgloszenia'));
+     const content: Content = [...contentSectionHeader('1. Typ zgloszenia')];
      //'uodos.section1Desc' | translate
      content.push(
           sectionDescription(

@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { BaseFormComponent } from 'src/shared/components/base-form.component';
-import { AdminDataForm } from 'src/shared/forms/admin.form';
+import { BaseFormComponent } from '@shared/components/base-form.component';
+import { AdminDataForm } from '@shared/forms/admin.form';
 
 @Component({
      selector: 'app-admin-data-form',

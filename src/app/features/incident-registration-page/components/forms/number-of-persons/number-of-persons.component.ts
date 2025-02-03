@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { List } from '@features/incident-registration-page/models/list.interface';
-import { BaseFormComponent } from 'src/shared/components/base-form.component';
-import { NrOfPersonsForm } from 'src/shared/forms/nr-of-persons.form';
+import { BaseFormComponent } from '@shared/components/base-form.component';
+import { NrOfPersonsForm } from '@shared/forms/nr-of-persons.form';
 
 @Component({
      selector: 'app-number-of-persons',

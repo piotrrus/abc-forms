@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { BaseFormComponent } from '../../../../../../shared/components/base-form.component';
-import { ViolationDetectionForm } from 'src/shared/forms/violation-detection.form';
+import { BaseFormComponent } from '../../../../../shared/components/base-form.component';
+import { ViolationDetectionForm } from '@shared/forms/violation-detection.form';
 
 @Component({
      selector: 'app-violation-detection-form',

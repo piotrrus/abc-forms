@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { BaseFormComponent } from 'src/shared/components/base-form.component';
-import { AdminRepresentativeForm } from 'src/shared/forms/admin-representative.form';
+import { BaseFormComponent } from '@shared/components/base-form.component';
+import { AdminRepresentativeForm } from '@shared/forms/admin-representative.form';
 
 @Component({
      selector: 'app-admin-representative-form',

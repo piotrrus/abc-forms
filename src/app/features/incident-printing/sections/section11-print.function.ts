@@ -1,12 +1,12 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { sectionHeader, sectionList, sectionListBold, sectionListTitle } from '../helpers/printing.util';
+import { sectionList, sectionListBold, sectionListTitle } from '../helpers/printing.util';
 import { INCIDENT_LABELS } from '../enums/incident-titles.enum';
+import { contentSectionHeader } from '../helpers/content-create.helper';
 
 export function createSection11(data: DescriptionDTO): Content {
-     const content: Content = [];
      // 'uodos.section11' | translate
-     content.push(sectionHeader('11. Przetwarzanie transgraniczne'));
+     const content: Content = [...contentSectionHeader('11. Przetwarzanie transgraniczne')];
 
      data.theBreachIsCrossBorderInNature
           ? content.push(sectionListTitle(INCIDENT_LABELS.TRANSBORDER_TYPE))

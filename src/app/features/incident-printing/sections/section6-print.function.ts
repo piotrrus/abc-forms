@@ -1,12 +1,15 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { sectionHeader, sectionItem, sectionList } from './printing.util';
+import { sectionItem, sectionList } from '../helpers/printing.util';
+import {
+     contentSectionHeader,
+     contentSectionItem,
+     // contentSectionList,
+} from '../helpers/content-create.helper';
 
 export function createSection6(data: DescriptionDTO): Content {
-     const content: Content = [];
-
-     content.push(sectionHeader('6. Kategorie danych osobowych'));
-
+     const content: Content = [...contentSectionHeader('6. Kategorie danych osobowych')];
+     // [...content, ...contentSectionItem('6. Kategorie danych osobowych')];
      content.push(sectionItem('6A. Dane podstawowe'));
 
      data.surnamesAndNames ? content.push(sectionList('Nazwiska i imiona')) : null;

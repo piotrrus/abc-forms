@@ -3,17 +3,17 @@ import { Content, ContentCanvas } from 'pdfmake/interfaces';
 import { BasePrintHelper } from './base-print.helper';
 import { DescriptionDTO } from 'src/description-dto';
 import { createHeaderSection } from './header.incident.function';
-import { createSection11 } from './section11-print.function';
-import { createSection9 } from './section9-print.function';
-import { createSection8 } from './section8-print.function';
-import { createSection7 } from './section7-print.function';
-import { createSection6 } from './section6-print.function';
-import { createSection5 } from './section5-print.function';
-import { createSection4 } from './section4-print.function';
-import { createSection3 } from './section3-print.function';
-import { createSection2 } from './section2-print.function';
-import { createSection1 } from './section1-print.function';
-import { createSection10 } from './section10-print.function';
+import { createSection1 } from '../sections/section1-print.function';
+import { createSection2 } from '../sections/section2-print.function';
+import { createSection3 } from '../sections/section3-print.function';
+import { createSection4 } from '../sections/section4-print.function';
+import { createSection5 } from '../sections/section5-print.function';
+import { createSection6 } from '../sections/section6-print.function';
+import { createSection7 } from '../sections/section7-print.function';
+import { createSection9 } from '../sections/section9-print.function';
+import { createSection8 } from '../sections/section8-print.function';
+import { createSection10 } from '../sections/section10-print.function';
+import { createSection11 } from '../sections/section11-print.function';
 
 @Injectable()
 export class IncidentPrintHelper extends BasePrintHelper {

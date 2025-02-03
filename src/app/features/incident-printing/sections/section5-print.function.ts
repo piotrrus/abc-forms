@@ -1,13 +1,13 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
+import { contentSectionHeader } from '../helpers/content-create.helper';
 // import { createTable } from '../helpers/printing.util';
 
-
 export function createSection5(data: DescriptionDTO): Content {
-     const content: Content = [];
+     // const content: Content = [];
 
-     content.push({ text: '5. Liczba osób i wpisów', style: 'sectionHeader' });
-
+     // content.push({ text: '5. Liczba osób i wpisów', style: 'sectionHeader' });
+     const content: Content = [...contentSectionHeader('5. Liczba osób i wpisów')];
      // uodos.approximateNumberOfPeopleBreached | translate
      // uodos.approximateNumberOfPeopleBreachedEntry | translate
      content.push({

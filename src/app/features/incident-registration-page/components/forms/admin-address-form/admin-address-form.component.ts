@@ -1,8 +1,8 @@
 import { Component, Output, EventEmitter, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { List } from '@features/incident-registration-page/models/list.interface';
-import { BaseFormComponent } from 'src/shared/components/base-form.component';
-import { AdminAddressForm } from 'src/shared/forms/admin-address.form';
+import { BaseFormComponent } from '@shared/components/base-form.component';
+import { AdminAddressForm } from '@shared/forms/admin-address.form';
 
 @Component({
      selector: 'app-admin-address-form',

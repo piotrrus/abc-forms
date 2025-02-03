@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { List } from '@features/incident-registration-page/models/list.interface';
-import { BaseFormComponent } from 'src/shared/components/base-form.component';
-import { PossibleConsequencesForm } from 'src/shared/forms/possible-consequences.form';
+import { BaseFormComponent } from '@shared/components/base-form.component';
+import { PossibleConsequencesForm } from '@shared/forms/possible-consequences.form';
 
 @Component({
      selector: 'app-possible-consequences-form',

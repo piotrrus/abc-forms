@@ -1,11 +1,12 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { sectionHeader, sectionItem, sectionList, sectionListBold } from './printing.util';
+import { sectionItem, sectionList, sectionListBold } from '../helpers/printing.util';
+import { contentSectionHeader } from '../helpers/content-create.helper';
+//import { sectionHeader, sectionItem, sectionList, sectionListBold } from './printing.util';
 
 export function createSection8(data: DescriptionDTO): Content {
-     const content: Content = [];
      // 'uodos.section8' | translate
-     content.push(sectionHeader('8. Możliwe konsekwencje'));
+     const content: Content = [...contentSectionHeader('8. Możliwe konsekwencje')];
 
      content.push(
           sectionItem(

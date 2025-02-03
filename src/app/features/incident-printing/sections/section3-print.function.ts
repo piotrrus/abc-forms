@@ -1,12 +1,16 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { createContentTable, createTable, sectionHeader, sectionItem, sectionList } from './printing.util';
+//import { createContentTable, createTable, sectionHeader, sectionItem, sectionList } from './printing.util';
+import { createTable, sectionItem, sectionList } from '../helpers/printing.util';
+
 import * as dayjs from 'dayjs';
 import { DATE_TIME_FORMAT } from '../enums/date-time.formats.enum';
+import { contentSectionHeader } from '../helpers/content-create.helper';
 
 export function createSection3(data: DescriptionDTO): Content {
-     const content: Content = [];
-     content.push(sectionHeader('3. Czas naruszenia'));
+     // const content: Content = [];
+     // content.push(sectionHeader('3. Czas naruszenia'));
+     const content: Content = [...contentSectionHeader('3. Czas naruszenia')];
 
      content.push(sectionItem('3A. Wykrycie naruszenia i powiadomienie nadzorczego'));
 

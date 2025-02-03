@@ -1,25 +1,27 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
 import { sectionDescription, sectionHeader, sectionList } from '../helpers/printing.util';
-// import * as dayjs from 'dayjs';
+import * as dayjs from 'dayjs';
 // import { DATE_FORMAT, DATE_TIME_FORMAT } from '../enums/date-time.formats.enum';
 import { contentSectionHeader } from '../helpers/content-create.helper';
-import { DateHandler } from 'src/shared/utils/data.handler';
+import { DATE_FORMAT, DATE_TIME_FORMAT } from '../enums/date-time.formats.enum';
+// import { DateHandler } from 'src/shared/utils/data.handler';
 
 export function createSection10(data: DescriptionDTO): Content {
-     // const content: Content = [];
      // 'uodos.section10' | translate
-     const content: Content = [...contentSectionHeader('10. Czy osoby, których dane dotyczą, zostały zawiadomione o naruszeniu?')];
+     const content: Content = [
+          ...contentSectionHeader('10. Czy osoby, których dane dotyczą, zostały zawiadomione o naruszeniu?'),
+     ];
 
-    // content.push(sectionHeader('10. Czy osoby, których dane dotyczą, zostały zawiadomione o naruszeniu?'));
+     // content.push(sectionHeader('10. Czy osoby, których dane dotyczą, zostały zawiadomione o naruszeniu?'));
 
      if (data.section10true || data.section10Notice) {
           const isIndividualText = data.section10IndwidualTrue ? 'TAK' : 'NIE';
 
-          const notificationDate = DateHandler.dateTimeFormat(data.indicateTheDateNotification?.toString());
-          //  const notificationDate =dayjs(data.indicateTheDateNotification).format(DATE_TIME_FORMAT);
-          const plannedDate = DateHandler.dateTimeFormat(data.indicateTheDateOfThePlannedNotification?.toString());
-          //dayjs(data.indicateTheDateOfThePlannedNotification).format(DATE_TIME_FORMAT);
+          //   const notificationDate = DateHandler.dateTimeFormat(data.indicateTheDateNotification?.toString());
+          const notificationDate = dayjs(data.indicateTheDateNotification).format(DATE_TIME_FORMAT);
+          //     const plannedDate = DateHandler.dateTimeFormat(data.indicateTheDateOfThePlannedNotification?.toString());
+          const plannedDate = dayjs(data.indicateTheDateOfThePlannedNotification).format(DATE_TIME_FORMAT);
 
           content.push({
                layout: 'noBorders',
@@ -106,19 +108,18 @@ export function createSection10Individual(data: DescriptionDTO): Content {
 
      content.push(content.push(sectionList('Wskaż datę zawiadomienia')));
 
-     // const notificationDate = dayjs(data.indicateTheDateNotification).format(DATE_FORMAT);
-     // const plannedDate = dayjs(data.indicateTheDateOfThePlannedNotification).format(DATE_FORMAT);
+     const notificationDate = dayjs(data.indicateTheDateNotification).format(DATE_FORMAT);
+     const plannedDate = dayjs(data.indicateTheDateOfThePlannedNotification).format(DATE_FORMAT);
 
-     const notificationDate = DateHandler.dateTimeFormat(data.indicateTheDateNotification?.toString());
+     //   const notificationDate = DateHandler.dateTimeFormat(data.indicateTheDateNotification?.toString());
      //  const notificationDate =dayjs(data.indicateTheDateNotification).format(DATE_TIME_FORMAT);
-     const plannedDate = DateHandler.dateTimeFormat(data.indicateTheDateOfThePlannedNotification?.toString());
-
+     // const plannedDate = DateHandler.dateTimeFormat(data.indicateTheDateOfThePlannedNotification?.toString());
 
      data.indicateTheDateNotification ? content.push(sectionList(notificationDate)) : null;
 
      content.push(content.push(sectionList('Wskaż datę planowanego zawiadomienia')));
      data.indicateTheDateOfThePlannedNotification ? content.push(sectionList(plannedDate)) : null;
-     
+
      content.push(content.push(sectionList('Liczba zawiadomionych osób')));
      data.numberOfPeopleNotified ? content.push(sectionList(data.numberOfPeopleNotified.toString())) : null;
 

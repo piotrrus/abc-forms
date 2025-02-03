@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { BaseFormComponent } from 'src/shared/components/base-form.component';
+import { BaseFormComponent } from '@shared/components/base-form.component';
 
-import { RegistrationTypeForm } from 'src/shared/forms/registration-type.form';
+import { RegistrationTypeForm } from '@shared/forms/registration-type.form';
 
 @Component({
      selector: 'app-section1',
