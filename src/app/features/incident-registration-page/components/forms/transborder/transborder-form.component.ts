@@ -4,9 +4,7 @@ import { Section11 } from '@features/incident-registration-page/models/countries
 import { List } from '@features/incident-registration-page/models/list.interface';
 import { BaseFormComponent } from '@shared/components/base-form.component';
 import { TransborderForm } from '@shared/forms/transborder.form';
-// import { BaseFormComponent } from '@shared/components/base-form.component';
-// import { TransborderForm } from '@shared/forms/transborder.form';
-// import { atLeastOne } from '@shared/validators/at-least-one.validator';
+import { atLeastOne } from '@shared/validators/at-least-one.validator';
 
 @Component({
      selector: 'app-transborder-form',

@@ -25,7 +25,7 @@
           "useDefineForClassFields": false,
           "strictPropertyInitialization": false,
           "typeRoots": ["node_modules/@types"],
-          "types": ["pdfmake", "jest"],
+          "types": ["pdfmake"],
           "lib": ["ES2022", "dom"]
      },
      "angularCompilerOptions": {
@@ -40,6 +40,5 @@
           "strictFunctionTypes": false,
           "strictNullChecks": false,
           "strictPropertyInitialization": false
-     },
-     "include": ["src/**/*.ts", "shirt.form.ts"]
+     }
 }
