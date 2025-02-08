@@ -1,13 +1,17 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { catchError, Observable, shareReplay, take, throwError } from 'rxjs';
-import { NotificationMessageService } from '../notifications/notification.service';
-// import { COMMON_MESSAGES } from '@shared/enums/messages.enum';
+import { NotificationMessageService } from './notifications/notification.service';
+import { COMMON_MESSAGES } from '@shared/enums/common-messages';
 
 @Injectable()
 export abstract class ApiService {
-     protected http = inject(HttpClient);
-     protected notificationService = inject(NotificationMessageService);
+     constructor(
+          private http: HttpClient,
+          private notificationService: NotificationMessageService
+     ) {}
+     //   protected http = inject(HttpClient);
+     //  protected notificationService = inject(NotificationMessageService);
 
      protected get<T>(url: string): Observable<T> {
           return this.http.get<T>(url).pipe(

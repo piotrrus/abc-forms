@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material-module';
 import { BootstrapModule } from './bootstrap.module';
 import { DirectivesModule } from './directives.module';
+import { TranslateService } from '@ngx-translate/core';
 
 const MODULES = [
      CommonModule,
@@ -17,5 +18,6 @@ const MODULES = [
 @NgModule({
      imports: [MODULES],
      exports: [MODULES],
+     providers: [TranslateService],
 })
 export class SharedModule {}

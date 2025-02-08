@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+// import { TranslateService } from '@ngx-translate/core';
 import { Content, ContentCanvas } from 'pdfmake/interfaces';
 import { BasePrintHelper } from './base-print.helper';
 import { DescriptionDTO } from 'src/description-dto';
@@ -17,6 +18,11 @@ import { createSection11 } from '../sections/section11-print.function';
 
 @Injectable()
 export class IncidentPrintHelper extends BasePrintHelper {
+     // private translate: TranslateService
+     constructor() {
+          super();
+     }
+
      public generatePdf(data: DescriptionDTO): void {
           const content: Content = [];
           const pdfFileName = 'incident-test';
@@ -38,6 +44,14 @@ export class IncidentPrintHelper extends BasePrintHelper {
 
           this.createPdf(content, pdfFileName);
      }
+
+     // private getTranslationSection(): void {
+
+     // }
+
+     // private translation(textToTranslate: string): string {
+     //      return this.translate.instant(`uodos.${textToTranslate}`) as string;
+     // }
 
      private horizontalLine(): ContentCanvas {
           return {

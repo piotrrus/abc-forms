@@ -2,49 +2,32 @@ import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
 import { sectionItem, sectionList, sectionListBold } from '../helpers/printing.util';
 import { contentSectionHeader } from '../helpers/content-create.helper';
-//import { sectionHeader, sectionItem, sectionList, sectionListBold } from './printing.util';
+import { SECTION8 } from '../enums/incident-titles.enum';
 
 export function createSection8(data: DescriptionDTO): Content {
-     // 'uodos.section8' | translate
-     const content: Content = [...contentSectionHeader('8. Możliwe konsekwencje')];
+     const content: Content = [...contentSectionHeader(SECTION8.TITLE)];
 
-     content.push(
-          sectionItem(
-               '8A. Uszczerbek fizyczny, majątkowy, niemajątkowy lub inne znaczące konsekwencje dla osoby, której dane dotyczą'
-          )
-     );
-     data.lossControlOverPersonalData
-          ? content.push(sectionList('Utrata kontroli nad własnymi danymi osobowymi'))
-          : null;
-     data.financialLoss ? content.push(sectionList('Strata finansowa')) : null;
-     data.limitationAbilityToExerciseRightsRodo
-          ? content.push(sectionList('Ograniczenie możliwości realizowania praw z art. 15-22 RODO'))
-          : null;
-     data.limitationAbilityToExerciseRights
-          ? content.push(sectionList('Ograniczenie możliwości realizowania praw'))
-          : null;
-     data.discrimination ? content.push(sectionList('Dyskryminacja')) : null;
-     data.identityTheftFraud ? content.push(sectionList('Kradzież lub sfałszowanie tożsamości')) : null;
-     data.infringementGoodName ? content.push(sectionList('Naruszenie dobrego imienia')) : null;
+     content.push(sectionItem(SECTION8.DESC_8A));
+
+     data.lossControlOverPersonalData ? content.push(sectionList(SECTION8.OPTION_8A)) : null;
+     data.financialLoss ? content.push(sectionList(SECTION8.OPTION_8B)) : null;
+     data.limitationAbilityToExerciseRightsRodo ? content.push(sectionList(SECTION8.OPTION_8C)) : null;
+     data.limitationAbilityToExerciseRights ? content.push(sectionList(SECTION8.OPTION_8D)) : null;
+     data.discrimination ? content.push(sectionList(SECTION8.OPTION_8E)) : null;
+     data.identityTheftFraud ? content.push(sectionList(SECTION8.OPTION_8F)) : null;
+     data.infringementGoodName ? content.push(sectionList(SECTION8.OPTION_8G)) : null;
      data.lossConfidentialityPersonalDataProtectedProfessionalSecrecy
-          ? content.push(sectionList('Utrata poufności danych osobowych chronionych tajemnicą zawodową'))
+          ? content.push(sectionList(SECTION8.OPTION_8H))
           : null;
-     data.unauthorizedReversalPseudonymization
-          ? content.push(sectionList('Nieuprawnione odwrócenie pseudonimizacji'))
-          : null;
+     data.unauthorizedReversalPseudonymization ? content.push(sectionList(SECTION8.OPTION_8I)) : null;
 
      // data.section8aOthers ? content.push(sectionList('Inne')) : null;
 
      data.section8aOthers && data.descWritelaw
-          ? (content.push(
-                 sectionListBold('Inne skutki naruszenia prawa do ochrony danych osoby, której dane dotyczą:')
-            ),
-            content.push(sectionList(data.descWritelaw)))
+          ? (content.push(sectionListBold(SECTION8.OPTION_8J)), content.push(sectionList(data.descWritelaw)))
           : null;
 
-     content.push(
-          sectionItem('8B. Czy wystąpiło wysokie ryzyko naruszenia praw lub wolności osób fizycznych?')
-     );
+     content.push(sectionItem(SECTION8.DESC_8B));
 
      data.section8B ? content.push(sectionList('TAK')) : content.push(sectionList('NIE'));
 

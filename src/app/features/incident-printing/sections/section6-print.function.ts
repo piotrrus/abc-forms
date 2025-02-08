@@ -1,16 +1,13 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
 import { sectionItem, sectionList } from '../helpers/printing.util';
-import {
-     contentSectionHeader,
-     contentSectionItem,
-     // contentSectionList,
-} from '../helpers/content-create.helper';
+import { contentSectionHeader } from '../helpers/content-create.helper';
+import { SECTION6 } from '../enums/incident-titles.enum';
 
 export function createSection6(data: DescriptionDTO): Content {
-     const content: Content = [...contentSectionHeader('6. Kategorie danych osobowych')];
-     // [...content, ...contentSectionItem('6. Kategorie danych osobowych')];
-     content.push(sectionItem('6A. Dane podstawowe'));
+     const content: Content = [...contentSectionHeader(SECTION6.TITLE)];
+
+     content.push(sectionItem(SECTION6.TITLE_6A));
 
      data.surnamesAndNames ? content.push(sectionList('Nazwiska i imiona')) : null;
      data.namesParents1 ? content.push(sectionList('Imiona rodziców')) : null;
@@ -37,7 +34,7 @@ export function createSection6(data: DescriptionDTO): Content {
 
      //todo add other txt data
 
-     content.push(sectionItem('6B. Dane szczególnej kategorii'));
+     content.push(sectionItem(SECTION6.TITLE_6B));
 
      data.dataAboutRacialEthnicOrigin
           ? content.push(sectionList('Dane o pochodzeniu rasowym lub etnicznym'))

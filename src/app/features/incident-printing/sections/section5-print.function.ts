@@ -1,37 +1,22 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
 import { contentSectionHeader } from '../helpers/content-create.helper';
-// import { createTable } from '../helpers/printing.util';
+import { createTable, sectionList } from '../helpers/printing.util';
+import { SECTION5 } from '../enums/incident-titles.enum';
 
 export function createSection5(data: DescriptionDTO): Content {
-     // const content: Content = [];
+     const content: Content = [...contentSectionHeader(SECTION5.TITLE)];
 
-     // content.push({ text: '5. Liczba osób i wpisów', style: 'sectionHeader' });
-     const content: Content = [...contentSectionHeader('5. Liczba osób i wpisów')];
-     // uodos.approximateNumberOfPeopleBreached | translate
-     // uodos.approximateNumberOfPeopleBreachedEntry | translate
-     content.push({
-          layout: 'noBorders',
-          table: {
-               headerRows: 0,
-               widths: ['*', '*'],
-               body: [
-                    [
-                         { text: 'Przybliżona liczba osób, których dotyczy naruszenie', style: 'list' },
-                         { text: data.approximateNumberOfPeopleBreached, style: 'list' },
-                    ],
-                    [
-                         {
-                              text: 'Przybliżona liczba wpisów danych osobowych, których dotyczy naruszenie',
-                              style: 'list',
-                         },
-                         { text: data.approximateNumberOfPeopleBreachedEntry, style: 'list' },
-                    ],
-               ],
-          },
-     });
+     const labels = [];
+     const values = [];
 
-     // content.push(createTable(body));
+     labels.push(sectionList(SECTION5.APPROX_PERSON_NR));
+     labels.push(sectionList(SECTION5.APPROX_PERSON_DATA_NR));
+
+     values.push(sectionList(`${data.approximateNumberOfPeopleBreached}`));
+     values.push(sectionList(`${data.approximateNumberOfPeopleBreachedEntry}`));
+
+     content.push(createTable(labels, values));
 
      return content;
 }
