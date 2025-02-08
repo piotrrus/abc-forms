@@ -16,46 +16,20 @@ export function createSection1(data: DescriptionDTO): Content {
 
      content.push(createTable(labels, values));
 
-     // content.push({
-     //      layout: 'noBorders',
-     //      table: {
-     //           headerRows: 0,
-     //           widths: [300, '*'],
-     //           body: [
-     //                [
-     //                     {
-     //                          text: 'Sygnatura sprawy',
-     //                          style: 'list',
-     //                     },
-     //                     { text: data.optionalSign, style: 'list' },
-     //                ],
-     //           ],
-     //      },
-     // });
-     // 'uodos.registrationComplet' | translate
-     data.registrationComplet ? content.push(sectionListBold('Zgłoszenie kompletne/jednorazowe')) : null;
+     data.registrationComplet ? content.push(sectionListBold(SECTION1.SINGLE_REGISTRATION)) : null;
 
-     // 'uodos.registrationBegin' | translate"
      if (data.registrationBegin) {
-          content.push(sectionListBold('Zgłoszenie wstępne'));
+          content.push(sectionListBold(SECTION1.INITIAL_REGISTRATION));
           const labels = [];
           const values = [];
           labels.push(sectionList('Przybliżona data uzupełnienia zgłoszenia'));
           values.push(sectionList(`${data.addDatereopen?.toString()}`));
 
           content.push(createTable(labels, values));
-
-          // data.addDatereopen
-          //      ? content.push(
-          //             sectionList(
-          //                  `Przybliżona data uzupełnienia zgłoszenia ${data.addDatereopen?.toString()}`
-          //             )
-          //        )
-          //      : null;
      }
 
      if (data.registrationCompletModify) {
-          content.push(sectionListBold('Zgłoszenie uzupełniające/zmieniające'));
+          content.push(sectionListBold(SECTION1.ADDITIONAL_REGISTRATION));
 
           const labels = [];
           const values = [];
@@ -66,33 +40,8 @@ export function createSection1(data: DescriptionDTO): Content {
           values.push(sectionList(`${data.addTaskSignUodo}`));
 
           content.push(createTable(labels, values));
-
-          // content.push({
-          //      layout: 'noBorders',
-          //      table: {
-          //           headerRows: 0,
-          //           widths: ['*', '*'],
-          //           body: [
-          //                [
-          //                     {
-          //                          text: 'Data poprzedniego zgłoszenia',
-          //                          style: 'list',
-          //                     },
-          //                     { text: data.addDateold, style: 'list' },
-          //                ],
-          //                [
-          //                     {
-          //                          text: 'Podaj sygnaturę sprawy UODO',
-          //                          style: 'list',
-          //                     },
-          //                     { text: data.addTaskSignUodo, style: 'list' },
-          //                ],
-          //           ],
-          //      },
-          // });
      }
 
-     // 'uodos.theViolationHasBeenReportedOtherCoutry' | translate
      const otherCoutryViolationReported =
           'Naruszenie zostało lub zostanie zgłoszone organowi ochrony danych osobowych w innym państwie';
      const otherCoutryViolationReportedText = data.theViolationHasBeenReportedOtherCountry
@@ -110,30 +59,6 @@ export function createSection1(data: DescriptionDTO): Content {
      valuesOther.push(sectionList(`${data.addSignatureRegistration}`));
 
      content.push(createTable(labelsOther, valuesOther));
-
-     // content.push({
-     //      layout: 'noBorders',
-     //      table: {
-     //           headerRows: 0,
-     //           widths: [300, '*'],
-     //           body: [
-     //                [
-     //                     {
-     //                          text: 'Nazwy organów, którym zostało lub zostanie zgłoszone naruszenie',
-     //                          style: 'list',
-     //                     },
-     //                     { text: data.addNameDepart, style: 'list' },
-     //                ],
-     //                [
-     //                     {
-     //                          text: 'Sygnatura/numer zgłoszenia do innego organu',
-     //                          style: 'list',
-     //                     },
-     //                     { text: data.addSignatureRegistration, style: 'list' },
-     //                ],
-     //           ],
-     //      },
-     // });
 
      return content;
 }

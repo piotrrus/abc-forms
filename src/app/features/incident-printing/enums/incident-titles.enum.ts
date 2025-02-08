@@ -142,4 +142,7 @@ export enum SECTION1 {
      TITLE = '1. Typ zgloszenia',
      DESC_1_A = 'Wskaż czy zgłaszasz naruszenie ochrony danych osobowych mające charakter jednorazowego zdarzenia (np. zgubienie, kradzież nośnika danych, przypadkowe wysłanie danych osobie nieuprawnionej), czy przygotowujesz wstępne zgłoszenie, które uzupełnisz później, lub czy uzupełniasz lub zmieniasz wcześniejsze zgłoszenie',
      OPTIONAL_SIGN = 'Sygnatura sprawy',
+     SINGLE_REGISTRATION = 'Zgłoszenie kompletne/jednorazowe',
+     INITIAL_REGISTRATION = 'Zgłoszenie wstępne',
+     ADDITIONAL_REGISTRATION = 'Zgłoszenie uzupełniające/zmieniające',
 }
