@@ -1,8 +1,13 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { sectionList, sectionListBold, sectionDescription, createTable } from '../helpers/printing.util';
-import { contentSectionHeader } from '../helpers/content-create.helper';
-import { SECTION1 } from '../enums/incident-titles.enum';
+import {
+     sectionList,
+     sectionListBold,
+     sectionDescription,
+     createTableNoBorder,
+} from '../../../../shared/modules/pdf-export/printing.util';
+import { contentSectionHeader } from '../../../../shared/modules/pdf-export/helpers/content-create.helper';
+import { SECTION1 } from '../../enums/incident-titles.enum';
 
 export function createSection1(data: DescriptionDTO): Content {
      const content: Content = [...contentSectionHeader(SECTION1.TITLE)];
@@ -14,7 +19,7 @@ export function createSection1(data: DescriptionDTO): Content {
      labels.push(sectionList(SECTION1.OPTIONAL_SIGN));
      values.push(sectionList(`${data.optionalSign}`));
 
-     content.push(createTable(labels, values));
+     content.push(createTableNoBorder(labels, values));
 
      data.registrationComplet ? content.push(sectionListBold(SECTION1.SINGLE_REGISTRATION)) : null;
 
@@ -23,9 +28,9 @@ export function createSection1(data: DescriptionDTO): Content {
           const labels = [];
           const values = [];
           labels.push(sectionList('Przybliżona data uzupełnienia zgłoszenia'));
-          values.push(sectionList(`${data.addDatereopen?.toString()}`));
+          values.push(sectionList(`${data.addDateReopen?.toString()}`));
 
-          content.push(createTable(labels, values));
+          content.push(createTableNoBorder(labels, values));
      }
 
      if (data.registrationCompletModify) {
@@ -36,10 +41,10 @@ export function createSection1(data: DescriptionDTO): Content {
           labels.push(sectionList('Data poprzedniego zgłoszenia'));
           labels.push(sectionList('Podaj sygnaturę sprawy UODO'));
 
-          values.push(sectionList(`${data.addDateold}`));
+          values.push(sectionList(`${data.addDateOld}`));
           values.push(sectionList(`${data.addTaskSignUodo}`));
 
-          content.push(createTable(labels, values));
+          content.push(createTableNoBorder(labels, values));
      }
 
      const otherCoutryViolationReported =
@@ -58,7 +63,7 @@ export function createSection1(data: DescriptionDTO): Content {
      valuesOther.push(sectionList(`${data.addNameDepart}`));
      valuesOther.push(sectionList(`${data.addSignatureRegistration}`));
 
-     content.push(createTable(labelsOther, valuesOther));
+     content.push(createTableNoBorder(labelsOther, valuesOther));
 
      return content;
 }

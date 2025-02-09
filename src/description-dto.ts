@@ -7,8 +7,8 @@ export interface DescriptionDTO {
      registrationComplet?: boolean;
      registrationBegin?: boolean;
      registrationCompletModify?: boolean;
-     addDatereopen?: number;
-     addDateold?: number;
+     addDateReopen?: number;
+     addDateOld?: number;
      addTaskSignUodo?: string;
      theViolationHasBeenReportedOtherCountry?: boolean;
      theViolationHasBeenReportedOtherCountryDesc?: string;

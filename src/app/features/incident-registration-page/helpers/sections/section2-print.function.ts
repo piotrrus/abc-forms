@@ -1,8 +1,12 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { createTable, sectionItem, sectionList } from '../helpers/printing.util';
-import { contentSectionHeader } from '../helpers/content-create.helper';
-import { SECTION2 } from '../enums/incident-titles.enum';
+import {
+     createTableNoBorder,
+     sectionItem,
+     sectionList,
+} from '../../../../shared/modules/pdf-export/printing.util';
+import { contentSectionHeader } from '../../../../shared/modules/pdf-export/helpers/content-create.helper';
+import { SECTION2 } from '../../enums/incident-titles.enum';
 
 export function createSection2(data: DescriptionDTO): Content {
      const content: Content = [...contentSectionHeader(SECTION2.TITLE)];
@@ -20,7 +24,7 @@ export function createSection2(data: DescriptionDTO): Content {
      values.push(sectionList(`${data.regon}`));
      values.push(sectionList(`${data.krs}`));
 
-     content.push(createTable(labels, values));
+     content.push(createTableNoBorder(labels, values));
 
      content.push(sectionItem(SECTION2.TITLE_2B));
 
@@ -52,7 +56,7 @@ export function createSection2(data: DescriptionDTO): Content {
      sectionBValues.push(sectionList(communeAdministrativeArea));
      sectionBValues.push(sectionList(country));
 
-     content.push(createTable(sectionBLabels, sectionBValues));
+     content.push(createTableNoBorder(sectionBLabels, sectionBValues));
      content.push(sectionItem('2C. Osoby uprawnione do reprezentowania administratora'));
 
      data.personsAuthorizedRepresentAdministratorDTO.forEach((data) => {
@@ -80,7 +84,7 @@ export function createSection2(data: DescriptionDTO): Content {
      sectionEValues.push(sectionList(phoneNumber));
      sectionEValues.push(sectionList(email));
 
-     content.push(createTable(sectionELabels, sectionEValues));
+     content.push(createTableNoBorder(sectionELabels, sectionEValues));
      data.anInspectorHasNotBeenAppointed
           ? content.push(sectionList('Inspektor nie został wyznaczony'))
           : null;

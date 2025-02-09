@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/modules/shared.modules';
 import { IncidentsService } from './services/incident.service';
-import { IncidentPrintHelper } from '@features/incident-printing/helpers/incident-print.helper';
+import { IncidentPrintHelper } from '@features/incident-registration-page/helpers/incident-print.helper';
 
 @NgModule({
      declarations: [],

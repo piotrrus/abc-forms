@@ -1,0 +1,16 @@
+export const incidentsTableColumns = [
+     'Id',
+     'Tytuł',
+     'Administrator danych',
+     'REGON',
+     'Typ zgłoszenia',
+     'Czas od stwierdzeania do zgłoszenia',
+     'Data zgłoszenia',
+     'Data stwierdzenia',
+     'Kategorie danych osobowych',
+     'Szczególne kategorie danych RODO 9',
+     'Dane dotyczące wyroków skazujących',
+     'Wysokie ryzyko',
+     'Czy zawiadomiono podmioty?',
+     'Naruszenie transgraniczne',
+];

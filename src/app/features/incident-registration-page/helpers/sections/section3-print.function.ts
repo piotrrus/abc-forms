@@ -1,11 +1,15 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { createTable, sectionItem, sectionList } from '../helpers/printing.util';
+import {
+     createTableNoBorder,
+     sectionItem,
+     sectionList,
+} from '../../../../shared/modules/pdf-export/printing.util';
 
 import * as dayjs from 'dayjs';
-import { DATE_TIME_FORMAT } from '../enums/date-time.formats.enum';
-import { contentSectionHeader } from '../helpers/content-create.helper';
-import { SECTION3 } from '../enums/incident-titles.enum';
+import { DATE_TIME_FORMAT } from '../../../../shared/enums/date-time.formats.enum';
+import { contentSectionHeader } from '../../../../shared/modules/pdf-export/helpers/content-create.helper';
+import { SECTION3 } from '../../enums/incident-titles.enum';
 
 export function createSection3(data: DescriptionDTO): Content {
      const content: Content = [...contentSectionHeader(SECTION3.TITLE)];
@@ -23,7 +27,7 @@ export function createSection3(data: DescriptionDTO): Content {
      values.push(sectionList(`${data.methodDeterminingViolation}`));
      values.push(sectionList(`${data.dateInformationSubject}`));
 
-     content.push(createTable(labels, values));
+     content.push(createTableNoBorder(labels, values));
 
      content.push(sectionList(SECTION3.DESC_3A_D));
      data.reasonsForDelay ? content.push(sectionList(data.reasonsForDelay.toString())) : null;
@@ -41,7 +45,7 @@ export function createSection3(data: DescriptionDTO): Content {
      values3B.push(sectionList(startEnd));
      values3B.push(sectionList(dateEnd));
 
-     content.push(createTable(labels3B, values3B));
+     content.push(createTableNoBorder(labels3B, values3B));
 
      return content;
 }

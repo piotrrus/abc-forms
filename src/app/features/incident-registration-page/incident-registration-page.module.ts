@@ -34,6 +34,7 @@ import { Section3Component } from './components/sections/section3/section3.compo
 import { IncidentsService } from './services/incident.service';
 import { IncidentPrintModule } from './incident-print.module';
 import { UodoInfoComponent } from './components/uodo-info/uodo-info.component';
+import { IncidentsListPrintHelper } from '@features/incident-registration-page/helpers/incidents-list-print.helper';
 
 const COMPONENTS = [
      ViolationReasonsFormComponent,
@@ -69,6 +70,7 @@ const COMPONENTS = [
           PossibleConsequencesService,
           PersonalCategoriesService,
           IncidentsService,
+          IncidentsListPrintHelper,
      ],
 })
 export class IncidentRegistrationPageModule {}

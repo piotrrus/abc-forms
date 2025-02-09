@@ -1,5 +1,5 @@
 import { TableCell } from 'pdfmake/interfaces';
-import { BLOCK_STYLES } from '../enums/block-styles.enum';
+import { BLOCK_STYLES } from './enums/block-styles.enum';
 
 export function sectionHeader(label: string): SectionContent {
      return { text: label, style: BLOCK_STYLES.SECTION_HEADER };
@@ -24,16 +24,30 @@ export function sectionListTitle(label: string): SectionContent {
      return { text: label, style: BLOCK_STYLES.LIST_TITLE };
 }
 
-export function createTable(labels: SectionContent[], values: SectionContent[]): any {
+export function createTableNoBorder(labels: SectionContent[], values: SectionContent[]): any {
      const body: TableCell[] = [];
      body.push(labels);
      body.push(values);
-
      return {
           layout: 'noBorders',
           table: {
                headerRows: 0,
                widths: [300, '*'],
+               body: [body],
+          },
+     };
+}
+//labels: SectionContent[], values: SectionContent[]
+export function createTableWithHeaders(body: TableCell[]): any {
+     // const body: TableCell[] = [];
+     // body.push(labels);
+     // body.push(values);
+     // const body: TableCell[]  = [...labels, ...values];
+     return {
+          layout: 'lightHorizontalLines',
+          table: {
+               headerRows: 1,
+               widths: ['*', 'auto', 100, '*'],
                body: [body],
           },
      };

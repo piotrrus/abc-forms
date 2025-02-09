@@ -1,5 +1,6 @@
 export enum INCIDENT_LABELS {
      MAIN_TITLE = 'Zgłoszenie naruszenia ochrony danych osobowych',
+     LIST_TITLE = 'Lista zgłoszeń',
 }
 
 export enum SECTION5 {

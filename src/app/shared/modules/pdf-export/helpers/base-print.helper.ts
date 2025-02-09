@@ -3,6 +3,7 @@ import { Content, TDocumentDefinitions } from 'pdfmake/interfaces';
 
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import { pdfWatermark } from '../models/pdf-export-models';
 
 (<any>pdfMake).vfs = pdfFonts;
 
@@ -10,7 +11,9 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 export class BasePrintHelper {
      protected createPdf(content: Content, pdfFileName: string): void {
           const docDefinition: TDocumentDefinitions = {
-               watermark: { text: 'N A S K', color: '#cccadf', opacity: 0.2, bold: true, italics: false },
+               pageOrientation: 'landscape',
+               watermark: pdfWatermark,
+               // { text: 'N A S K', color: '#cccadf', opacity: 0.2, bold: true, italics: false },
                content: content,
                styles: {
                     header: { fontSize: 12, bold: false, margin: [120, 0, 0, 5] },
@@ -23,6 +26,7 @@ export class BasePrintHelper {
                     footer: { fontSize: 10 },
                     description: { fontSize: 8, bold: false, margin: [12, 0, 0, 5], color: 'grey' },
                     listDescription: { fontSize: 8, bold: false, margin: [25, 0, 0, 5], color: 'grey' },
+                    tableRow: { fontSize: 6, bold: false, margin: [0, 0, 0, 0] },
                },
           };
           pdfMake.createPdf(docDefinition).download(`${pdfFileName}.pdf`);

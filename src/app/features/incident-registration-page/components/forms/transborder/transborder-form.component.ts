@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder } from '@angular/forms';
-import { Section11 } from '@features/incident-registration-page/models/countries.interface';
 import { List } from '@features/incident-registration-page/models/list.interface';
+import { Section11 } from '@features/incident-registration-page/models/sections.interface';
 import { BaseFormComponent } from '@shared/components/base-form.component';
 import { TransborderForm } from '@shared/forms/transborder.form';
 import { atLeastOne } from '@shared/validators/at-least-one.validator';

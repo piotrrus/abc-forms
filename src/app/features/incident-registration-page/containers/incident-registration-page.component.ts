@@ -7,9 +7,12 @@ import { PersonCategoriesService } from '../services/person-categories.service';
 import { IncidentImpactsService } from '../services/incident-impacts.service';
 import { PossibleConsequencesService } from '../services/possible-consequences.service';
 import { PersonalCategoriesService } from '../services/personal-categories.service';
-import { Section11 } from '../models/countries.interface';
+import { Section11 } from '../models/sections.interface';
 import { IncidentsService } from '../services/incident.service';
-import { IncidentPrintHelper } from '@features/incident-printing/helpers/incident-print.helper';
+import { IncidentPrintHelper } from '@features/incident-registration-page/helpers/incident-print.helper';
+import { IncidentsListPrintHelper } from '@features/incident-registration-page/helpers/incidents-list-print.helper';
+import { Incident } from '@features/incidents-list-page/models/incident-list.interface';
+import { DescriptionDTO } from 'src/description-dto';
 
 @Component({
      selector: 'app-incident-registration-page',
@@ -53,6 +56,7 @@ export class IncidentRegistrationPageComponent {
      public section11Data = <Section11>{};
 
      private incidentData: any;
+     private incidentsList: Incident[];
 
      constructor(
           private readonly formFieldsDescriptionService: FormFieldsDescriptionService,
@@ -62,10 +66,14 @@ export class IncidentRegistrationPageComponent {
           private readonly possibleConsequencesService: PossibleConsequencesService,
           private readonly personalCategoriesService: PersonalCategoriesService,
           private readonly incidentsService: IncidentsService,
-          private readonly incidentPrintHelper: IncidentPrintHelper
+          private readonly incidentPrintHelper: IncidentPrintHelper,
+
+          private readonly incidentListHelper: IncidentsListPrintHelper
+
           //
      ) {
           this.getIncidentData();
+          this.getIncidentsList();
      }
 
      // public onAdminDataFormChange($event: any): void {
@@ -137,7 +145,80 @@ export class IncidentRegistrationPageComponent {
                )
                .subscribe();
      }
+
+     //
+     private getIncidentsList(): void {
+          this.incidentsService
+               .getIncidentList()
+               .pipe(
+                    tap((data) => {
+                         console.log(data);
+                         this.mapIncidentList(data[0]);
+                         //   this.incidentsList = data;
+                    })
+               )
+               .subscribe();
+     }
+
+     private mapIncidentList(data: DescriptionDTO): Incident {
+          const incident: Incident = <Incident>{};
+          incident.title = data.optionalSign ? data.optionalSign : '';
+          incident.registrationType = this.getRegistrationType(data);
+
+          incident.fullNameAdmin = data.fullNameAdmin ? data.fullNameAdmin : '';
+          incident.regon = data.regon ? data.regon : '';
+          //  incident.addDateOld = data.addDateOld ? data.addDateOld : '';
+          //    incident.addDateReopen = data.addDateReopen ? data.addDateReopen : '';
+
+          incident.personalDataCategories = this.getPersonalDataViolation(data).toString();
+          incident.dataAboutGuiltyverdicts = data.dataAboutGuiltyverdicts ? 'TAK' : 'NIE';
+          incident.noHighRiskWasFound = data.noHighRiskWasFound ? 'TAK' : 'NIE';
+          incident.theBreachIsCrossBorderInNature = data.theBreachIsCrossBorderInNature ? 'TAK' : 'NIE';
+
+          return incident;
+     }
+
+     private getRegistrationType(data: DescriptionDTO): string {
+          let registrationType = 'Zgłoszenie wstępne';
+          if (data.registrationComplet) {
+               registrationType = 'Zgłoszenie kompletne/jednorazowe';
+          } else if (data.registrationBegin) {
+               registrationType = 'Zgłoszenie wstępne';
+          } else if (data.registrationCompletModify) {
+               registrationType = 'Zgłoszenie uzupełniające/zmieniające';
+          }
+          return registrationType;
+     }
+
+     private getPersonalDataViolation(data: DescriptionDTO): string[] {
+          const personalDataViolation: string[] = [];
+
+          data.surnamesAndNames ? personalDataViolation.push('Nazwiska i imiona') : null;
+          data.namesParents ? personalDataViolation.push('Imiona rodziców') : null;
+          data.birthData ? personalDataViolation.push('Data urodzenia') : null;
+          data.numberaAccountBank ? personalDataViolation.push('Numer rachunku bankowego') : null;
+          data.adressliving ? personalDataViolation.push('Adres zamieszkania lub pobytu') : null;
+          data.pesel ? personalDataViolation.push('Numer ewidencyjny PESEL') : null;
+          data.addressMail ? personalDataViolation.push('Adres e-mail') : null;
+          data.loginPassword ? personalDataViolation.push('Nazwa użytkownika i/lub hasło') : null;
+          data.dataFromMoney
+               ? personalDataViolation.push('Dane dotyczące zarobków i/lub posiadanego majątku')
+               : null;
+          data.serialNumberPersonallDocument
+               ? personalDataViolation.push('Seria i numer dowodu osobistego')
+               : null;
+          data.phoneNumer ? personalDataViolation.push('Numer telefonu') : null;
+          data.imagePerson ? personalDataViolation.push('Wizerunek') : null;
+          // data.otherdesc ? personalDataViolation.push(data.otherdesc?.toString()) : null;
+          console.log(personalDataViolation);
+          return personalDataViolation;
+     }
+
      public pdfExport(): void {
           this.incidentPrintHelper.generatePdf(this.incidentData);
+     }
+     //this.incidentsList
+     public pdfExportList(): void {
+          this.incidentListHelper.generateListPdf();
      }
 }

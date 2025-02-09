@@ -1,11 +1,15 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import { createTable, sectionDescription, sectionList } from '../helpers/printing.util';
+import {
+     createTableNoBorder,
+     sectionDescription,
+     sectionList,
+} from '../../../../shared/modules/pdf-export/printing.util';
 import * as dayjs from 'dayjs';
 
-import { contentSectionHeader } from '../helpers/content-create.helper';
-import { DATE_FORMAT, DATE_TIME_FORMAT } from '../enums/date-time.formats.enum';
-import { SECTION10 } from '../enums/incident-titles.enum';
+import { contentSectionHeader } from '../../../../shared/modules/pdf-export/helpers/content-create.helper';
+import { DATE_FORMAT, DATE_TIME_FORMAT } from '../../../../shared/enums/date-time.formats.enum';
+import { SECTION10 } from '../../enums/incident-titles.enum';
 // import { DateHandler } from 'src/shared/utils/data.handler';
 
 export function createSection10(data: DescriptionDTO): Content {
@@ -34,7 +38,7 @@ export function createSection10(data: DescriptionDTO): Content {
           values.push(sectionList(plannedDate));
           values.push(sectionList(notifiedPeopleNr));
 
-          content.push(createTable(labels, values));
+          content.push(createTableNoBorder(labels, values));
 
           content.push(sectionList(SECTION10.DONT_KNOW_NOTIFICATION_DATE));
           data.iDoNotYetKnowDateWhenIntendToNotifyDataSubjects
