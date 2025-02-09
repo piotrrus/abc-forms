@@ -13,7 +13,6 @@ export class BasePrintHelper {
           const docDefinition: TDocumentDefinitions = {
                // pageOrientation: 'landscape',
                watermark: pdfWatermark,
-               // { text: 'N A S K', color: '#cccadf', opacity: 0.2, bold: true, italics: false },
                content: content,
                styles: {
                     header: { fontSize: 12, bold: false, margin: [120, 0, 0, 5] },

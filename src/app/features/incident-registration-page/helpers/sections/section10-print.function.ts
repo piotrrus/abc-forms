@@ -91,7 +91,7 @@ export function createSection10Individual(data: DescriptionDTO): Content {
 
      content.push(content.push(sectionDescription('Czy indywidualnie?')));
      const isIndividualText = yesOrNoDescription(data.section10IndwidualTrue);
-     // const isIndividualText = data.section10IndwidualTrue ? 'TAK' : 'NIE';
+
      content.push(content.push(sectionDescription(isIndividualText)));
 
      content.push(content.push(sectionList('Wskaż datę zawiadomienia')));

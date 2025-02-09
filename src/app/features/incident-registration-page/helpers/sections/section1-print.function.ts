@@ -7,8 +7,8 @@ import {
      createTableNoBorder,
 } from '@shared/modules/pdf-export/printing.util';
 import { contentSectionHeader } from '@shared/modules/pdf-export/helpers/content-create.helper';
-import { SECTION1 } from '../../enums/incident-titles.enum';
 import { yesOrNoDescription } from '@shared/modules/pdf-export/helpers/yes-or-no-print.helper';
+import { SECTION1 } from '../../enums/incident-titles.enum';
 
 export function createSection1(data: DescriptionDTO): Content {
      const content: Content = [...contentSectionHeader(SECTION1.TITLE)];

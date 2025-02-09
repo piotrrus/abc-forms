@@ -1,13 +1,9 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import {
-     sectionItem,
-     sectionList,
-     sectionListBold,
-} from '../../../../shared/modules/pdf-export/printing.util';
-import { contentSectionHeader } from '../../../../shared/modules/pdf-export/helpers/content-create.helper';
-import { SECTION8 } from '../../enums/incident-titles.enum';
+import { sectionItem, sectionList, sectionListBold } from '@shared/modules/pdf-export/printing.util';
+import { contentSectionHeader } from '@shared/modules/pdf-export/helpers/content-create.helper';
 import { yesOrNoDescription } from '@shared/modules/pdf-export/helpers/yes-or-no-print.helper';
+import { SECTION8 } from '../../enums/incident-titles.enum';
 
 export function createSection8(data: DescriptionDTO): Content {
      const content: Content = [...contentSectionHeader(SECTION8.TITLE)];
