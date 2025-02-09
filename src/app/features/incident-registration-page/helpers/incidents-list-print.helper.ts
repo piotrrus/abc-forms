@@ -7,6 +7,7 @@ import { createListHeaderSection } from '../../../shared/modules/pdf-export/help
 import { horizontalLinePdf } from '../../../shared/modules/pdf-export/models/pdf-export-models';
 import { createTableWithHeaders } from '../../../shared/modules/pdf-export/printing.util';
 import { incidentsTableColumns } from '../models/incidents-list-columns';
+import { PDF_FILE_NAMES } from '../enums/uodo.paths.enum';
 
 @Injectable()
 export class IncidentsListPrintHelper extends BasePrintHelper {
@@ -16,27 +17,9 @@ export class IncidentsListPrintHelper extends BasePrintHelper {
      //data: DescriptionDTO[]
      public generateListPdf(): void {
           const content: Content = [];
-          const pdfFileName = 'incidenta-list';
+          const pdfFileName = PDF_FILE_NAMES.LIST_FILE_NAME;
 
-          //  const columns = incidentsTableColumns;
-          // = [
-          //      'Id',
-          //      'Tytuł',
-          //      'Administrator danych',
-          //      'REGON',
-          //      'Typ zgłoszenia',
-          //      'Czas od stwierdzeania do zgłoszenia',
-          //      'Data zgłoszenia',
-          //      'Data stwierdzenia',
-          //      'Kategorie danych osobowych',
-          //      'Szczególne kategorie danych RODO 9',
-          //      'Dane dotyczące wyroków skazujących',
-          //      'Wysokie ryzyko',
-          //      'Czy zawiadomiono podmioty?',
-          //      'Naruszenie transgraniczne',
-          // ];
           const columns = incidentsTableColumns.map((column) => ({ text: column, style: 'tableRow' }));
-          console.log(columns);
           content.push(createListHeaderSection());
           content.push(horizontalLinePdf);
 
@@ -61,10 +44,10 @@ export class IncidentsListPrintHelper extends BasePrintHelper {
                                    style: 'tableRow',
                               },
                               { text: 'Inne', style: 'tableRow' },
-                              { text: 'nie', style: 'tableRow' },
-                              { text: 'tak', style: 'tableRow' },
-                              { text: 'tak', style: 'tableRow' },
-                              { text: 'tak', style: 'tableRow' },
+                              { text: 'Nie', style: 'tableRow' },
+                              { text: 'Tak', style: 'tableRow' },
+                              { text: 'Tak', style: 'tableRow' },
+                              { text: 'Tak', style: 'tableRow' },
                          ],
                          [
                               { text: 'Id', style: 'tableRow' },
@@ -86,7 +69,7 @@ export class IncidentsListPrintHelper extends BasePrintHelper {
                },
           });
           console.log(content);
-          //     content.push(createTableWithHeaders(body));
+          // content.push(createTableWithHeaders(body));
           // content.push(createSection1(data));
           this.createPdf(content, pdfFileName);
      }

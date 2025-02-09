@@ -17,6 +17,7 @@ import {
      createSection11,
 } from './sections/index';
 import { separateLinePdf } from '@shared/modules/pdf-export/models/pdf-export-models';
+import { PDF_FILE_NAMES } from '../enums/uodo.paths.enum';
 
 @Injectable()
 export class IncidentPrintHelper extends BasePrintHelper {
@@ -26,7 +27,7 @@ export class IncidentPrintHelper extends BasePrintHelper {
 
      public generatePdf(data: DescriptionDTO): void {
           const content: Content = [];
-          const pdfFileName = 'incident-test';
+          const pdfFileName = PDF_FILE_NAMES.DETAILS_FILE_NAME;
 
           content.push(createHeaderSection());
           content.push(separateLinePdf);
