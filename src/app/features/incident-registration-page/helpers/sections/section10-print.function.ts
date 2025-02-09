@@ -4,12 +4,13 @@ import {
      createTableNoBorder,
      sectionDescription,
      sectionList,
-} from '../../../../shared/modules/pdf-export/printing.util';
+} from '@shared/modules/pdf-export/printing.util';
 import * as dayjs from 'dayjs';
 
-import { contentSectionHeader } from '../../../../shared/modules/pdf-export/helpers/content-create.helper';
-import { DATE_FORMAT, DATE_TIME_FORMAT } from '../../../../shared/enums/date-time.formats.enum';
+import { contentSectionHeader } from '@shared/modules/pdf-export/helpers/content-create.helper';
+import { DATE_FORMAT, DATE_TIME_FORMAT } from '@shared/enums/date-time.formats.enum';
 import { SECTION10 } from '../../enums/incident-titles.enum';
+import { yesOrNoDescription } from '@shared/modules/pdf-export/helpers/yes-or-no-print.helper';
 // import { DateHandler } from 'src/shared/utils/data.handler';
 
 export function createSection10(data: DescriptionDTO): Content {
@@ -89,8 +90,8 @@ export function createSection10Individual(data: DescriptionDTO): Content {
      content.push(content.push(sectionDescription('')));
 
      content.push(content.push(sectionDescription('Czy indywidualnie?')));
-
-     const isIndividualText = data.section10IndwidualTrue ? 'TAK' : 'NIE';
+     const isIndividualText = yesOrNoDescription(data.section10IndwidualTrue);
+     // const isIndividualText = data.section10IndwidualTrue ? 'TAK' : 'NIE';
      content.push(content.push(sectionDescription(isIndividualText)));
 
      content.push(content.push(sectionList('Wskaż datę zawiadomienia')));

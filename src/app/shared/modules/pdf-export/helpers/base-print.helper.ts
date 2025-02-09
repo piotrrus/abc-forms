@@ -11,7 +11,7 @@ import { pdfWatermark } from '../models/pdf-export-models';
 export class BasePrintHelper {
      protected createPdf(content: Content, pdfFileName: string): void {
           const docDefinition: TDocumentDefinitions = {
-               pageOrientation: 'landscape',
+               // pageOrientation: 'landscape',
                watermark: pdfWatermark,
                // { text: 'N A S K', color: '#cccadf', opacity: 0.2, bold: true, italics: false },
                content: content,

@@ -7,6 +7,7 @@ import {
 } from '../../../../shared/modules/pdf-export/printing.util';
 import { contentSectionHeader } from '../../../../shared/modules/pdf-export/helpers/content-create.helper';
 import { SECTION8 } from '../../enums/incident-titles.enum';
+import { yesOrNoDescription } from '@shared/modules/pdf-export/helpers/yes-or-no-print.helper';
 
 export function createSection8(data: DescriptionDTO): Content {
      const content: Content = [...contentSectionHeader(SECTION8.TITLE)];
@@ -33,7 +34,10 @@ export function createSection8(data: DescriptionDTO): Content {
 
      content.push(sectionItem(SECTION8.DESC_8B));
 
-     data.section8B ? content.push(sectionList('TAK')) : content.push(sectionList('NIE'));
+     const yesOrNo = yesOrNoDescription(data.section8B);
+     content.push(sectionList(yesOrNo));
+
+     //  data.section8B ? content.push(sectionList('TAK')) : content.push(sectionList('NIE'));
 
      data.section8B && data.justification ? content.push(sectionList(data.justification)) : null;
 

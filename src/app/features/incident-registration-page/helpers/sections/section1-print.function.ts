@@ -5,9 +5,10 @@ import {
      sectionListBold,
      sectionDescription,
      createTableNoBorder,
-} from '../../../../shared/modules/pdf-export/printing.util';
-import { contentSectionHeader } from '../../../../shared/modules/pdf-export/helpers/content-create.helper';
+} from '@shared/modules/pdf-export/printing.util';
+import { contentSectionHeader } from '@shared/modules/pdf-export/helpers/content-create.helper';
 import { SECTION1 } from '../../enums/incident-titles.enum';
+import { yesOrNoDescription } from '@shared/modules/pdf-export/helpers/yes-or-no-print.helper';
 
 export function createSection1(data: DescriptionDTO): Content {
      const content: Content = [...contentSectionHeader(SECTION1.TITLE)];
@@ -49,14 +50,19 @@ export function createSection1(data: DescriptionDTO): Content {
 
      const otherCoutryViolationReported =
           'Naruszenie zostało lub zostanie zgłoszone organowi ochrony danych osobowych w innym państwie';
-     const otherCoutryViolationReportedText = data.theViolationHasBeenReportedOtherCountry
-          ? `${otherCoutryViolationReported} TAK`
-          : `${otherCoutryViolationReported} NIE`;
+     // const otherCoutryViolationReportedText = data.theViolationHasBeenReportedOtherCountry
+     //      ? `${otherCoutryViolationReported} TAK`
+     //      : `${otherCoutryViolationReported} NIE`;
+     const otherCoutryViolationReportedText = yesOrNoDescription(
+          data.theViolationHasBeenReportedOtherCountry,
+          otherCoutryViolationReported
+     );
 
      content.push(sectionList(otherCoutryViolationReportedText));
 
      const labelsOther = [];
      const valuesOther = [];
+
      labelsOther.push(sectionList('Nazwy organów, którym zostało lub zostanie zgłoszone naruszenie'));
      labelsOther.push(sectionList('Sygnatura/numer zgłoszenia do innego organu'));
 

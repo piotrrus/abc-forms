@@ -1,14 +1,10 @@
 import { Content } from 'pdfmake/interfaces';
 import { DescriptionDTO } from 'src/description-dto';
-import {
-     createTableNoBorder,
-     sectionItem,
-     sectionList,
-} from '../../../../shared/modules/pdf-export/printing.util';
+import { createTableNoBorder, sectionItem, sectionList } from '@shared/modules/pdf-export/printing.util';
 
 import * as dayjs from 'dayjs';
-import { DATE_TIME_FORMAT } from '../../../../shared/enums/date-time.formats.enum';
-import { contentSectionHeader } from '../../../../shared/modules/pdf-export/helpers/content-create.helper';
+import { DATE_TIME_FORMAT } from '@shared/enums/date-time.formats.enum';
+import { contentSectionHeader } from '@shared/modules/pdf-export/helpers/content-create.helper';
 import { SECTION3 } from '../../enums/incident-titles.enum';
 
 export function createSection3(data: DescriptionDTO): Content {

@@ -1,7 +1,6 @@
 import { DescriptionDTO } from 'src/description-dto';
 
 export function getPersonalDataViolation(data: DescriptionDTO): string[] {
-     //  private getPersonalDataViolation(data: DescriptionDTO): string[] {
      const personalDataViolation: string[] = [];
 
      data.surnamesAndNames ? personalDataViolation.push('Nazwiska i imiona') : null;
