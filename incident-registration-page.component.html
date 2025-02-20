@@ -1,0 +1,158 @@
+<div class="col-sm-2 add-btn">
+    <a class="nav-link">
+        <button mat-raised-button color="primary" (click)="pdfExport()" class="btn-table-header">Eksport do PDF</button>
+    </a>
+    <a class="nav-link">
+        <button mat-raised-button color="primary" (click)="pdfExportList()" class="btn-table-header">Eksport listę do PDF</button>
+    </a>
+</div>
+
+<p></p>
+<p></p>
+<div class="form-group has-search">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input type="text" class="form-control" placeholder="Search" />
+</div>
+<p></p>
+
+<div class="form-inline tck-search-form">
+    <button type="submit" class="tck-btn btn-outline-secondary tck-search-form-submit">Cerca</button>
+</div>
+
+<p></p>
+<div class="example-button-container">
+    <button mat-fab extended disabled>
+        <mat-icon>favorite</mat-icon>
+        Disabled
+    </button>
+</div>
+<p></p>
+<button mat-icon-button aria-label="Example icon button with a open in new tab icon">
+    <mat-icon>open_in_new</mat-icon>
+    tst
+</button>
+<p></p>
+<!-- <button type="button" class="btn btn-arrow">
+    <i class="icons icon-arrow-right"></i>
+</button> -->
+<button type="button" class="btn btn-link tck-btn-with-icon tck-nav-btn-login"><i class="tck-icons-icon-profile"></i>Login</button>
+<h4 pageLayoutTitle>
+    Zgłoszenie naruszenia ochrony danych osobowych
+    <!-- {{ 'uodos.uodo' | translate }} -->
+</h4>
+
+<!-- <app-section1></app-section1> -->
+
+<!-- <div class="section section-title">1. Typ zgłoszenia</div>
+<mat-card appearance="outlined">
+    <mat-card-header> Wskaż czy zglaszasz naruszenie... </mat-card-header>
+</mat-card> -->
+
+<!-- <mat-card appearance="outlined">
+    <mat-card-header> </mat-card-header>
+    <mat-card-content> -->
+<!-- <app-violation-reasons-form></app-violation-reasons-form> -->
+<!-- </mat-card-content>
+</mat-card> -->
+
+<hr />
+
+<app-section2 [countriesList]="countriesList$ | async"></app-section2>
+
+<hr />
+<!----------------------------->
+
+<div class="section section-title">3. Czas naruszenia</div>
+<div class="section section-subtitle">3A. Wykrycie</div>
+
+<!----------------------------->
+<app-section4 (formChange)="onSection4FormChange($event)"></app-section4>
+<!-- <div class="section section-title">4. Charakter naruszenia</div>
+<div class="section section-subtitle">4A. Opisz szczegółówo na czym..</div> -->
+
+<!-- <app-incident-impact-form></app-incident-impact-form> -->
+
+<!-- section 5 -->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section5' | translate }}---->
+        5. liczba osób i wpisów
+    </h4>
+</div>
+<div class="inline-stretch-info">
+    <app-number-of-persons (formChange)="onNrOfPersonData($event)"></app-number-of-persons>
+</div>
+<hr />
+<!-- <app-incident-reasons-form> -->
+
+<!-- section 6 -->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section6' | translate }}---->
+        6. Kategoria danych osobowych
+    </h4>
+</div>
+<div class="inline-stretch-info">
+    <app-personal-data-categories-form
+        (formChange)="onPersonalCategories($event)"
+        [personalBasicCategoriesList]="personalBasicCategoriesList$ | async"
+        [personalSpecialCategoriesList]="personalSpecialCategoriesList$ | async"
+        [personalRodoCategoriesList]="personalRodoCategoriesList$ | async"
+    ></app-personal-data-categories-form>
+</div>
+<hr />
+
+<!-- section 7 -->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section7' | translate }}---->
+        7. Kategorie osób
+    </h4>
+</div>
+<div class="inline-stretch-info">
+    <!-- <app-person-categories-form
+        (formChange)="onPersonCategoriesData($event)"
+        [personCategoriesList]="personCategoriesList$ | async"
+    ></app-person-categories-form> -->
+</div>
+<hr />
+<!-- section 8 -->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section8' | translate }}---->
+        8. Możliwe konsekwencje
+    </h4>
+</div>
+<div class="inline-stretch-info">
+    <!-- <app-possible-consequences-form
+        (formChange)="onPossibleConsequencesData($event)"
+        [possibleConsequencesList]="possibleConsequencesList$ | async"
+    ></app-possible-consequences-form> -->
+    <!-- <app-incident-impact ></app-incident-impact> -->
+</div>
+<hr />
+<!-- section 9 -->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section9' | translate }}---->
+        9. Środki bezpieczeństwa
+    </h4>
+</div>
+
+<div class="inline-stretch-info">
+    <!-- <app-security-measures-form (formChange)="onSecurityMeasuresData($event)"></app-security-measures-form> -->
+</div>
+<hr />
+
+<!---11. Przetwarzanie transgraniczne-------------------------->
+<div class="inline-stretch-info">
+    <h4 pageLayoutTitle>
+        <!---{{ 'uodos.section11' | translate }}---->
+        Zaznacz kraje Europejskiego Obszaru Gospodarczego, których dotyczy naruszenie
+    </h4>
+</div>
+<div class="inline-stretch-info">
+    <!-- <app-transborder-form (formChange)="onTransborderData($event)" [countriesList]="countriesList$ | async"></app-transborder-form> -->
+</div>
+
+<app-uodo-info></app-uodo-info>
