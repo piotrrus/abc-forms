@@ -1,4 +1,6 @@
+@import 'variablesx';
 @import 'variables';
+@import 'buttons';
 
 .title {
      text-align: center;
@@ -43,3 +45,113 @@
 //      padding-left: 10px;
 //      padding-top: 5px;
 // }
+
+.tck-btn {
+     top: 50%;
+     height: 35px;
+     border: solid 1px #cacaca; //$quantity-border-color;
+     background-color: #fff;
+     color: #000; //$quantity-btn-color;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     // padding: 0;
+
+     padding-left: 10px;
+     padding-top: 5px;
+     min-width: 150px;
+     &:hover,
+     &:active,
+     &:focus {
+          background-color: #1e58bc;
+          color: #fff;
+     }
+}
+
+.tck-search {
+     .tck-search-form-submit {
+          height: 44px;
+          width: 100%;
+          background-color: #9d9db0ab; //$slate-gray;
+          color: #ffffff;
+          border-radius: 0;
+     }
+}
+
+.btn {
+     display: inline-flex;
+     align-items: center;
+     border-radius: 4px;
+}
+
+.tck-btn {
+     &-with-icon {
+          .fa,
+          img,
+          i {
+               vertical-align: middle;
+               margin-right: 10px;
+          }
+     }
+     &-default {
+          background-color: $btn-default-bg-color;
+          color: $btn-default-color;
+          font-weight: 500;
+          box-shadow: $btn-default-box-shadow;
+
+          &:hover {
+               color: $btn-default-color;
+               background-color: $btn-default-bg-hover-color;
+          }
+
+          &:disabled,
+          &[disabled] {
+               background-color: $btn-default-bg-color;
+          }
+     }
+
+     &-outline-default {
+          background-color: $btn-default-color;
+          border: solid 1.5px $btn-default-bg-color;
+          color: $btn-default-bg-color;
+          box-shadow: $btn-default-box-shadow;
+
+          &:hover {
+               color: $btn-default-bg-hover-color;
+               border-color: $btn-default-bg-hover-color;
+          }
+
+          &:disabled,
+          &[disabled] {
+               border-color: $btn-default-bg-color;
+               color: $btn-default-bg-color;
+          }
+     }
+
+     &-secondary {
+          background-color: $btn-secondary-bg-color;
+          color: $btn-secondary-color;
+          box-shadow: $btn-default-box-shadow;
+
+          &:hover {
+               color: $btn-secondary-color;
+               background-color: $btn-secondary-bg-hover-color;
+          }
+
+          &:disabled,
+          &[disabled] {
+               background-color: $btn-secondary-bg-color;
+          }
+     }
+}
+
+.tck-nav-btn-login,
+.tck-nav-btn-help {
+     font-size: 16px;
+     text-decoration: none;
+     font-weight: normal;
+     color: $nav-bar-font-color;
+     margin: 0 15px;
+     //  @include overflow-ellipsis;
+     flex-shrink: 0;
+}
