@@ -1,0 +1,16 @@
+<table class="simple-table">
+    <tr class="mat-header-cell">
+        <th class="mat-header-cell" *ngFor="let col of tableColumns;">{{'businessAreaTable.' + col | translate}}</th>
+    </tr>
+    <tr *ngFor="let tableData of businessAreaTableData;">
+        <td>{{tableData.baldoBusinessArea}}</td>
+        <td>{{tableData.businessArea}}</td>
+        <td>{{tableData.brand}}</td>
+        <td>{{tableData.district}}</td>
+        <td>{{tableData.customer}}</td>
+        <td>
+            <mat-icon *ngIf="tableData.pay" svgIcon="checkmark-circle"></mat-icon>
+            <mat-icon *ngIf="!tableData.pay" svgIcon="minus-circle"></mat-icon>
+        </td>
+    </tr>
+</table>

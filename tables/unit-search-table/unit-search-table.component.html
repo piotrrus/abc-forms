@@ -1,0 +1,7 @@
+<bld-search-table
+    [tableName]="tableName"
+    [datasource]="tableDataSource"
+    [displayedColumns]="tableColumns"
+    (getIdOpenPage)="navigateToDetailedUnit($event)"
+    (selectedItem)="addUnitId($event)"
+></bld-search-table>

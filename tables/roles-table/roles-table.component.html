@@ -1,0 +1,12 @@
+<ng-container *ngIf="rolesList">
+    <table class="simple-table">
+        <tr>
+            <th></th>
+            <th>{{'commonLabels.name' | translate}}</th>
+        </tr>
+        <tr *ngFor="let tableData of rolesList; let i=index;">
+            <td><input type="checkbox" value="{{tableData.name}}" /></td>
+            <td>{{tableData.name}}</td>
+        </tr>
+    </table>
+</ng-container>

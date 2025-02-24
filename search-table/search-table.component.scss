@@ -1,0 +1,31 @@
+@import 'material-table';
+
+.cdk-column {
+     &-icon {
+          flex: none;
+          width: 4%;
+     }
+     &-status,
+     &-default,
+     &-privilege,
+     &-approval,
+     &-managesEndTime,
+     &-checkAll,
+     &-groupId,
+     &-defaultValues,
+     &-mandatory,
+     &-sortOrder {
+          justify-content: center;
+     }
+}
+
+.mat-mdc-row.selected {
+     background-color: $light-grey;
+     mat-cell {
+          color: $black;
+     }
+}
+
+.mat-mdc-checkbox {
+     margin-right: 20px;
+}

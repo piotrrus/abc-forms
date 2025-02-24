@@ -1,0 +1,71 @@
+@import '_variables';
+@import 'colors';
+
+.info-table {
+     text-align: center;
+}
+
+.table-name {
+     background-color: $grey-200;
+     font-size: $font-size-default;
+     color: $default-font;
+     font-weight: 400;
+     letter-spacing: 0.5px;
+     height: 24px;
+     padding-left: 16px;
+     padding-top: 12px;
+     padding-bottom: 12px;
+}
+
+.simple-table {
+     width: 100%;
+     margin-bottom: 25px;
+     font-size: $font-size-xs;
+
+
+ td, th {
+     padding: 8px;
+     }
+
+     tr:hover {
+     background-color: $grey-100;
+     }
+
+     .mat-header-cell {
+          font-size: $font-size-xs;
+          font-weight: $font-weight-500;
+          color: $white !important;
+          background-color: $grey-700;
+     }
+}
+
+tr, .mdc-data-table__row:last-child .mat-mdc-cell {
+     border-bottom: 1px solid $light-grey;
+}
+
+.simple-table tr:nth-child(even) {
+     background-color: $grey-100;
+}
+
+.simple-table {
+     border-collapse: collapse;
+     width: 100%;
+     margin-bottom: 25px;
+}
+
+.no-margin {
+     margin-top: 0px;
+}
+
+.simple-table th {
+     padding-top: 12px;
+     padding-bottom: 12px;
+     text-align: left;
+     color: $black;
+     padding-left: 8px;
+     font-size: $font-size-default;
+}
+
+.mat-mdc-checkbox {
+     margin-top: 0px;
+}

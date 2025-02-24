@@ -1,0 +1,128 @@
+<div class="mt-1" *ngIf="tableDataSource.data.length > 0; else noData">
+    <ng-container *ngIf="hasSelectAll">
+        <mat-checkbox (change)="onSelectAllChange($event)">{{'buttons.selectAll' | translate}}</mat-checkbox>
+    </ng-container>
+    <mat-table mat-table [dataSource]="tableDataSource">
+        <ng-container *ngFor="let displayedColumn of displayedColumns; let i = index" [cdkColumnDef]="displayedColumn.columnName">
+            <mat-header-cell *cdkHeaderCellDef> {{ (tableName + '.' + displayedColumn.columnName) | translate }} </mat-header-cell>
+            <ng-container *ngIf="displayedColumn.hasIcon!==true; else hasIconTemplate">
+                <ng-container *ngIf="displayedColumn.hasCheckBox!==true; else hasCheckBoxTemplate">
+                    <ng-container *ngIf="displayedColumn.icon!==true; else iconTemplate">
+                        <ng-container *ngIf="displayedColumn.hasSelect!==true; else selectTemplate">
+                            <ng-container *ngIf="!displayedColumn.svgIcon; else svgIcon">
+                                <ng-container *ngIf="displayedColumn.hasRowSelecting!==true; else hasRowSelectingTemplate">
+                                    <ng-container *ngIf="i===0; else rowTemplate">
+                                        <mat-cell *cdkCellDef="let row">
+                                            <span
+                                                (click)="onOpenDetailPage(displayedColumn.cellFunc(row))"
+                                                class="id"
+                                                matTooltip="{{'tooltips.detailsTooltip' | translate}}"
+                                                matTooltipPosition="left"
+                                                matTooltipClass="custom-tooltip table left"
+                                            >
+                                                {{ displayedColumn.cellFunc(row) }}
+                                            </span>
+                                        </mat-cell>
+                                    </ng-container>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+
+            <ng-template #svgIcon>
+                <mat-cell *cdkCellDef="let row">
+                    <span
+                        class="select"
+                        *ngIf="displayedColumn.svgIcon==='principal' && displayedColumn.cellFunc(row) "
+                        matTooltip="{{'tooltips.principalPartner' | translate}}"
+                    >
+                        <mat-icon
+                            *ngIf="displayedColumn.svgIcon==='principal' && displayedColumn.cellFunc(row) "
+                            svgIcon="construction-worker"
+                        ></mat-icon>
+                    </span>
+                </mat-cell>
+            </ng-template>
+
+            <ng-template #selectTemplate>
+                <mat-cell *cdkCellDef="let row">
+                    <ng-container *ngIf="displayedColumn.hasIcon!==true && row.status!=='1'" ;>
+                        <span
+                            (click)="onSelectItem(row)"
+                            class="select"
+                            matTooltip="{{'tooltips.clickToSelectTooltip' | translate}}"
+                            matTooltipPosition="left"
+                            matTooltipClass="custom-tooltip table left"
+                        >
+                            {{ displayedColumn.cellFunc(row) }}
+                        </span>
+                    </ng-container>
+                    <span *ngIf="row.status==='1'"> {{ displayedColumn.cellFunc(row) }} </span>
+                </mat-cell>
+            </ng-template>
+
+            <ng-template #rowTemplate>
+                <mat-cell *matCellDef="let row"> {{ displayedColumn.cellFunc(row) }} </mat-cell>
+            </ng-template>
+
+            <ng-template #hasIconTemplate>
+                <mat-cell *cdkCellDef="let row">
+                    <mat-icon
+                        *ngIf="displayedColumn.cellFunc(row)==='1' || (displayedColumn.cellFunc(row) && displayedColumn.cellFunc(row)!=='0' )"
+                        svgIcon="checkmark-circle"
+                    ></mat-icon>
+
+                    <mat-icon
+                        *ngIf="displayedColumn.cellFunc(row)==='0' || !displayedColumn.cellFunc(row)"
+                        svgIcon="minus-circle"
+                    ></mat-icon>
+                </mat-cell>
+            </ng-template>
+
+            <ng-template #iconTemplate>
+                <mat-cell *cdkCellDef="let row">
+                    <span
+                        (click)="onDeleteItem(row)"
+                        class="select"
+                        matTooltip="{{'tooltips.clickToDeleteTooltip' | translate}}"
+                        matTooltipPosition="left"
+                        matTooltipClass="custom-tooltip table left"
+                    >
+                        <mat-icon *ngIf="displayedColumn.cellFunc(row)!=='trash'" svgIcon="trash"></mat-icon>
+                    </span>
+                </mat-cell>
+            </ng-template>
+
+            <ng-template #hasCheckBoxTemplate>
+                <mat-cell *cdkCellDef="let row">
+                    <mat-checkbox
+                        [checked]="isAllSelected"
+                        (change)="onCheckboxChange($event, displayedColumn.cellFunc(row))"
+                    ></mat-checkbox>
+                </mat-cell>
+            </ng-template>
+
+            <ng-template #hasRowSelectingTemplate>
+                <mat-cell *matCellDef="let row"> {{ displayedColumn.cellFunc(row) }} </mat-cell>
+            </ng-template>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+        <ng-container *ngIf="isRowSelecting">
+            <mat-row *matRowDef="let row; columns: columns;" (click)="onRowClicked(row)" [ngClass]="{'selected': row === rowSelected }">
+            </mat-row>
+        </ng-container>
+        <ng-container *ngIf="!isRowSelecting">
+            <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+        </ng-container>
+    </mat-table>
+    <ng-container *ngIf="showUiPagination">
+        <mat-paginator [pageSizeOptions]="pageSize" showFirstLastButtons></mat-paginator>
+    </ng-container>
+</div>
+
+<ng-template #noData>
+    <volvo-typography variant="heading6" color="Grey600" class="info-table">{{'notifications.noResultFound' | translate}}</volvo-typography>
+</ng-template>
