@@ -1,5 +1,5 @@
 import { AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
-import { UserPasswordForm } from '../user-password.form';
+import { RegisterForm } from '../register.form';
 
 export function passwordMatchValidator(control: AbstractControl): void {
      const password: string = control.get('password')?.value as string;
@@ -20,21 +20,15 @@ export function patternValidator(regex: RegExp, error: ValidationErrors): Valida
      };
 }
 
-export function passwordUserDataValidator(form: UserPasswordForm, error: ValidationErrors): ValidatorFn {
+export function passwordUserDataValidator(form: RegisterForm, error: ValidationErrors): ValidatorFn {
      return (control: AbstractControl): { [key: string]: string } | null => {
           if (!control.value) {
                return null;
           }
 
           const password: string = form.password?.value as string;
-          const userId: string = form.userId?.value as string;
-          const firstName: string = form.firstName?.value as string;
-          const surname: string = form.surname?.value as string;
-
-          const valid: boolean =
-               password.indexOf(userId) === -1 &&
-               password.indexOf(firstName) === -1 &&
-               password.indexOf(surname) === -1;
+          const name: string = form.name?.value as string;
+          const valid: boolean = password.indexOf(name) === -1;
 
           if (!valid) {
                form.password?.setErrors({ PasswordHasUserData: true });
