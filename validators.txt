@@ -1,0 +1,221 @@
+     private clientValidators: ValidatorFn[] = [Validators.minLength(2), Validators.maxLength(30)];
+
+     protected frm: FormGroup = this.createForm();
+
+     protected createForm(): FormGroup {
+          return this.fb.group({
+               firstname: ['', [Validators.required, ...this.clientValidators]],
+               lastname: ['', [Validators.required, ...this.clientValidators]],
+               client_nr: ['', [Validators.required, Validators.maxLength(20)]],
+               email: ['', [Validators.email, Validators.maxLength(50)]],
+               phone: ['', [Validators.maxLength(12)]],
+          });
+     }
+	 
+	 ------------------------------------------------
+	 export function passwordMatchValidator(control: AbstractControl): void {
+     const password: string = control.get('password')?.value as string;
+     const confirmPassword: string = control.get('confirmPassword')?.value as string;
+
+     if (password !== confirmPassword) {
+          control.get('confirmPassword')?.setErrors({ noPassswordMatch: true });
+     }
+}
+
+export function patternValidator(regex: RegExp, error: ValidationErrors): ValidatorFn {
+     return (control: AbstractControl): { [key: string]: string } | null => {
+          if (!control.value) {
+               return null;
+          }
+          const valid: boolean = regex?.test(control?.value as string);
+          return valid ? null : error;
+     };
+}
+
+export function passwordUserDataValidator(form: RegisterForm, error: ValidationErrors): ValidatorFn {
+     return (control: AbstractControl): { [key: string]: string } | null => {
+          if (!control.value) {
+               return null;
+          }
+
+          const password: string = form.password?.value as string;
+          const name: string = form.name?.value as string;
+          const valid: boolean = password.indexOf(name) === -1;
+
+          if (!valid) {
+               form.password?.setErrors({ PasswordHasUserData: true });
+          }
+          return valid ? null : error;
+     };
+}
+---------------------------------------------------------------
+import { AbstractControl } from '@angular/forms';
+import { DateHandler } from '@shared/utils/date/date.handler';
+
+export function clientEventsValidator(control: AbstractControl): void {
+     const deliveryDate: string = control.get('deliveryDate')?.value as string;
+     const probeDate: string = control.get('probeDate')?.value as string;
+     const measureDate: string = control.get('measureDate')?.value as string;
+
+     const diff1 = probeDate && deliveryDate ? DateHandler.compareDates(deliveryDate, probeDate) : false;
+     const diff2 = measureDate && deliveryDate ? DateHandler.compareDates(deliveryDate, measureDate) : false;
+
+     if (diff1 || diff2) {
+          control.get('deliveryDate')?.setErrors({ deliveryDateIsBefore: true });
+     }
+}
+----------------------------------------------------------------
+import { AbstractControl, FormGroup, Validators } from '@angular/forms';
+import { passwordMatchValidator, patternValidator } from './validators/password.validator';
+import { BaseForm } from './base.form';
+
+export class ChangePasswordForm extends BaseForm {
+     protected frm: FormGroup = this.createForm();
+
+     protected createForm(): FormGroup {
+          return this.fb.group(
+               {
+                    name: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
+                    //    email: ['', [Validators.required, Validators.email]],
+                    old_password: [
+                         '',
+                         [
+                              Validators.minLength(8),
+                              Validators.required,
+                              patternValidator(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]/, {
+                                   hasAllRequiredCharacters: true,
+                              }),
+                         ],
+                    ],
+                    password: [
+                         '',
+                         [
+                              Validators.minLength(8),
+                              Validators.required,
+                              patternValidator(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]/, {
+                                   hasAllRequiredCharacters: true,
+                              }),
+                         ],
+                    ],
+                    c_password: ['', [Validators.minLength(8), Validators.required]],
+               },
+               {
+                    validator: passwordMatchValidator,
+               }
+          );
+     }
+
+     public get name(): AbstractControl | null {
+          return this.frm.get('name');
+     }
+
+     public get password(): AbstractControl | null {
+          return this.frm.get('password');
+     }
+
+     public get old_password(): AbstractControl | null {
+          return this.frm.get('old_password');
+     }
+
+     public get c_password(): AbstractControl | null {
+          return this.frm.get('c_password');
+     }
+}
+-----------------------------------------------------------
+     private numberValidators: ValidatorFn = Validators.pattern('^[0-9]*$');
+     protected frm: FormGroup = this.createForm();
+
+     protected createForm(): FormGroup {
+          return this.fb.group({
+               wzrost: ['', [this.numberValidators]],
+               obwod_klatki_piersiowej: ['', [this.numberValidators]],
+			   -----------------------------------------------------------------
+			   
+			   import { clientEventsValidator } from './validators/client-events.validator';
+
+export class EventsForm extends BaseForm {
+     protected frm = this.createForm();
+
+     protected createForm(): FormGroup {
+          return this.fb.group(
+               {
+                    measureDate: [''],
+                    probeDate: [''],
+                    deliveryDate: [''],
+               },
+               {
+                    validator: clientEventsValidator,
+               }
+          );
+     }
+	 
+	 -----------------------------------------
+	      public disableFormFields(isDisabled?: boolean): void {
+          isDisabled ? this.addressLine1?.disable() : this.addressLine1?.enable();
+          isDisabled ? this.addressLine2?.disable() : this.addressLine2?.enable();
+          isDisabled ? this.addressLine3?.disable() : this.addressLine3?.enable();
+          isDisabled ? this.isoCountryCode?.disable() : this.isoCountryCode?.enable();
+          isDisabled ? this.postalCode?.disable() : this.postalCode?.enable();
+          isDisabled ? this.city?.disable() : this.city?.enable();
+          isDisabled ? this.state?.disable() : this.state?.enable();
+          isDisabled ? this.email?.disable() : this.email?.enable();
+     }
+	 
+	 ----------------------------------------------------------
+	 import { FormControl } from '@angular/forms';
+
+export function validateNip(control: FormControl) {
+
+  /**
+   * NIP is a 10 digit number. Last digit is control digit.
+   * Control is  a sum of multiply each digit by it's weight
+   * Each digit has weights: [6, 5, 7, 2, 3, 4, 5, 6, 7]
+  */
+  const nip = control.value;
+
+  if (control.value === undefined) {
+    return null;
+  }
+
+  if (control.value === true || control.value === false || control.value === null) {
+    return {
+      validateNip: {
+        valid: false
+      }
+    };
+  }
+
+  const NIP_REGEX = '/^[0-9]{10}$/';
+
+  const controlValue = control.value ? control.value.replace(' ', '') : '';
+
+  let isNipValid: boolean;
+
+  isNipValid = checkControlSum(controlValue);
+
+  function checkControlSum(controlValue) {
+    let isNipValid: boolean = false;
+    let checksum = 0;
+    const weights = [6, 5, 7, 2, 3, 4, 5, 6, 7];
+    const controlNumber = parseInt(controlValue.charAt(9, 10));
+
+    for (let i = 0; i < controlValue.length - 1; i++) {
+      checksum += (parseInt(controlValue.charAt(i, 1)) * weights[i]);
+    }
+
+    if (checksum % 11 === controlNumber) {
+      isNipValid = true;
+    }
+
+    return isNipValid;
+  }
+
+  return isNipValid
+    ? null
+    : {
+      validateNip: {
+        valid: false
+      }
+    };
+}
+---------------------------------------------------------------
