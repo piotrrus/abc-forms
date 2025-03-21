@@ -20,7 +20,7 @@ export interface Section10 {
      indicateTheDateNotification?: number; //notificationDate
      indicateTheDateOfThePlannedNotification1?: number; //plannedNotificationDate
      numberOfPeopleNotified?: string;
-     iDoNotYetKnowDateWhenIntendToNotifyDataSubjects?: boolean; //notificationDateNotKnown
+     iDoNotYetKnowDateWhenIntendToNotifyDataSubjects?: boolean; //isNotificationDateNotKnown
      meansOfCommunicationUsedToNotifyDataSubject?: string;
      includeTheAnonymized?: string;
 }
