@@ -21,7 +21,8 @@ export class UodoState extends State<any> {
           return this.state$.pipe(map((state: any) => state));
      }
 
-     public patchSection1(value: any): void {
+     public patchSection(value: any, section: string): void {
+          // mapSection(value, section)
           this.patchState(value);
      }
 }
