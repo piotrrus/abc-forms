@@ -81,7 +81,7 @@ export interface Section2a {
      numberHouse?: string; //houseNr
      numberflat?: string; //flatNr?
      city?: string;
-     indicateTheDateOfThePlannedNotification?: number; //plannedNotificationDate
+//     indicateTheDateOfThePlannedNotification?: number; //plannedNotificationDate
      postCode?: string; //postalCode
      provinceAdministrativeArea?: string; //province
      communeAdministrativeArea?: string; //commune
