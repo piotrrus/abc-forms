@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { State } from '@shared/state/state';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { DescriptionDTO } from 'src/description-dto';
 
 export const DEFAULT_UODO_STATE = (): any => ({
@@ -9,12 +9,22 @@ export const DEFAULT_UODO_STATE = (): any => ({
 
 @Injectable()
 export class UodoState extends State<any> {
+     private registrationType$ = new BehaviorSubject<string>('');
+
      constructor() {
           super(DEFAULT_UODO_STATE());
      }
 
-     public patchUodoForm(value: any): void {
+     public setRegistrationType(value: string): void {
+          this.registrationType$.next(value);
+     }
+
+     public patchUodoFormData(value: DescriptionDTO): void {
           this.patchState(value);
+     }
+
+     public getRegistrationType(): Observable<string> {
+          return this.registrationType$.asObservable();
      }
 
      public getUodoValue(): Observable<any> {
