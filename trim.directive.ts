@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-     selector: '[appTrim]',
+     selector: '[bldTrim]',
 })
 export class TrimDirective {
      constructor(private el: ElementRef<HTMLInputElement>) {}
